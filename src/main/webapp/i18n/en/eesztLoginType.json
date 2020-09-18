@@ -1,0 +1,10 @@
+{
+  "startMedsolPrototypeApp": {
+    "EesztLoginType": {
+      "null": "",
+      "PASSWORD": "PASSWORD",
+      "TOKEN": "TOKEN",
+      "EID_CARD": "EID_CARD"
+    }
+  }
+}

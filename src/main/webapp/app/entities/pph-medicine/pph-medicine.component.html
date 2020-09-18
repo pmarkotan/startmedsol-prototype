@@ -1,0 +1,219 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="startMedsolPrototypeApp.pphMedicine.home.title">Pph Medicines</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-pph-medicine" [routerLink]="['/pph-medicine/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="startMedsolPrototypeApp.pphMedicine.home.createLabel">
+            Create a new Pph Medicine
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="pphMedicines?.length === 0">
+        <span jhiTranslate="startMedsolPrototypeApp.pphMedicine.home.notFound">No pphMedicines found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="pphMedicines && pphMedicines.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="productId"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.productId">Product Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="masterBookId"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.masterBookId">Master Book Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="packageDescription"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.packageDescription">Package Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="eanCode"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.eanCode">Ean Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="atcCode"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.atcCode">Atc Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="brand"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.brand">Brand</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="activeSubstance"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.activeSubstance">Active Substance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="potency"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.potency">Potency</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="substanceAmountTotal"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.substanceAmountTotal">Substance Amount Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="doseInPackage"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.doseInPackage">Dose In Package</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="substanceAmount"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.substanceAmount">Substance Amount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="doseMsmUnit"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.doseMsmUnit">Dose Msm Unit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="substanceMsmUnit"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.substanceMsmUnit">Substance Msm Unit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="packageSize"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.packageSize">Package Size</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="packageMsmUnit"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.packageMsmUnit">Package Msm Unit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dailyDoze"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.dailyDoze">Daily Doze</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dailyDozeMsmUnit"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.dailyDozeMsmUnit">Daily Doze Msm Unit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ddMsmUnitFactor"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.ddMsmUnitFactor">Dd Msm Unit Factor</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="daysOfTherapy"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.daysOfTherapy">Days Of Therapy</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="consumerPrice"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.consumerPrice">Consumer Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="grossConsumerPrice"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.grossConsumerPrice">Gross Consumer Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="efficacy"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.efficacy">Efficacy</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="oldName"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.oldName">Old Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="oepTtt"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.oepTtt">Oep Ttt</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="masterBookDeleted"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.masterBookDeleted">Master Book Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mbookDeletedDate"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.mbookDeletedDate">Mbook Deleted Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="available"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.available">Available</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="motivationStatus"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.motivationStatus">Motivation Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="costEffectivityCode"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.costEffectivityCode">Cost Effectivity Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dailyTherapyCost"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.dailyTherapyCost">Daily Therapy Cost</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="equivalenceGroupId"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.equivalenceGroupId">Equivalence Group Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="oldSubsidyType"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.oldSubsidyType">Old Subsidy Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="preferredPriceFlag"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.preferredPriceFlag">Preferred Price Flag</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="pharmacyFlag"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.pharmacyFlag">Pharmacy Flag</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customMade"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.customMade">Custom Made</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="medicalDeviceIso"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicalDeviceIso">Medical Device Iso</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="producerPrice"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.producerPrice">Producer Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="wholesalePrice"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.wholesalePrice">Wholesale Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="vatRate"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.vatRate">Vat Rate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="armyPrescription"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.armyPrescription">Army Prescription</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="publicSupply"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.publicSupply">Public Supply</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="workAccidentPrescr"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.workAccidentPrescr">Work Accident Prescr</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="extraSubsidyPrescr"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.extraSubsidyPrescr">Extra Subsidy Prescr</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="medicalSubsidyPrescr"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicalSubsidyPrescr">Medical Subsidy Prescr</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="substancePrice"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.substancePrice">Substance Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="includeInHc2"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.includeInHc2">Include In Hc 2</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prescriptionType"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.prescriptionType">Prescription Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="medicineType"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicineType">Medicine Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="medicineStatus"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicineStatus">Medicine Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="normative"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.normative">Normative</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ogyiId"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.ogyiId">Ogyi Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="normFixGroupId"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.normFixGroupId">Norm Fix Group Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="extraSubsidyFixGroupId"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.extraSubsidyFixGroupId">Extra Subsidy Fix Group Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="medicalSubsidyPrescriptionFixGroupId"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicalSubsidyPrescriptionFixGroupId">Medical Subsidy Prescription Fix Group Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dosageMod"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.dosageMod">Dosage Mod</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="activePuphaData"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.activePuphaData">Active Pupha Data</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dealerIdId"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.dealerId">Dealer Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="marketingAuthOwnerId"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.marketingAuthOwner">Marketing Auth Owner</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="medicineFormId"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicineForm">Medicine Form</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="motivationGroupId"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.motivationGroup">Motivation Group</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nicheId"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.niche">Niche</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="qualifiedNameId"><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.qualifiedName">Qualified Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pphMedicine of pphMedicines ;trackBy: trackId">
+                    <td><a [routerLink]="['/pph-medicine', pphMedicine.id, 'view']">{{ pphMedicine.id }}</a></td>
+                    <td>{{ pphMedicine.productId }}</td>
+                    <td>{{ pphMedicine.masterBookId }}</td>
+                    <td>{{ pphMedicine.name }}</td>
+                    <td>{{ pphMedicine.packageDescription }}</td>
+                    <td>{{ pphMedicine.eanCode }}</td>
+                    <td>{{ pphMedicine.atcCode }}</td>
+                    <td>{{ pphMedicine.brand }}</td>
+                    <td>{{ pphMedicine.activeSubstance }}</td>
+                    <td>{{ pphMedicine.potency }}</td>
+                    <td>{{ pphMedicine.substanceAmountTotal }}</td>
+                    <td>{{ pphMedicine.doseInPackage }}</td>
+                    <td>{{ pphMedicine.substanceAmount }}</td>
+                    <td>{{ pphMedicine.doseMsmUnit }}</td>
+                    <td>{{ pphMedicine.substanceMsmUnit }}</td>
+                    <td>{{ pphMedicine.packageSize }}</td>
+                    <td>{{ pphMedicine.packageMsmUnit }}</td>
+                    <td>{{ pphMedicine.dailyDoze }}</td>
+                    <td>{{ pphMedicine.dailyDozeMsmUnit }}</td>
+                    <td>{{ pphMedicine.ddMsmUnitFactor }}</td>
+                    <td>{{ pphMedicine.daysOfTherapy }}</td>
+                    <td>{{ pphMedicine.consumerPrice }}</td>
+                    <td>{{ pphMedicine.grossConsumerPrice }}</td>
+                    <td>{{ pphMedicine.efficacy }}</td>
+                    <td>{{ pphMedicine.oldName }}</td>
+                    <td>{{ pphMedicine.oepTtt }}</td>
+                    <td>{{ pphMedicine.masterBookDeleted }}</td>
+                    <td>{{ pphMedicine.mbookDeletedDate | date:'medium' }}</td>
+                    <td>{{ pphMedicine.available }}</td>
+                    <td>{{ pphMedicine.motivationStatus }}</td>
+                    <td>{{ pphMedicine.costEffectivityCode }}</td>
+                    <td>{{ pphMedicine.dailyTherapyCost }}</td>
+                    <td>{{ pphMedicine.equivalenceGroupId }}</td>
+                    <td>{{ pphMedicine.oldSubsidyType }}</td>
+                    <td>{{ pphMedicine.preferredPriceFlag }}</td>
+                    <td>{{ pphMedicine.pharmacyFlag }}</td>
+                    <td>{{ pphMedicine.customMade }}</td>
+                    <td>{{ pphMedicine.medicalDeviceIso }}</td>
+                    <td>{{ pphMedicine.producerPrice }}</td>
+                    <td>{{ pphMedicine.wholesalePrice }}</td>
+                    <td>{{ pphMedicine.vatRate }}</td>
+                    <td>{{ pphMedicine.armyPrescription }}</td>
+                    <td>{{ pphMedicine.publicSupply }}</td>
+                    <td>{{ pphMedicine.workAccidentPrescr }}</td>
+                    <td>{{ pphMedicine.extraSubsidyPrescr }}</td>
+                    <td>{{ pphMedicine.medicalSubsidyPrescr }}</td>
+                    <td>{{ pphMedicine.substancePrice }}</td>
+                    <td>{{ pphMedicine.includeInHc2 }}</td>
+                    <td jhiTranslate="{{ 'startMedsolPrototypeApp.PrescriptionType.' + pphMedicine.prescriptionType }}">{{ pphMedicine.prescriptionType }}</td>
+                    <td jhiTranslate="{{ 'startMedsolPrototypeApp.MedicineType.' + pphMedicine.medicineType }}">{{ pphMedicine.medicineType }}</td>
+                    <td jhiTranslate="{{ 'startMedsolPrototypeApp.MedicineStatus.' + pphMedicine.medicineStatus }}">{{ pphMedicine.medicineStatus }}</td>
+                    <td>{{ pphMedicine.normative }}</td>
+                    <td>{{ pphMedicine.ogyiId }}</td>
+                    <td>{{ pphMedicine.normFixGroupId }}</td>
+                    <td>{{ pphMedicine.extraSubsidyFixGroupId }}</td>
+                    <td>{{ pphMedicine.medicalSubsidyPrescriptionFixGroupId }}</td>
+                    <td>{{ pphMedicine.dosageMod }}</td>
+                    <td>{{ pphMedicine.activePuphaData }}</td>
+                    <td>
+                        <div *ngIf="pphMedicine.dealerIdId">
+                            <a [routerLink]="['/pph-company', pphMedicine.dealerIdId , 'view']" >{{ pphMedicine.dealerIdId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="pphMedicine.marketingAuthOwnerId">
+                            <a [routerLink]="['/pph-company', pphMedicine.marketingAuthOwnerId , 'view']" >{{ pphMedicine.marketingAuthOwnerId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="pphMedicine.medicineFormId">
+                            <a [routerLink]="['/pph-medicine-form', pphMedicine.medicineFormId , 'view']" >{{ pphMedicine.medicineFormId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="pphMedicine.motivationGroupId">
+                            <a [routerLink]="['/pph-motivation-group', pphMedicine.motivationGroupId , 'view']" >{{ pphMedicine.motivationGroupId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="pphMedicine.nicheId">
+                            <a [routerLink]="['/pph-niche', pphMedicine.nicheId , 'view']" >{{ pphMedicine.nicheId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="pphMedicine.qualifiedNameId">
+                            <a [routerLink]="['/pph-medicine-qualified-name', pphMedicine.qualifiedNameId , 'view']" >{{ pphMedicine.qualifiedNameId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/pph-medicine', pphMedicine.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/pph-medicine', pphMedicine.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(pphMedicine)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="pphMedicines && pphMedicines.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

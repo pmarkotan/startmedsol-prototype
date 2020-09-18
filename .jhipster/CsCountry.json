@@ -1,0 +1,37 @@
+{
+  "name": "CsCountry",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "4"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "validity",
+      "otherEntityRelationshipName": "csCountry",
+      "relationshipValidateRules": "required",
+      "relationshipName": "validity",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918074708",
+  "entityTableName": "cs_country",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

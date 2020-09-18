@@ -1,0 +1,1077 @@
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity DynamicForm{
+	code String maxlength(255) required
+    name String maxlength(255) required
+    professionCode  String required maxlength(4)
+    professionName  String required maxlength(50)
+    formTemplate TextBlob,
+    reportTemplate TextBlob,
+    separatelyPrint Boolean
+}
+
+relationship ManyToOne {
+    DynamicForm { provider required } to Provider
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity MedicalInvoice {
+    orderNumber Integer required
+    invoiceNumber String maxlength(100) required
+    type MedicalInvoiceType required
+    total Integer required
+    creatorUser String maxlength(100) required
+    createdAt Instant required
+}
+
+enum MedicalInvoiceType{
+	NORMAL, STORNO
+}
+
+relationship ManyToOne {
+	MedicalInvoice { medicalCase required } to MedicalCase
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity MedicalService {
+    code String maxlength(20) required
+    name String maxlength(100) required
+    grossPrice Integer
+    unit MedicalServiceUnit 
+    statisticalCode String maxlength(20)
+    taxRate TaxRate
+}
+
+relationship ManyToOne {
+	MedicalService { praxis required } to Praxis
+    MedicalService { provider required } to Provider
+}
+
+enum MedicalServiceUnit {
+	HOUR, PIECE, MINUTE
+}
+
+enum TaxRate {
+	TX_27
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity NavSettings {
+	technicalUserName String maxlength(100) required
+    technicalPassword String maxlength(100) required
+    signingKey String maxlength(100) required
+    replacementKey String maxlength(100) required
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity Company {
+	registrationNumber String maxlength(50) required
+    workplaceName String maxlength(50) required
+    workplaceId String maxlength(20) required
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity ContactPerson {
+	name String maxlength(50) required
+    phone String maxlength(50) required
+    email String maxlength(100) required
+}
+
+relationship OneToOne {
+    Provider {contactPerson} to ContactPerson
+}
+
+relationship OneToOne {
+    Provider {company} to Company
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity Provider {
+    nameLong            String      required    maxlength(100)
+    nameShort           String                  maxlength(30)
+    institutionId       String      required    maxlength(6)    pattern(/^[A-Z0-9]+$/)
+    email               String      required    maxlength(254)  pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+    phone               String      required    maxlength(16)   pattern(/^\++\d+$/)
+    accountNumber       String      required
+}
+
+relationship OneToOne {
+    Provider {billingInformation} to BillingInformation
+}
+
+relationship OneToMany {
+    Provider {praxis} to Praxis {provider}
+}
+
+relationship ManyToMany {
+    Provider {employee} to Employee {provider}
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity ErrorRecord {
+	createDate Instant required
+    content TextBlob required
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity SpecialistsAdvice {
+    periodOfTime String maxlength(256)
+    raisedIndicationCode String maxlength(64)
+    raisedSubsidyPercent String maxlength(64)
+    emphasizedIndicationCode String maxlength(64)
+    activeSubstance String maxlength(256)
+    efficacy String maxlength(256)
+    dosageMod String maxlength(256)
+    dosage String maxlength(256)
+}
+
+relationship ManyToOne {
+	SpecialistsAdvice { medicalCase required } to MedicalCase
+    SpecialistsAdvice { diagnosis required } to CsDiagnosis
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+@filter
+entity HashTag {
+    name String maxlength(256)
+}
+
+relationship ManyToOne {
+	HashTag { provider(nameLong) required } to Provider
+}
+
+relationship ManyToMany {
+	Patient {tags} to HashTag {patients}
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity Statistics {
+	created Instant required
+    tpye StatisticsType required
+    content String maxlength(1024)
+    description String maxlength(1024)
+}
+
+enum StatisticsType {
+	DAILY_MEDICAL_CASE
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity Announcement {
+	publishingDate Instant required
+    expireDate Instant required
+    location AnnouncementLocation required
+    type AnnouncementType required
+    content String maxlength(1024) required
+}
+
+enum AnnouncementLocation {
+	HOME_PAGE
+}
+
+enum AnnouncementType {
+	NORMAL
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity FeedBackMessage {
+	createDate Instant required
+    author String
+    type FeedBackMessageType required
+    content String maxlength(1024) required
+}
+
+enum FeedBackMessageType {
+	BUG, FEATURE, MISC
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity DataGenerator {
+	provider Integer
+    praxis Integer
+    patient Integer
+    medicalCase Integer
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity Prescription {
+
+	openedPackage Boolean
+	medicalAidTeachPrescribing Boolean
+	forH2cCertificate Boolean
+    inscriptionDate Instant required
+    causeOfNotReplaceability String maxlength(50)
+    description String maxlength(1024)
+	doseMsmUnit String maxlength(32)
+	eesztGroupId String maxlength(36)
+	institution String maxlength(1024)
+	instructions String maxlength(255)
+	integrationId String maxlength(50)
+	equippedWith Integer
+    acceptedQualificationRule DoctorQualificationValidatorRuleType required
+    subsidyCategory PrescriptionSubsidyCategory
+	status PrescriptionStatus required
+    eesztSendingStatus EesztSendingStatus
+    medicalProductType MedicalProductType required
+	preparationDescription String maxlength(50)
+    invalidationReason String maxlength(255)
+    
+      // Dosage
+	frequency Frequency required
+    frequencyMultiplier Double
+    quantityMultiplier Double
+    morning Double
+    noon Double
+    evening Double
+	beforeSleep Double
+    dosagePatternText String maxlength(100)
+    
+    // Quantity
+    quantity Integer
+    quantityCause String maxlength(50)
+	forSeveralMonths Boolean required
+    monthsSuppliedFor Integer
+	forOnePrescription Boolean
+    
+    // SpecialistsProposal
+	specialistRegNo String maxlength(16)
+	proposalDate Instant
+}
+
+entity PrescriptionEesztId {
+
+	eesztId String required maxlength(36)
+	eesztVersion Integer
+}
+
+relationship ManyToOne {
+	Prescription { diagnosis required} to CsDiagnosis
+    Prescription { inscriberDoctor required} to Employee
+    Prescription { qualificationRuleAcceptor required} to Employee
+    Prescription { medicine required} to PphMedicine
+    Prescription { medicalCase required} to MedicalCase
+    Prescription { puphaVersion required} to PphPuphaVersion
+    PrescriptionEesztId {prescription required } to Prescription
+}
+    
+enum Frequency {
+	DAILY, WEEKLY, SPECIAL
+}
+
+enum MedicalProductType {
+	MEDICINE,
+	MAGISTRAL_PREPARATION,
+	MEDICAL_AIDS,
+	HYDROTHERAPY
+}
+
+enum EesztSendingStatus {
+	SUCCESSFUL,
+	UNSUCCESSFUL,
+	SUBMIT_WAITING,
+	TECH_ERROR
+}
+
+enum PrescriptionStatus {
+	PREPARED,
+	PRINTED,
+	INVALIDATED,
+	PENDING,
+	SENT,
+	E_INVALIDATED
+}
+
+enum PrescriptionSubsidyCategory {
+	NORMATIVE,
+	EU_RAISED,
+	EU_EMPHASIZED,
+	HM,
+	ACCIDENT,
+	FULL_PRICE,
+	SPECIAL_SUBSIDY
+}
+
+enum DoctorQualificationValidatorRuleType {
+	WITHOUT_QUALIFICATION_RULE
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity EhrDocument {
+	eesztId String
+    documentId String
+    created Instant
+    documentType String
+    doctorName String
+    institutionName String
+    praxisName String 
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity ExternalDocument {
+	documentId String required
+    name String required
+    created Instant
+    uploaded Instant
+}
+
+relationship OneToMany {
+	MedicalCase {documents} to ExternalDocument
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity MedicalCaseDiagnosis {
+
+}
+
+relationship ManyToOne {
+	MedicalCaseDiagnosis { diagnosis required} to CsDiagnosis
+    MedicalCaseDiagnosis { medicalCase required} to MedicalCase
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity PerformedProcedure {
+
+}
+
+relationship ManyToOne {
+	PerformedProcedure { procedure required} to CsProcedure
+    PerformedProcedure { medicalCase required} to MedicalCase
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity ProceduresOfPraxis {
+}
+
+relationship ManyToOne {
+	ProceduresOfPraxis { procedure required} to CsProcedure
+    ProceduresOfPraxis { praxis required} to Praxis
+}
+
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity CaseTextDocumentation {
+	text TextBlob
+    type PatientDocumentationType required
+}
+
+enum PatientDocumentationType{
+
+	ACTUAL_COMPLAINTS,
+	ANAMNESIS,
+    STATUS,
+    DIAGNOSIS,
+    THERAPY,
+    EXPERTISE
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@filter
+entity CsDiagnosis {
+	code String required maxlength(10)
+	report Boolean required
+	descr String required
+	sex DgSex required
+	ageMin Integer min(0) max(99)
+	ageMax Integer min(0) max(99)
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+entity CsCountry {
+	code String required maxlength(4)
+	description String required
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+entity CsPostalCode {
+	code String required maxlength(5)
+	settlement String required
+	part String
+	street String
+	kind String
+	rangeType PcRange required
+	rangeLo Integer min(0)
+	rangeHi Integer min(0)
+	district String maxlength(20)
+}
+
+enum DgSex {
+	BOTH,
+	MALE,
+	FEMALE
+}
+
+enum PcRange {
+	NONE,
+	ALL,
+	INTERVAL,
+	ODD,
+	EVEN,
+	REST
+}
+
+filter CsCountry
+filter CsPostalCode
+
+relationship ManyToOne {
+	CsDiagnosis{validity required} to Validity
+	CsCountry{validity required} to Validity
+	CsPostalCode{validity required} to Validity
+}
+
+entity CodeSetLoad {
+	type CodeSetType
+	latestVersion String
+	url String
+	log String
+	status CodeSetStatus
+}
+
+enum CodeSetType {
+	BNO,
+	OENO,
+	PUPHA,
+	POSTAL_CODE,
+	COUNTRY
+}
+
+enum CodeSetStatus {
+	SUCCESS,
+	ERROR,
+	IN_PROGRESS
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@skipClient
+entity Address {
+    type            AddressType     required
+    country         String          required
+    zipCode         String          required    maxlength(12)
+    municipality    String          required    maxlength(32)
+    addressLine1    String          required    maxlength(32)
+    addressLine2    String                      maxlength(32)
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+@filter
+entity CsProcedure {
+	code String required maxlength(10)
+	description String required
+}
+
+@skipClient
+entity CsSenderOrganization {
+    county String
+    shortName String
+    name String 
+    financingNumber String required maxlength(9)
+    financingName String
+    type String required
+}
+
+relationship ManyToOne {
+    CsSenderOrganization { validity required} to Validity
+}
+
+@dto(mapstruct)
+@service(serviceImpl)
+@paginate(pagination)
+entity DictionaryItem {
+	dictionaryItemType String maxlength(32) required
+	code String maxlength(64) required
+	orderNumber Integer
+	description String maxlength(255)
+}
+@dto(mapstruct)
+@service(serviceImpl)
+@paginate(pagination)
+entity DictionaryTranslation {
+	label String maxlength(32) required
+	language Language required
+}
+
+enum Language {
+	HU, EN
+}
+
+relationship OneToMany {
+	DictionaryItem {dictionaryTranslations} to DictionaryTranslation
+}
+
+relationship ManyToMany {
+	DictionaryItem {parent} to DictionaryItem {children}
+}
+
+entity Employee {
+    emlpoyeeType EmployeeType required
+    identifier String required maxlength(10)
+    eesztIdentifier String maxlength(10)
+    eesztLoginType EesztLoginType required
+}
+
+relationship OneToOne {
+    Employee { PersonalData required} to PersonalData
+}
+
+enum AddressType {
+    PLACE_OF_RESIDENCE,
+    PLACE_OF_STAY,
+    PLACE_OF_WORK,
+    OFFICE_ADDRESS,
+    BILLING_ADDRESS
+}
+
+enum Sex {
+    MALE,
+    FEMALE,
+    OTHER_MALE,
+    OTHER_FEMALE
+}
+
+enum IdDocType {
+    ID_CARD,
+    DRIVERS_LICENCE,
+    SOCIAL_SECURITY,
+    PASSPORT,
+    EU_CARD,
+    SOCIAL_HEALTH_CARE
+}
+
+enum EmployeeType {
+    DOCTOR,
+    ADMIN
+}
+
+enum EesztLoginType {
+    PASSWORD,
+    TOKEN,
+    EID_CARD
+}
+
+enum PraxisStatus {
+    ACTIVE,
+    PASSIVE,
+    DELETED
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity BillingInformation {
+    name        String      maxlength(30)   required
+    taxnumber   String      maxlength(13)               pattern(/^\d{8}-\d-\d{2}$/)
+}
+
+relationship OneToOne {
+    BillingInformation {billingAddress} to Address
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity MedicalCase {
+    deleted				Boolean				required
+    confidental			Boolean				required
+    ambulentNumber		String				required	maxlength(12)
+    admissionDate		Instant				required
+	closeDate			Instant				
+    status				MedicalCaseStatus	required
+	attendanceType		AttendanceType		required
+}
+
+enum MedicalCaseStatus {
+	ACTIVE,
+	CLOSED,
+	WITHDRAWN
+}
+
+enum AttendanceType {
+  TYPE_1_FIRST_SPECIALIST_CARE,
+  TYPE_2_RECALL,
+  TYPE_3_MEDICAL_CONSULTATION,
+  TYPE_4_FIRST_AID,
+  TYPE_5_LONG_TERM_PATIENT_CONTROLL,
+  TYPE_6_FILTRATION,
+  TYPE_7_TAKING_CARE,
+  TYPE_8_CARED_PAIENT,
+  TYPE_9_DAY_CARE,
+  TYPE_K_CARE_DUE_TO_INCAPACITY
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@skipClient
+entity Patient {
+    patientIdentifier   String      unique      maxlength(255)
+    privacyStatement    Boolean
+    anonymised          Boolean
+    classified          Boolean
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@skipClient
+entity PersonalData {
+    title               String                  maxlength(16)
+    familyName          String      required    maxlength(32)
+    firstName           String      required    maxlength(16)
+    otherNames          String                  maxlength(32)
+    preferredName       String                  maxlength(16)
+    birthName           String      required    maxlength(32)
+    birthPlace          String      required    maxlength(32)
+    birthDate           LocalDate   required
+    mothersMaidenName   String                  maxlength(32)
+    sex                 Sex         required
+    sexOther            String                  maxlength(16)
+    nationality         String      required    maxlength(32)
+    email1              String      required    maxlength(254)      pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+    email2              String                  maxlength(254)      pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+    phone               String      required    maxlength(16)       pattern(/^\++\d+$/)
+    iceContactName      String                  maxlength(64)
+    iceContactPhone     String                  maxlength(16)       pattern(/^\++\d+$/)
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@skipClient
+entity Card {
+    type           IdDocType   required
+    identifier     String      required    maxlength(32)
+    validTo        LocalDate
+    primary        Boolean
+}
+
+relationship OneToOne {
+    Patient {personalData} to PersonalData
+    PersonalData {billingInformation} to BillingInformation
+}
+
+relationship OneToMany {
+    PersonalData {address} to Address {personalData}
+    Patient {card} to Card {patient}
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity Praxis {
+    name                    String          required    maxlength(100)
+    departmentId            String          required    maxlength(9)    pattern(/^[A-Z0-9]+$/)
+    professionCode          String          required    maxlength(4)    pattern(/^[A-Z0-9]+$/)
+    professionName          String          required    maxlength(50)
+    status                  PraxisStatus    required
+    appointmentPhone        String          required    maxlength(16)   pattern(/^\++\d+$/)
+    treatmentLogbookNumber  Integer         required    min(1)          max(99999999)
+}
+
+relationship OneToOne {
+    Praxis {officeAddress} to Address
+}
+
+relationship OneToMany {
+    Employee {praxis} to Praxis {doctor}
+}
+
+relationship ManyToOne {
+	CsProcedure{validity required} to Validity
+}
+
+@skipClient
+entity PphAidISOBook {
+	code String maxlength(20)
+	description String maxlength(255)
+	activePuphaData Boolean required
+}
+
+@skipClient
+entity PphAtcIndex {
+	
+	atcCode String maxlength(8)
+	nameHu String maxlength(250)
+	nameEn String maxlength(250)
+	activeSubstance String maxlength(250)
+	activePuphaData Boolean required
+}
+
+@skipClient
+entity PphCompany {
+	
+	externalId Long
+	name String maxlength(128)
+	activePuphaData Boolean required
+}
+
+@skipClient
+entity PphEuIndication {
+	
+	externalId Integer
+	indicationNo Integer
+	description String maxlength(4000)
+	activePuphaData Boolean required
+}
+
+enum SubsidyCategory {
+	EU50,
+	EU70,
+	EU90,
+	EU100,
+	NORMATIVE,
+	EU_RAISED,
+	EU_EMPHASIZED,
+	LOANABLE
+}
+
+enum IndicationType {
+	G_MEDICINE, S_GYSE
+}
+
+@skipClient
+entity PphEuScore {
+	
+	externalId Integer
+	subsidyCategory SubsidyCategory
+	indicationCode1 Integer
+	indicationCode2 String maxlength(32)
+	indicationType IndicationType
+	prescrComment String maxlength(4000)
+	comment String maxlength(4000)
+	// diagnosisLink String maxlength(256)
+	activePuphaData Boolean required
+}
+
+enum PrescriptionType {
+	WITHOUT_PRESCRIPTION,
+	ONLY_WITH_PRESCRIPTION,
+	OUTPATIENT_PRESCRIPTION,
+	SPECIALIST_PRESCRIPTION,
+	INPATIENT_PRESCRIPTION
+}
+
+enum MedicineType {
+	MEDICINE, // Gyógyszer
+	IMMUN, // Immun
+	INFANT_NUTRITION, // Tápszer
+	RADIOPHARMACON, // Radiofarmakon
+	HOMEOPATH, // Homeopátiás gyógyszer
+	BASE_MATERIAL, // Alapanyag
+	FONO, // FoNo
+	WRAPPER, // Csomagolóanyag
+	MAKING_PRICE, // Készítési díj
+	MEDICAL_AID
+}
+
+
+enum MedicineStatus {
+	NEW_PRODUCT,
+	MODIFIED,
+	DELETED,
+	OUT_OF_SUBSIDY
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@paginate(pagination)
+entity PphMedicine  {
+	productId Long
+	masterBookId String maxlength(64)
+	name String maxlength(256)
+	packageDescription String maxlength(256)
+	eanCode String maxlength(16)
+	atcCode String maxlength(8)
+	brand String maxlength(128)
+	activeSubstance String maxlength(128)
+	potency String maxlength(64)
+	substanceAmountTotal Double
+    doseInPackage Integer
+	substanceAmount Double
+	doseMsmUnit String maxlength(32)
+	substanceMsmUnit String maxlength(50)
+ 	packageSize Integer
+	packageMsmUnit String maxlength(50)
+	dailyDoze Double
+	dailyDozeMsmUnit String maxlength(50)
+	ddMsmUnitFactor Double
+	daysOfTherapy Integer
+	consumerPrice Double
+	grossConsumerPrice Double
+	efficacy String maxlength(32)
+	oldName String maxlength(256)
+	oepTtt String maxlength(9)
+	masterBookDeleted Boolean
+	mbookDeletedDate Instant
+	available Boolean
+	motivationStatus Integer
+	costEffectivityCode Integer
+	dailyTherapyCost Double
+	equivalenceGroupId Integer
+	oldSubsidyType String maxlength(4)
+	preferredPriceFlag Integer
+	pharmacyFlag String maxlength(2)
+	customMade Boolean
+	medicalDeviceIso String maxlength(16)
+	producerPrice Double
+	wholesalePrice Double
+	vatRate Double
+	armyPrescription Boolean
+	publicSupply Boolean
+	workAccidentPrescr Boolean
+	extraSubsidyPrescr Boolean
+	medicalSubsidyPrescr Boolean
+	substancePrice Double
+	includeInHc2 Integer
+	prescriptionType PrescriptionType
+	medicineType MedicineType
+	medicineStatus MedicineStatus
+	normative Boolean
+	ogyiId Long
+	normFixGroupId Integer
+	extraSubsidyFixGroupId Integer
+	medicalSubsidyPrescriptionFixGroupId Integer
+	dosageMod String maxlength(256)
+	activePuphaData Boolean required
+}
+
+enum SubsidyType {
+
+	NOMIN, // nominálisan (százalékosan) támogatott
+	HFIX, // hatóanyagfix technikával támogatott
+	TFX, // terápiás fix technikával támogatott
+	FIX, //
+	KOMBI, // a kombinációs felülvizsgálat állapította meg a támogatását
+	NEMKIV, // (GYSE esetében lehet) ami azt jelenti, hogy bár van támogatása, nem váltható ki, csak közgyógyra
+	LFX, //
+	BIOL, //
+	NT
+}
+
+@skipClient
+entity PphSubsidy {
+	percent Double
+	referenceDailyCost Double
+	netSubsidy Double
+	grossSubsidy Double
+	consumerPrice Double
+	dailyCostOnConsPrice Double
+	duration Integer
+	quantityAllowed Integer
+	euemPontok String maxlength(128) 
+ 	subsidyCategory SubsidyCategory
+	subsidyType SubsidyType
+	activePuphaData Boolean required
+}
+	
+
+
+@skipClient
+entity PphMedicineForm {
+	externalId Long
+	name String maxlength(250)
+	activePuphaData Boolean required
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@filter
+entity PphMedicineQualifiedName {
+	name String maxlength(250)
+	activeSubstance String maxlength(128)
+	activePuphaData Boolean required
+}
+
+@skipClient
+entity PphMotivationGroup {
+	code Integer
+	targetValue Double
+	activePuphaData Boolean required
+}
+
+@skipClient
+entity PphNiche {
+	externalId Integer
+	equivalenceGroupId Integer
+	equivalentMedicine String maxlength(256)
+	activePuphaData Boolean required
+}
+
+enum InstitutionType {
+	OUTPATIENT, // járóbeteg-intézmény
+	INPATIENT, // fekvőbeteg-intézmény
+	OTHER
+}
+
+
+enum PuphaDataType {
+	MEDICINE,
+	MEDICAL_DEVICES,
+	BOTH
+}
+
+enum PuphaDataStatus {
+
+	UNDER_FIXING,
+	CLOSED
+}
+
+@skipClient
+entity PphPuphaInstitution {
+	externalId Integer
+	county String maxlength(100)
+	code String maxlength(20)
+	name String maxlength(250)
+	gyfkod String maxlength(20)
+	unitName String maxlength(250)
+	doctorName String maxlength(128)
+	registrationNo String maxlength(6)
+	institutionType InstitutionType
+	activePuphaData Boolean required
+}
+
+@skipClient
+entity PphPuphaVersion {
+	 externalId Integer
+	 validFrom Instant
+	 loadDate Instant
+	 fileVersion Integer
+	 modificationDate Instant
+	 puphaDataType PuphaDataType
+	 puphaDataStatus PuphaDataStatus
+	 activePuphaData Boolean required
+}
+
+@skipClient
+entity PphQualification {
+	externalId Integer
+	code Integer
+	name String maxlength(250)
+	newCode Integer
+	activePuphaData Boolean required
+}
+
+@skipClient
+entity PphQualificationDoctorAll {
+	registrationNo String maxlength(16)
+	activePuphaData Boolean required
+}
+
+enum InstitutionCategory {
+	WITHOUT_LIMITATION, // 0 Megkötés nélkül
+	INPATIENT_MEDICAL_UNIT, // 1 Fekvőbeteg gyógyintézet //FIX new name:INPATIENT_INSTITUTION
+	OUTPATIENT_MEDICAL_UNIT, // 2 Járóbeteg szakrendelés
+	DESIGNATED_MEDICAL_UNIT, // 3 Kijelölt intézmény
+	INPATIENT_AND_OUTPATIENT_BOTH, // 4 Járóbeteg szakrendelés Fekvőbeteg gyógyintézet
+	GP, // 5 Háziorvos
+	SPEC_OF_DESIGN_MED_UNIT, // 6 Kijelölt intézmény szakorvosa
+	DIABETES_TREATMENT_UNIT, // 7 Diabetológiai szakellátóhely
+	MENOPAUSE_AND_OSTEOP_OUTPAT, // 8 Menopauza és osteoporózis járóbeteg-szakrendelés
+	OUTPAT_WITH_INPAT_BACKGROUND, // 9 Fekvőbeteg gyógyintézeti háttérrel rendelkező járóbeteg szakr.
+	CHILDREN_PSYCHO_OUTPAT_MED_UNIT // 10 Gyermek pszihiátriai járóbeteg-szakrendelés.
+}
+
+
+enum PrescriptionRight {
+	PRESCRIBE, PROPOSE, PRES_ON_PROPOSE, PROPOSE_AND_PRESCRIBE
+}
+
+@skipClient
+entity PphQualificEuScoreLink {
+
+	timeLimit Integer
+	activePuphaData Boolean required
+	institutionCategory InstitutionCategory
+	prescriptionRight PrescriptionRight
+}
+
+@skipClient
+entity PphSpecBudget {
+	indication String maxlength(256)
+	diagnosisList String maxlength(256)
+	validFrom Instant
+	validTo Instant
+	activePuphaData Boolean required
+}
+
+relationship OneToMany {
+	PphEuScore {euIndication} to PphEuIndication {euScore}
+	PphEuScore {qualificEuScoreLink} to PphQualificEuScoreLink {euScore}
+	PphMedicine {subSidies} to PphSubsidy {medicine}
+	PphMedicineQualifiedName {medicine} to PphMedicine {qualifiedName} 
+}
+
+relationship ManyToOne {
+	PphMedicine {dealerId} to PphCompany
+	PphMedicine {marketingAuthOwner} to PphCompany
+	PphMedicine {medicineForm} to PphMedicineForm
+	PphMedicine {motivationGroup} to PphMotivationGroup
+	PphMedicine {niche} to PphNiche
+	PphQualificationDoctorAll {qualification} to PphQualification
+	PphQualificEuScoreLink {qualification} to PphQualification
+	PphQualificEuScoreLink {puphaInstitution} to PphPuphaInstitution 
+	PphSpecBudget {medicine} to PphMedicine
+}
+
+relationship ManyToMany {
+	PphMedicine {euScores} to PphEuScore {medicine}
+}
+
+@dto(mapstruct)
+@service(serviceImpl)
+@paginate(pagination)
+entity PuphaLoader {
+	event String
+	log String
+	time Instant
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+@skipClient
+entity Validity {
+	validFrom   LocalDate
+	validTo     LocalDate
+}

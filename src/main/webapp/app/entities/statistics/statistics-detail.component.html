@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="statistics">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.statistics.detail.title">Statistics</span> {{ statistics.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.statistics.created">Created</span></dt>
+                <dd>
+                    <span>{{ statistics.created }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.statistics.tpye">Tpye</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.StatisticsType.' + statistics.tpye }}">{{ statistics.tpye }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.statistics.content">Content</span></dt>
+                <dd>
+                    <span>{{ statistics.content }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.statistics.description">Description</span></dt>
+                <dd>
+                    <span>{{ statistics.description }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/statistics', statistics.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

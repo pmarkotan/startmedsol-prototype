@@ -1,0 +1,9 @@
+export const enum EesztSendingStatus {
+  SUCCESSFUL = 'SUCCESSFUL',
+
+  UNSUCCESSFUL = 'UNSUCCESSFUL',
+
+  SUBMIT_WAITING = 'SUBMIT_WAITING',
+
+  TECH_ERROR = 'TECH_ERROR',
+}

@@ -1,0 +1,10 @@
+{
+  "startMedsolPrototypeApp": {
+    "MedicalCaseStatus": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "CLOSED": "CLOSED",
+      "WITHDRAWN": "WITHDRAWN"
+    }
+  }
+}

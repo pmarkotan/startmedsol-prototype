@@ -1,0 +1,45 @@
+{
+  "name": "EhrDocument",
+  "fields": [
+    {
+      "fieldName": "eesztId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "documentId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "created",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "documentType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "doctorName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "institutionName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "praxisName",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200918074008",
+  "entityTableName": "ehr_document",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

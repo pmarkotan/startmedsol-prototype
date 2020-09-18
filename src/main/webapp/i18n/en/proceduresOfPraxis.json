@@ -1,0 +1,23 @@
+{
+  "startMedsolPrototypeApp": {
+    "proceduresOfPraxis": {
+      "home": {
+        "title": "Procedures Of Praxes",
+        "createLabel": "Create a new Procedures Of Praxis",
+        "createOrEditLabel": "Create or edit a Procedures Of Praxis",
+        "notFound": "No Procedures Of Praxes found"
+      },
+      "created": "A new Procedures Of Praxis is created with identifier {{ param }}",
+      "updated": "A Procedures Of Praxis is updated with identifier {{ param }}",
+      "deleted": "A Procedures Of Praxis is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Procedures Of Praxis {{ id }}?"
+      },
+      "detail": {
+        "title": "Procedures Of Praxis"
+      },
+      "procedure": "Procedure",
+      "praxis": "Praxis"
+    }
+  }
+}

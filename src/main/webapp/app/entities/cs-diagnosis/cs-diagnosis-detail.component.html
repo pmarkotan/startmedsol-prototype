@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="csDiagnosis">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.csDiagnosis.detail.title">Cs Diagnosis</span> {{ csDiagnosis.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.csDiagnosis.code">Code</span></dt>
+                <dd>
+                    <span>{{ csDiagnosis.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.csDiagnosis.report">Report</span></dt>
+                <dd>
+                    <span>{{ csDiagnosis.report }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.csDiagnosis.descr">Descr</span></dt>
+                <dd>
+                    <span>{{ csDiagnosis.descr }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.csDiagnosis.sex">Sex</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.DgSex.' + csDiagnosis.sex }}">{{ csDiagnosis.sex }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.csDiagnosis.ageMin">Age Min</span></dt>
+                <dd>
+                    <span>{{ csDiagnosis.ageMin }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.csDiagnosis.ageMax">Age Max</span></dt>
+                <dd>
+                    <span>{{ csDiagnosis.ageMax }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.csDiagnosis.validity">Validity</span></dt>
+                <dd>
+                    <div *ngIf="csDiagnosis.validityId">
+                        <a [routerLink]="['/validity', csDiagnosis.validityId, 'view']">{{ csDiagnosis.validityId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cs-diagnosis', csDiagnosis.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

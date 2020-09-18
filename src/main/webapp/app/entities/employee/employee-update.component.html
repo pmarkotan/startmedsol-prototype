@@ -1,0 +1,97 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-employee-heading" jhiTranslate="startMedsolPrototypeApp.employee.home.createOrEditLabel">Create or edit a Employee</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.employee.emlpoyeeType" for="field_emlpoyeeType">Emlpoyee Type</label>
+                    <select class="form-control" name="emlpoyeeType" formControlName="emlpoyeeType" id="field_emlpoyeeType">
+                        <option value="DOCTOR">{{ 'startMedsolPrototypeApp.EmployeeType.DOCTOR' | translate }}</option>
+                        <option value="ADMIN">{{ 'startMedsolPrototypeApp.EmployeeType.ADMIN' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('emlpoyeeType')!.invalid && (editForm.get('emlpoyeeType')!.dirty || editForm.get('emlpoyeeType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('emlpoyeeType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.employee.identifier" for="field_identifier">Identifier</label>
+                    <input type="text" class="form-control" name="identifier" id="field_identifier"
+                           formControlName="identifier"/>
+                    <div *ngIf="editForm.get('identifier')!.invalid && (editForm.get('identifier')!.dirty || editForm.get('identifier')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('identifier')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('identifier')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 10 }">
+                        This field cannot be longer than 10 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.employee.eesztIdentifier" for="field_eesztIdentifier">Eeszt Identifier</label>
+                    <input type="text" class="form-control" name="eesztIdentifier" id="field_eesztIdentifier"
+                           formControlName="eesztIdentifier"/>
+                    <div *ngIf="editForm.get('eesztIdentifier')!.invalid && (editForm.get('eesztIdentifier')!.dirty || editForm.get('eesztIdentifier')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('eesztIdentifier')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 10 }">
+                        This field cannot be longer than 10 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.employee.eesztLoginType" for="field_eesztLoginType">Eeszt Login Type</label>
+                    <select class="form-control" name="eesztLoginType" formControlName="eesztLoginType" id="field_eesztLoginType">
+                        <option value="PASSWORD">{{ 'startMedsolPrototypeApp.EesztLoginType.PASSWORD' | translate }}</option>
+                        <option value="TOKEN">{{ 'startMedsolPrototypeApp.EesztLoginType.TOKEN' | translate }}</option>
+                        <option value="EID_CARD">{{ 'startMedsolPrototypeApp.EesztLoginType.EID_CARD' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('eesztLoginType')!.invalid && (editForm.get('eesztLoginType')!.dirty || editForm.get('eesztLoginType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('eesztLoginType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.employee.personalData" for="field_personalData">Personal Data</label>
+                    <select class="form-control" id="field_personalData" name="personalData" formControlName="personalData">
+                        <option *ngIf="!editForm.get('personalData')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="personalDataOption.id === editForm.get('personalData')!.value?.id ? editForm.get('personalData')!.value : personalDataOption" *ngFor="let personalDataOption of personaldata; trackBy: trackById">{{ personalDataOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('personalData')!.invalid && (editForm.get('personalData')!.dirty || editForm.get('personalData')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('personalData')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+{
+  "name": "PerformedProcedure",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "csProcedure",
+      "otherEntityRelationshipName": "performedProcedure",
+      "relationshipValidateRules": "required",
+      "relationshipName": "procedure",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "medicalCase",
+      "otherEntityRelationshipName": "performedProcedure",
+      "relationshipValidateRules": "required",
+      "relationshipName": "medicalCase",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918074308",
+  "entityTableName": "performed_procedure",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

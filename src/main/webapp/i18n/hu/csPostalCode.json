@@ -1,0 +1,31 @@
+{
+  "startMedsolPrototypeApp": {
+    "csPostalCode": {
+      "home": {
+        "title": "CsPostalCodes",
+        "createLabel": "Egy új Cs Postal Code létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Cs Postal Codet",
+        "notFound": "No Cs Postal Codes found"
+      },
+      "created": "Egy új Cs Postal Code lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Cs Postal Code módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Cs Postal Code törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Cs Postal Codet {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Cs Postal Code"
+      },
+      "code": "Code",
+      "settlement": "Settlement",
+      "part": "Part",
+      "street": "Street",
+      "kind": "Kind",
+      "rangeType": "Range Type",
+      "rangeLo": "Range Lo",
+      "rangeHi": "Range Hi",
+      "district": "District",
+      "validity": "Validity"
+    }
+  }
+}

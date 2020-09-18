@@ -1,0 +1,62 @@
+{
+  "name": "CsDiagnosis",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "report",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "descr",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sex",
+      "fieldType": "DgSex",
+      "fieldValues": "BOTH,MALE,FEMALE",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "ageMin",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "99"
+    },
+    {
+      "fieldName": "ageMax",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "99"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "validity",
+      "otherEntityRelationshipName": "csDiagnosis",
+      "relationshipValidateRules": "required",
+      "relationshipName": "validity",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918074608",
+  "entityTableName": "cs_diagnosis",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

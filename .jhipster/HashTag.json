@@ -1,0 +1,40 @@
+{
+  "name": "HashTag",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "256"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "provider",
+      "otherEntityRelationshipName": "hashTag",
+      "relationshipValidateRules": "required",
+      "relationshipName": "provider",
+      "otherEntityField": "nameLong"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "patient",
+      "otherEntityRelationshipName": "tags",
+      "relationshipName": "patients",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200918073308",
+  "entityTableName": "hash_tag",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

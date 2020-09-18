@@ -1,0 +1,33 @@
+{
+  "name": "MedicalCaseDiagnosis",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "csDiagnosis",
+      "otherEntityRelationshipName": "medicalCaseDiagnosis",
+      "relationshipValidateRules": "required",
+      "relationshipName": "diagnosis",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "medicalCase",
+      "otherEntityRelationshipName": "medicalCaseDiagnosis",
+      "relationshipValidateRules": "required",
+      "relationshipName": "medicalCase",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918074208",
+  "entityTableName": "medical_case_diagnosis",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,148 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-cs-postal-code-heading" jhiTranslate="startMedsolPrototypeApp.csPostalCode.home.createOrEditLabel">Create or edit a Cs Postal Code</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.csPostalCode.code" for="field_code">Code</label>
+                    <input type="text" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                    <div *ngIf="editForm.get('code')!.invalid && (editForm.get('code')!.dirty || editForm.get('code')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('code')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('code')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 5 }">
+                        This field cannot be longer than 5 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.csPostalCode.settlement" for="field_settlement">Settlement</label>
+                    <input type="text" class="form-control" name="settlement" id="field_settlement"
+                           formControlName="settlement"/>
+                    <div *ngIf="editForm.get('settlement')!.invalid && (editForm.get('settlement')!.dirty || editForm.get('settlement')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('settlement')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.csPostalCode.part" for="field_part">Part</label>
+                    <input type="text" class="form-control" name="part" id="field_part"
+                           formControlName="part"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.csPostalCode.street" for="field_street">Street</label>
+                    <input type="text" class="form-control" name="street" id="field_street"
+                           formControlName="street"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.csPostalCode.kind" for="field_kind">Kind</label>
+                    <input type="text" class="form-control" name="kind" id="field_kind"
+                           formControlName="kind"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.csPostalCode.rangeType" for="field_rangeType">Range Type</label>
+                    <select class="form-control" name="rangeType" formControlName="rangeType" id="field_rangeType">
+                        <option value="NONE">{{ 'startMedsolPrototypeApp.PcRange.NONE' | translate }}</option>
+                        <option value="ALL">{{ 'startMedsolPrototypeApp.PcRange.ALL' | translate }}</option>
+                        <option value="INTERVAL">{{ 'startMedsolPrototypeApp.PcRange.INTERVAL' | translate }}</option>
+                        <option value="ODD">{{ 'startMedsolPrototypeApp.PcRange.ODD' | translate }}</option>
+                        <option value="EVEN">{{ 'startMedsolPrototypeApp.PcRange.EVEN' | translate }}</option>
+                        <option value="REST">{{ 'startMedsolPrototypeApp.PcRange.REST' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('rangeType')!.invalid && (editForm.get('rangeType')!.dirty || editForm.get('rangeType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('rangeType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.csPostalCode.rangeLo" for="field_rangeLo">Range Lo</label>
+                    <input type="number" class="form-control" name="rangeLo" id="field_rangeLo"
+                           formControlName="rangeLo"/>
+                    <div *ngIf="editForm.get('rangeLo')!.invalid && (editForm.get('rangeLo')!.dirty || editForm.get('rangeLo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('rangeLo')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('rangeLo')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.csPostalCode.rangeHi" for="field_rangeHi">Range Hi</label>
+                    <input type="number" class="form-control" name="rangeHi" id="field_rangeHi"
+                           formControlName="rangeHi"/>
+                    <div *ngIf="editForm.get('rangeHi')!.invalid && (editForm.get('rangeHi')!.dirty || editForm.get('rangeHi')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('rangeHi')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('rangeHi')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.csPostalCode.district" for="field_district">District</label>
+                    <input type="text" class="form-control" name="district" id="field_district"
+                           formControlName="district"/>
+                    <div *ngIf="editForm.get('district')!.invalid && (editForm.get('district')!.dirty || editForm.get('district')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('district')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.csPostalCode.validity" for="field_validity">Validity</label>
+                    <select class="form-control" id="field_validity" name="validity" formControlName="validityId">
+                        <option *ngIf="!editForm.get('validityId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="validityOption.id" *ngFor="let validityOption of validities; trackBy: trackById">{{ validityOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('validityId')!.invalid && (editForm.get('validityId')!.dirty || editForm.get('validityId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('validityId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

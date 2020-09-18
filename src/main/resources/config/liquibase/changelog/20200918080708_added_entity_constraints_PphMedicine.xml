@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity PphMedicine.
+    -->
+    <changeSet id="20200918080708-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="dealer_id_id"
+                                 baseTableName="pph_medicine"
+                                 constraintName="fk_pph_medicine_dealer_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pph_company"/>
+
+        <addForeignKeyConstraint baseColumnNames="marketing_auth_owner_id"
+                                 baseTableName="pph_medicine"
+                                 constraintName="fk_pph_medicine_marketing_auth_owner_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pph_company"/>
+
+        <addForeignKeyConstraint baseColumnNames="medicine_form_id"
+                                 baseTableName="pph_medicine"
+                                 constraintName="fk_pph_medicine_medicine_form_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pph_medicine_form"/>
+
+        <addForeignKeyConstraint baseColumnNames="motivation_group_id"
+                                 baseTableName="pph_medicine"
+                                 constraintName="fk_pph_medicine_motivation_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pph_motivation_group"/>
+
+        <addForeignKeyConstraint baseColumnNames="niche_id"
+                                 baseTableName="pph_medicine"
+                                 constraintName="fk_pph_medicine_niche_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pph_niche"/>
+
+        <addForeignKeyConstraint baseColumnNames="pph_medicine_id"
+                                 baseTableName="pph_medicine_eu_scores"
+                                 constraintName="fk_pph_medicine_eu_scores_pph_medicine_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pph_medicine"/>
+
+        <addForeignKeyConstraint baseColumnNames="eu_scores_id"
+                                 baseTableName="pph_medicine_eu_scores"
+                                 constraintName="fk_pph_medicine_eu_scores_eu_scores_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pph_eu_score"/>
+        
+        <addForeignKeyConstraint baseColumnNames="qualified_name_id"
+                                 baseTableName="pph_medicine"
+                                 constraintName="fk_pph_medicine_qualified_name_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pph_medicine_qualified_name"/>
+
+    </changeSet>
+</databaseChangeLog>

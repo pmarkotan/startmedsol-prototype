@@ -1,0 +1,31 @@
+{
+  "startMedsolPrototypeApp": {
+    "praxis": {
+      "home": {
+        "title": "Praxes",
+        "createLabel": "Egy új Praxis létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Praxist",
+        "notFound": "No Praxes found"
+      },
+      "created": "Egy új Praxis lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Praxis módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Praxis törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Praxist {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Praxis"
+      },
+      "name": "Name",
+      "departmentId": "Department Id",
+      "professionCode": "Profession Code",
+      "professionName": "Profession Name",
+      "status": "Status",
+      "appointmentPhone": "Appointment Phone",
+      "treatmentLogbookNumber": "Treatment Logbook Number",
+      "officeAddress": "Office Address",
+      "provider": "Provider",
+      "doctor": "Doctor"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "startMedsolPrototypeApp": {
+    "EmployeeType": {
+      "null": "",
+      "DOCTOR": "DOCTOR",
+      "ADMIN": "ADMIN"
+    }
+  }
+}

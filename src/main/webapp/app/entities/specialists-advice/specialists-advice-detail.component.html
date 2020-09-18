@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="specialistsAdvice">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.detail.title">Specialists Advice</span> {{ specialistsAdvice.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.periodOfTime">Period Of Time</span></dt>
+                <dd>
+                    <span>{{ specialistsAdvice.periodOfTime }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.raisedIndicationCode">Raised Indication Code</span></dt>
+                <dd>
+                    <span>{{ specialistsAdvice.raisedIndicationCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.raisedSubsidyPercent">Raised Subsidy Percent</span></dt>
+                <dd>
+                    <span>{{ specialistsAdvice.raisedSubsidyPercent }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.emphasizedIndicationCode">Emphasized Indication Code</span></dt>
+                <dd>
+                    <span>{{ specialistsAdvice.emphasizedIndicationCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.activeSubstance">Active Substance</span></dt>
+                <dd>
+                    <span>{{ specialistsAdvice.activeSubstance }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.efficacy">Efficacy</span></dt>
+                <dd>
+                    <span>{{ specialistsAdvice.efficacy }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.dosageMod">Dosage Mod</span></dt>
+                <dd>
+                    <span>{{ specialistsAdvice.dosageMod }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.dosage">Dosage</span></dt>
+                <dd>
+                    <span>{{ specialistsAdvice.dosage }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.medicalCase">Medical Case</span></dt>
+                <dd>
+                    <div *ngIf="specialistsAdvice.medicalCaseId">
+                        <a [routerLink]="['/medical-case', specialistsAdvice.medicalCaseId, 'view']">{{ specialistsAdvice.medicalCaseId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.diagnosis">Diagnosis</span></dt>
+                <dd>
+                    <div *ngIf="specialistsAdvice.diagnosisId">
+                        <a [routerLink]="['/cs-diagnosis', specialistsAdvice.diagnosisId, 'view']">{{ specialistsAdvice.diagnosisId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/specialists-advice', specialistsAdvice.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

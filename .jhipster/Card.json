@@ -1,0 +1,46 @@
+{
+  "name": "Card",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "IdDocType",
+      "fieldValues": "ID_CARD,DRIVERS_LICENCE,SOCIAL_SECURITY,PASSPORT,EU_CARD,SOCIAL_HEALTH_CARE",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "identifier",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "32"
+    },
+    {
+      "fieldName": "validTo",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "primary",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "patient",
+      "otherEntityRelationshipName": "card",
+      "relationshipName": "patient",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918080008",
+  "entityTableName": "card",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "skipClient": true
+}

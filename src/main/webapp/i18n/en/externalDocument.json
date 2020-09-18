@@ -1,0 +1,26 @@
+{
+  "startMedsolPrototypeApp": {
+    "externalDocument": {
+      "home": {
+        "title": "External Documents",
+        "createLabel": "Create a new External Document",
+        "createOrEditLabel": "Create or edit a External Document",
+        "notFound": "No External Documents found"
+      },
+      "created": "A new External Document is created with identifier {{ param }}",
+      "updated": "A External Document is updated with identifier {{ param }}",
+      "deleted": "A External Document is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete External Document {{ id }}?"
+      },
+      "detail": {
+        "title": "External Document"
+      },
+      "documentId": "Document Id",
+      "name": "Name",
+      "created": "Created",
+      "uploaded": "Uploaded",
+      "medicalCase": "Medical Case"
+    }
+  }
+}

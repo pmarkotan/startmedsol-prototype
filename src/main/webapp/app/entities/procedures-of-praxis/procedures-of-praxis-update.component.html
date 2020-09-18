@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-procedures-of-praxis-heading" jhiTranslate="startMedsolPrototypeApp.proceduresOfPraxis.home.createOrEditLabel">Create or edit a Procedures Of Praxis</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.proceduresOfPraxis.procedure" for="field_procedure">Procedure</label>
+                    <select class="form-control" id="field_procedure" name="procedure" formControlName="procedureId">
+                        <option *ngIf="!editForm.get('procedureId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="csProcedureOption.id" *ngFor="let csProcedureOption of csprocedures; trackBy: trackById">{{ csProcedureOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('procedureId')!.invalid && (editForm.get('procedureId')!.dirty || editForm.get('procedureId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('procedureId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.proceduresOfPraxis.praxis" for="field_praxis">Praxis</label>
+                    <select class="form-control" id="field_praxis" name="praxis" formControlName="praxisId">
+                        <option *ngIf="!editForm.get('praxisId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="praxisOption.id" *ngFor="let praxisOption of praxes; trackBy: trackById">{{ praxisOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('praxisId')!.invalid && (editForm.get('praxisId')!.dirty || editForm.get('praxisId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('praxisId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

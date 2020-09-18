@@ -1,0 +1,31 @@
+{
+  "startMedsolPrototypeApp": {
+    "praxis": {
+      "home": {
+        "title": "Praxes",
+        "createLabel": "Create a new Praxis",
+        "createOrEditLabel": "Create or edit a Praxis",
+        "notFound": "No Praxes found"
+      },
+      "created": "A new Praxis is created with identifier {{ param }}",
+      "updated": "A Praxis is updated with identifier {{ param }}",
+      "deleted": "A Praxis is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Praxis {{ id }}?"
+      },
+      "detail": {
+        "title": "Praxis"
+      },
+      "name": "Name",
+      "departmentId": "Department Id",
+      "professionCode": "Profession Code",
+      "professionName": "Profession Name",
+      "status": "Status",
+      "appointmentPhone": "Appointment Phone",
+      "treatmentLogbookNumber": "Treatment Logbook Number",
+      "officeAddress": "Office Address",
+      "provider": "Provider",
+      "doctor": "Doctor"
+    }
+  }
+}

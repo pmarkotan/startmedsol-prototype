@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-medical-case-diagnosis-heading" jhiTranslate="startMedsolPrototypeApp.medicalCaseDiagnosis.home.createOrEditLabel">Create or edit a Medical Case Diagnosis</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.medicalCaseDiagnosis.diagnosis" for="field_diagnosis">Diagnosis</label>
+                    <select class="form-control" id="field_diagnosis" name="diagnosis" formControlName="diagnosisId">
+                        <option *ngIf="!editForm.get('diagnosisId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="csDiagnosisOption.id" *ngFor="let csDiagnosisOption of csdiagnoses; trackBy: trackById">{{ csDiagnosisOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('diagnosisId')!.invalid && (editForm.get('diagnosisId')!.dirty || editForm.get('diagnosisId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('diagnosisId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.medicalCaseDiagnosis.medicalCase" for="field_medicalCase">Medical Case</label>
+                    <select class="form-control" id="field_medicalCase" name="medicalCase" formControlName="medicalCaseId">
+                        <option *ngIf="!editForm.get('medicalCaseId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="medicalCaseOption.id" *ngFor="let medicalCaseOption of medicalcases; trackBy: trackById">{{ medicalCaseOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('medicalCaseId')!.invalid && (editForm.get('medicalCaseId')!.dirty || editForm.get('medicalCaseId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('medicalCaseId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

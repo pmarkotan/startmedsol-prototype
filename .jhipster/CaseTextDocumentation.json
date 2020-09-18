@@ -1,0 +1,28 @@
+{
+  "name": "CaseTextDocumentation",
+  "fields": [
+    {
+      "fieldName": "text",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "PatientDocumentationType",
+      "fieldValues": "ACTUAL_COMPLAINTS,ANAMNESIS,STATUS,DIAGNOSIS,THERAPY,EXPERTISE",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200918074508",
+  "entityTableName": "case_text_documentation",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

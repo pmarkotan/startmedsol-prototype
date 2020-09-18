@@ -1,0 +1,37 @@
+{
+  "name": "CsProcedure",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "validity",
+      "otherEntityRelationshipName": "csProcedure",
+      "relationshipValidateRules": "required",
+      "relationshipName": "validity",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918075108",
+  "entityTableName": "cs_procedure",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "PphMotivationGroup",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "targetValue",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "activePuphaData",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200918081108",
+  "entityTableName": "pph_motivation_group",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "skipClient": true
+}

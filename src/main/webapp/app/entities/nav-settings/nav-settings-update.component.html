@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-nav-settings-heading" jhiTranslate="startMedsolPrototypeApp.navSettings.home.createOrEditLabel">Create or edit a Nav Settings</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.navSettings.technicalUserName" for="field_technicalUserName">Technical User Name</label>
+                    <input type="text" class="form-control" name="technicalUserName" id="field_technicalUserName"
+                           formControlName="technicalUserName"/>
+                    <div *ngIf="editForm.get('technicalUserName')!.invalid && (editForm.get('technicalUserName')!.dirty || editForm.get('technicalUserName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('technicalUserName')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('technicalUserName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.navSettings.technicalPassword" for="field_technicalPassword">Technical Password</label>
+                    <input type="text" class="form-control" name="technicalPassword" id="field_technicalPassword"
+                           formControlName="technicalPassword"/>
+                    <div *ngIf="editForm.get('technicalPassword')!.invalid && (editForm.get('technicalPassword')!.dirty || editForm.get('technicalPassword')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('technicalPassword')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('technicalPassword')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.navSettings.signingKey" for="field_signingKey">Signing Key</label>
+                    <input type="text" class="form-control" name="signingKey" id="field_signingKey"
+                           formControlName="signingKey"/>
+                    <div *ngIf="editForm.get('signingKey')!.invalid && (editForm.get('signingKey')!.dirty || editForm.get('signingKey')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('signingKey')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('signingKey')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.navSettings.replacementKey" for="field_replacementKey">Replacement Key</label>
+                    <input type="text" class="form-control" name="replacementKey" id="field_replacementKey"
+                           formControlName="replacementKey"/>
+                    <div *ngIf="editForm.get('replacementKey')!.invalid && (editForm.get('replacementKey')!.dirty || editForm.get('replacementKey')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('replacementKey')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('replacementKey')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

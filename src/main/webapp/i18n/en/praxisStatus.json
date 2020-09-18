@@ -1,0 +1,10 @@
+{
+  "startMedsolPrototypeApp": {
+    "PraxisStatus": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "PASSIVE": "PASSIVE",
+      "DELETED": "DELETED"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "name": "Employee",
+  "fields": [
+    {
+      "fieldName": "emlpoyeeType",
+      "fieldType": "EmployeeType",
+      "fieldValues": "DOCTOR,ADMIN",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "identifier",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "eesztIdentifier",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "eesztLoginType",
+      "fieldType": "EesztLoginType",
+      "fieldValues": "PASSWORD,TOKEN,EID_CARD",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "personalData",
+      "otherEntityRelationshipName": "employee",
+      "relationshipValidateRules": "required",
+      "relationshipName": "personalData",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "praxis",
+      "otherEntityRelationshipName": "doctor",
+      "relationshipName": "praxis"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "provider",
+      "otherEntityRelationshipName": "employee",
+      "relationshipName": "provider",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200918075508",
+  "entityTableName": "employee",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

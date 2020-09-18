@@ -1,0 +1,23 @@
+{
+  "startMedsolPrototypeApp": {
+    "caseTextDocumentation": {
+      "home": {
+        "title": "CaseTextDocumentations",
+        "createLabel": "Egy új Case Text Documentation létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Case Text Documentationt",
+        "notFound": "No Case Text Documentations found"
+      },
+      "created": "Egy új Case Text Documentation lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Case Text Documentation módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Case Text Documentation törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Case Text Documentationt {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Case Text Documentation"
+      },
+      "text": "Text",
+      "type": "Type"
+    }
+  }
+}

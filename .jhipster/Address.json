@@ -1,0 +1,61 @@
+{
+  "name": "Address",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "AddressType",
+      "fieldValues": "PLACE_OF_RESIDENCE,PLACE_OF_STAY,PLACE_OF_WORK,OFFICE_ADDRESS,BILLING_ADDRESS",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "country",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "zipCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "12"
+    },
+    {
+      "fieldName": "municipality",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "32"
+    },
+    {
+      "fieldName": "addressLine1",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "32"
+    },
+    {
+      "fieldName": "addressLine2",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "32"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "personalData",
+      "otherEntityRelationshipName": "address",
+      "relationshipName": "personalData",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918075008",
+  "entityTableName": "address",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "skipClient": true
+}

@@ -1,0 +1,24 @@
+{
+  "startMedsolPrototypeApp": {
+    "contactPerson": {
+      "home": {
+        "title": "Contact People",
+        "createLabel": "Create a new Contact Person",
+        "createOrEditLabel": "Create or edit a Contact Person",
+        "notFound": "No Contact People found"
+      },
+      "created": "A new Contact Person is created with identifier {{ param }}",
+      "updated": "A Contact Person is updated with identifier {{ param }}",
+      "deleted": "A Contact Person is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Contact Person {{ id }}?"
+      },
+      "detail": {
+        "title": "Contact Person"
+      },
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email"
+    }
+  }
+}

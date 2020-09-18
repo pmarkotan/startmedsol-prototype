@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dictionaryTranslation">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.dictionaryTranslation.detail.title">Dictionary Translation</span> {{ dictionaryTranslation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.dictionaryTranslation.label">Label</span></dt>
+                <dd>
+                    <span>{{ dictionaryTranslation.label }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.dictionaryTranslation.language">Language</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.Language.' + dictionaryTranslation.language }}">{{ dictionaryTranslation.language }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.dictionaryTranslation.dictionaryItem">Dictionary Item</span></dt>
+                <dd>
+                    <div *ngIf="dictionaryTranslation.dictionaryItemId">
+                        <a [routerLink]="['/dictionary-item', dictionaryTranslation.dictionaryItemId, 'view']">{{ dictionaryTranslation.dictionaryItemId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/dictionary-translation', dictionaryTranslation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

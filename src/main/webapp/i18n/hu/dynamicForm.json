@@ -1,0 +1,29 @@
+{
+  "startMedsolPrototypeApp": {
+    "dynamicForm": {
+      "home": {
+        "title": "DynamicForms",
+        "createLabel": "Egy új Dynamic Form létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Dynamic Formt",
+        "notFound": "No Dynamic Forms found"
+      },
+      "created": "Egy új Dynamic Form lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Dynamic Form módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Dynamic Form törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Dynamic Formt {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Dynamic Form"
+      },
+      "code": "Code",
+      "name": "Name",
+      "professionCode": "Profession Code",
+      "professionName": "Profession Name",
+      "formTemplate": "Form Template",
+      "reportTemplate": "Report Template",
+      "separatelyPrint": "Separately Print",
+      "provider": "Provider"
+    }
+  }
+}

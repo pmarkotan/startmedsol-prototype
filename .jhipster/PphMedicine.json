@@ -1,0 +1,344 @@
+{
+  "name": "PphMedicine",
+  "fields": [
+    {
+      "fieldName": "productId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "masterBookId",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "64"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "256"
+    },
+    {
+      "fieldName": "packageDescription",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "256"
+    },
+    {
+      "fieldName": "eanCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "16"
+    },
+    {
+      "fieldName": "atcCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "8"
+    },
+    {
+      "fieldName": "brand",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "128"
+    },
+    {
+      "fieldName": "activeSubstance",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "128"
+    },
+    {
+      "fieldName": "potency",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "64"
+    },
+    {
+      "fieldName": "substanceAmountTotal",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "doseInPackage",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "substanceAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "doseMsmUnit",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "32"
+    },
+    {
+      "fieldName": "substanceMsmUnit",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "packageSize",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "packageMsmUnit",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "dailyDoze",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "dailyDozeMsmUnit",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "ddMsmUnitFactor",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "daysOfTherapy",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "consumerPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "grossConsumerPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "efficacy",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "32"
+    },
+    {
+      "fieldName": "oldName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "256"
+    },
+    {
+      "fieldName": "oepTtt",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "9"
+    },
+    {
+      "fieldName": "masterBookDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "mbookDeletedDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "available",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "motivationStatus",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "costEffectivityCode",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dailyTherapyCost",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "equivalenceGroupId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "oldSubsidyType",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "4"
+    },
+    {
+      "fieldName": "preferredPriceFlag",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pharmacyFlag",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "2"
+    },
+    {
+      "fieldName": "customMade",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "medicalDeviceIso",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "16"
+    },
+    {
+      "fieldName": "producerPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "wholesalePrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "vatRate",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "armyPrescription",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "publicSupply",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "workAccidentPrescr",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "extraSubsidyPrescr",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "medicalSubsidyPrescr",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "substancePrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "includeInHc2",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "prescriptionType",
+      "fieldType": "PrescriptionType",
+      "fieldValues": "WITHOUT_PRESCRIPTION,ONLY_WITH_PRESCRIPTION,OUTPATIENT_PRESCRIPTION,SPECIALIST_PRESCRIPTION,INPATIENT_PRESCRIPTION"
+    },
+    {
+      "fieldName": "medicineType",
+      "fieldType": "MedicineType",
+      "fieldValues": "MEDICINE,IMMUN,INFANT_NUTRITION,RADIOPHARMACON,HOMEOPATH,BASE_MATERIAL,FONO,WRAPPER,MAKING_PRICE,MEDICAL_AID"
+    },
+    {
+      "fieldName": "medicineStatus",
+      "fieldType": "MedicineStatus",
+      "fieldValues": "NEW_PRODUCT,MODIFIED,DELETED,OUT_OF_SUBSIDY"
+    },
+    {
+      "fieldName": "normative",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "ogyiId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "normFixGroupId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "extraSubsidyFixGroupId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "medicalSubsidyPrescriptionFixGroupId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dosageMod",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "256"
+    },
+    {
+      "fieldName": "activePuphaData",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pphSubsidy",
+      "otherEntityRelationshipName": "medicine",
+      "relationshipName": "subSidies"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pphCompany",
+      "otherEntityRelationshipName": "pphMedicine",
+      "relationshipName": "dealerId",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pphCompany",
+      "otherEntityRelationshipName": "pphMedicine",
+      "relationshipName": "marketingAuthOwner",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pphMedicineForm",
+      "otherEntityRelationshipName": "pphMedicine",
+      "relationshipName": "medicineForm",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pphMotivationGroup",
+      "otherEntityRelationshipName": "pphMedicine",
+      "relationshipName": "motivationGroup",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pphNiche",
+      "otherEntityRelationshipName": "pphMedicine",
+      "relationshipName": "niche",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "pphEuScore",
+      "otherEntityRelationshipName": "medicine",
+      "relationshipName": "euScores",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pphMedicineQualifiedName",
+      "otherEntityRelationshipName": "medicine",
+      "relationshipName": "qualifiedName",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918080708",
+  "entityTableName": "pph_medicine",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,8 @@
+{
+  "startMedsolPrototypeApp": {
+    "DoctorQualificationValidatorRuleType": {
+      "null": "",
+      "WITHOUT_QUALIFICATION_RULE": "WITHOUT_QUALIFICATION_RULE"
+    }
+  }
+}

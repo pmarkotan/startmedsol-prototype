@@ -1,0 +1,25 @@
+{
+  "startMedsolPrototypeApp": {
+    "pphMedicineQualifiedName": {
+      "home": {
+        "title": "Pph Medicine Qualified Names",
+        "createLabel": "Create a new Pph Medicine Qualified Name",
+        "createOrEditLabel": "Create or edit a Pph Medicine Qualified Name",
+        "notFound": "No Pph Medicine Qualified Names found"
+      },
+      "created": "A new Pph Medicine Qualified Name is created with identifier {{ param }}",
+      "updated": "A Pph Medicine Qualified Name is updated with identifier {{ param }}",
+      "deleted": "A Pph Medicine Qualified Name is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Pph Medicine Qualified Name {{ id }}?"
+      },
+      "detail": {
+        "title": "Pph Medicine Qualified Name"
+      },
+      "name": "Name",
+      "activeSubstance": "Active Substance",
+      "activePuphaData": "Active Pupha Data",
+      "medicine": "Medicine"
+    }
+  }
+}

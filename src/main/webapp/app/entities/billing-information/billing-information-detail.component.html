@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="billingInformation">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.billingInformation.detail.title">Billing Information</span> {{ billingInformation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.billingInformation.name">Name</span></dt>
+                <dd>
+                    <span>{{ billingInformation.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.billingInformation.taxnumber">Taxnumber</span></dt>
+                <dd>
+                    <span>{{ billingInformation.taxnumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.billingInformation.billingAddress">Billing Address</span></dt>
+                <dd>
+                    <div *ngIf="billingInformation.billingAddressId">
+                        <a [routerLink]="['/address', billingInformation.billingAddressId, 'view']">{{ billingInformation.billingAddressId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/billing-information', billingInformation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,563 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-pph-medicine-heading" jhiTranslate="startMedsolPrototypeApp.pphMedicine.home.createOrEditLabel">Create or edit a Pph Medicine</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.productId" for="field_productId">Product Id</label>
+                    <input type="number" class="form-control" name="productId" id="field_productId"
+                           formControlName="productId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.masterBookId" for="field_masterBookId">Master Book Id</label>
+                    <input type="text" class="form-control" name="masterBookId" id="field_masterBookId"
+                           formControlName="masterBookId"/>
+                    <div *ngIf="editForm.get('masterBookId')!.invalid && (editForm.get('masterBookId')!.dirty || editForm.get('masterBookId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('masterBookId')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 64 }">
+                        This field cannot be longer than 64 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 256 }">
+                        This field cannot be longer than 256 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.packageDescription" for="field_packageDescription">Package Description</label>
+                    <input type="text" class="form-control" name="packageDescription" id="field_packageDescription"
+                           formControlName="packageDescription"/>
+                    <div *ngIf="editForm.get('packageDescription')!.invalid && (editForm.get('packageDescription')!.dirty || editForm.get('packageDescription')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('packageDescription')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 256 }">
+                        This field cannot be longer than 256 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.eanCode" for="field_eanCode">Ean Code</label>
+                    <input type="text" class="form-control" name="eanCode" id="field_eanCode"
+                           formControlName="eanCode"/>
+                    <div *ngIf="editForm.get('eanCode')!.invalid && (editForm.get('eanCode')!.dirty || editForm.get('eanCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('eanCode')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 16 }">
+                        This field cannot be longer than 16 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.atcCode" for="field_atcCode">Atc Code</label>
+                    <input type="text" class="form-control" name="atcCode" id="field_atcCode"
+                           formControlName="atcCode"/>
+                    <div *ngIf="editForm.get('atcCode')!.invalid && (editForm.get('atcCode')!.dirty || editForm.get('atcCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('atcCode')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 8 }">
+                        This field cannot be longer than 8 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.brand" for="field_brand">Brand</label>
+                    <input type="text" class="form-control" name="brand" id="field_brand"
+                           formControlName="brand"/>
+                    <div *ngIf="editForm.get('brand')!.invalid && (editForm.get('brand')!.dirty || editForm.get('brand')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('brand')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 128 }">
+                        This field cannot be longer than 128 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.activeSubstance" for="field_activeSubstance">Active Substance</label>
+                    <input type="text" class="form-control" name="activeSubstance" id="field_activeSubstance"
+                           formControlName="activeSubstance"/>
+                    <div *ngIf="editForm.get('activeSubstance')!.invalid && (editForm.get('activeSubstance')!.dirty || editForm.get('activeSubstance')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('activeSubstance')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 128 }">
+                        This field cannot be longer than 128 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.potency" for="field_potency">Potency</label>
+                    <input type="text" class="form-control" name="potency" id="field_potency"
+                           formControlName="potency"/>
+                    <div *ngIf="editForm.get('potency')!.invalid && (editForm.get('potency')!.dirty || editForm.get('potency')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('potency')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 64 }">
+                        This field cannot be longer than 64 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.substanceAmountTotal" for="field_substanceAmountTotal">Substance Amount Total</label>
+                    <input type="number" class="form-control" name="substanceAmountTotal" id="field_substanceAmountTotal"
+                           formControlName="substanceAmountTotal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.doseInPackage" for="field_doseInPackage">Dose In Package</label>
+                    <input type="number" class="form-control" name="doseInPackage" id="field_doseInPackage"
+                           formControlName="doseInPackage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.substanceAmount" for="field_substanceAmount">Substance Amount</label>
+                    <input type="number" class="form-control" name="substanceAmount" id="field_substanceAmount"
+                           formControlName="substanceAmount"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.doseMsmUnit" for="field_doseMsmUnit">Dose Msm Unit</label>
+                    <input type="text" class="form-control" name="doseMsmUnit" id="field_doseMsmUnit"
+                           formControlName="doseMsmUnit"/>
+                    <div *ngIf="editForm.get('doseMsmUnit')!.invalid && (editForm.get('doseMsmUnit')!.dirty || editForm.get('doseMsmUnit')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('doseMsmUnit')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 32 }">
+                        This field cannot be longer than 32 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.substanceMsmUnit" for="field_substanceMsmUnit">Substance Msm Unit</label>
+                    <input type="text" class="form-control" name="substanceMsmUnit" id="field_substanceMsmUnit"
+                           formControlName="substanceMsmUnit"/>
+                    <div *ngIf="editForm.get('substanceMsmUnit')!.invalid && (editForm.get('substanceMsmUnit')!.dirty || editForm.get('substanceMsmUnit')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('substanceMsmUnit')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.packageSize" for="field_packageSize">Package Size</label>
+                    <input type="number" class="form-control" name="packageSize" id="field_packageSize"
+                           formControlName="packageSize"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.packageMsmUnit" for="field_packageMsmUnit">Package Msm Unit</label>
+                    <input type="text" class="form-control" name="packageMsmUnit" id="field_packageMsmUnit"
+                           formControlName="packageMsmUnit"/>
+                    <div *ngIf="editForm.get('packageMsmUnit')!.invalid && (editForm.get('packageMsmUnit')!.dirty || editForm.get('packageMsmUnit')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('packageMsmUnit')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.dailyDoze" for="field_dailyDoze">Daily Doze</label>
+                    <input type="number" class="form-control" name="dailyDoze" id="field_dailyDoze"
+                           formControlName="dailyDoze"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.dailyDozeMsmUnit" for="field_dailyDozeMsmUnit">Daily Doze Msm Unit</label>
+                    <input type="text" class="form-control" name="dailyDozeMsmUnit" id="field_dailyDozeMsmUnit"
+                           formControlName="dailyDozeMsmUnit"/>
+                    <div *ngIf="editForm.get('dailyDozeMsmUnit')!.invalid && (editForm.get('dailyDozeMsmUnit')!.dirty || editForm.get('dailyDozeMsmUnit')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dailyDozeMsmUnit')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.ddMsmUnitFactor" for="field_ddMsmUnitFactor">Dd Msm Unit Factor</label>
+                    <input type="number" class="form-control" name="ddMsmUnitFactor" id="field_ddMsmUnitFactor"
+                           formControlName="ddMsmUnitFactor"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.daysOfTherapy" for="field_daysOfTherapy">Days Of Therapy</label>
+                    <input type="number" class="form-control" name="daysOfTherapy" id="field_daysOfTherapy"
+                           formControlName="daysOfTherapy"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.consumerPrice" for="field_consumerPrice">Consumer Price</label>
+                    <input type="number" class="form-control" name="consumerPrice" id="field_consumerPrice"
+                           formControlName="consumerPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.grossConsumerPrice" for="field_grossConsumerPrice">Gross Consumer Price</label>
+                    <input type="number" class="form-control" name="grossConsumerPrice" id="field_grossConsumerPrice"
+                           formControlName="grossConsumerPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.efficacy" for="field_efficacy">Efficacy</label>
+                    <input type="text" class="form-control" name="efficacy" id="field_efficacy"
+                           formControlName="efficacy"/>
+                    <div *ngIf="editForm.get('efficacy')!.invalid && (editForm.get('efficacy')!.dirty || editForm.get('efficacy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('efficacy')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 32 }">
+                        This field cannot be longer than 32 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.oldName" for="field_oldName">Old Name</label>
+                    <input type="text" class="form-control" name="oldName" id="field_oldName"
+                           formControlName="oldName"/>
+                    <div *ngIf="editForm.get('oldName')!.invalid && (editForm.get('oldName')!.dirty || editForm.get('oldName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('oldName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 256 }">
+                        This field cannot be longer than 256 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.oepTtt" for="field_oepTtt">Oep Ttt</label>
+                    <input type="text" class="form-control" name="oepTtt" id="field_oepTtt"
+                           formControlName="oepTtt"/>
+                    <div *ngIf="editForm.get('oepTtt')!.invalid && (editForm.get('oepTtt')!.dirty || editForm.get('oepTtt')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('oepTtt')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 9 }">
+                        This field cannot be longer than 9 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.masterBookDeleted" for="field_masterBookDeleted">Master Book Deleted</label>
+                    <input type="checkbox" class="form-control" name="masterBookDeleted" id="field_masterBookDeleted"
+                           formControlName="masterBookDeleted"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.mbookDeletedDate" for="field_mbookDeletedDate">Mbook Deleted Date</label>
+                    <div class="d-flex">
+                        <input id="field_mbookDeletedDate" type="datetime-local" class="form-control" name="mbookDeletedDate" formControlName="mbookDeletedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.available" for="field_available">Available</label>
+                    <input type="checkbox" class="form-control" name="available" id="field_available"
+                           formControlName="available"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.motivationStatus" for="field_motivationStatus">Motivation Status</label>
+                    <input type="number" class="form-control" name="motivationStatus" id="field_motivationStatus"
+                           formControlName="motivationStatus"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.costEffectivityCode" for="field_costEffectivityCode">Cost Effectivity Code</label>
+                    <input type="number" class="form-control" name="costEffectivityCode" id="field_costEffectivityCode"
+                           formControlName="costEffectivityCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.dailyTherapyCost" for="field_dailyTherapyCost">Daily Therapy Cost</label>
+                    <input type="number" class="form-control" name="dailyTherapyCost" id="field_dailyTherapyCost"
+                           formControlName="dailyTherapyCost"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.equivalenceGroupId" for="field_equivalenceGroupId">Equivalence Group Id</label>
+                    <input type="number" class="form-control" name="equivalenceGroupId" id="field_equivalenceGroupId"
+                           formControlName="equivalenceGroupId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.oldSubsidyType" for="field_oldSubsidyType">Old Subsidy Type</label>
+                    <input type="text" class="form-control" name="oldSubsidyType" id="field_oldSubsidyType"
+                           formControlName="oldSubsidyType"/>
+                    <div *ngIf="editForm.get('oldSubsidyType')!.invalid && (editForm.get('oldSubsidyType')!.dirty || editForm.get('oldSubsidyType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('oldSubsidyType')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 4 }">
+                        This field cannot be longer than 4 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.preferredPriceFlag" for="field_preferredPriceFlag">Preferred Price Flag</label>
+                    <input type="number" class="form-control" name="preferredPriceFlag" id="field_preferredPriceFlag"
+                           formControlName="preferredPriceFlag"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.pharmacyFlag" for="field_pharmacyFlag">Pharmacy Flag</label>
+                    <input type="text" class="form-control" name="pharmacyFlag" id="field_pharmacyFlag"
+                           formControlName="pharmacyFlag"/>
+                    <div *ngIf="editForm.get('pharmacyFlag')!.invalid && (editForm.get('pharmacyFlag')!.dirty || editForm.get('pharmacyFlag')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('pharmacyFlag')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 2 }">
+                        This field cannot be longer than 2 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.customMade" for="field_customMade">Custom Made</label>
+                    <input type="checkbox" class="form-control" name="customMade" id="field_customMade"
+                           formControlName="customMade"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicalDeviceIso" for="field_medicalDeviceIso">Medical Device Iso</label>
+                    <input type="text" class="form-control" name="medicalDeviceIso" id="field_medicalDeviceIso"
+                           formControlName="medicalDeviceIso"/>
+                    <div *ngIf="editForm.get('medicalDeviceIso')!.invalid && (editForm.get('medicalDeviceIso')!.dirty || editForm.get('medicalDeviceIso')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('medicalDeviceIso')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 16 }">
+                        This field cannot be longer than 16 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.producerPrice" for="field_producerPrice">Producer Price</label>
+                    <input type="number" class="form-control" name="producerPrice" id="field_producerPrice"
+                           formControlName="producerPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.wholesalePrice" for="field_wholesalePrice">Wholesale Price</label>
+                    <input type="number" class="form-control" name="wholesalePrice" id="field_wholesalePrice"
+                           formControlName="wholesalePrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.vatRate" for="field_vatRate">Vat Rate</label>
+                    <input type="number" class="form-control" name="vatRate" id="field_vatRate"
+                           formControlName="vatRate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.armyPrescription" for="field_armyPrescription">Army Prescription</label>
+                    <input type="checkbox" class="form-control" name="armyPrescription" id="field_armyPrescription"
+                           formControlName="armyPrescription"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.publicSupply" for="field_publicSupply">Public Supply</label>
+                    <input type="checkbox" class="form-control" name="publicSupply" id="field_publicSupply"
+                           formControlName="publicSupply"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.workAccidentPrescr" for="field_workAccidentPrescr">Work Accident Prescr</label>
+                    <input type="checkbox" class="form-control" name="workAccidentPrescr" id="field_workAccidentPrescr"
+                           formControlName="workAccidentPrescr"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.extraSubsidyPrescr" for="field_extraSubsidyPrescr">Extra Subsidy Prescr</label>
+                    <input type="checkbox" class="form-control" name="extraSubsidyPrescr" id="field_extraSubsidyPrescr"
+                           formControlName="extraSubsidyPrescr"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicalSubsidyPrescr" for="field_medicalSubsidyPrescr">Medical Subsidy Prescr</label>
+                    <input type="checkbox" class="form-control" name="medicalSubsidyPrescr" id="field_medicalSubsidyPrescr"
+                           formControlName="medicalSubsidyPrescr"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.substancePrice" for="field_substancePrice">Substance Price</label>
+                    <input type="number" class="form-control" name="substancePrice" id="field_substancePrice"
+                           formControlName="substancePrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.includeInHc2" for="field_includeInHc2">Include In Hc 2</label>
+                    <input type="number" class="form-control" name="includeInHc2" id="field_includeInHc2"
+                           formControlName="includeInHc2"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.prescriptionType" for="field_prescriptionType">Prescription Type</label>
+                    <select class="form-control" name="prescriptionType" formControlName="prescriptionType" id="field_prescriptionType">
+                        <option value="WITHOUT_PRESCRIPTION">{{ 'startMedsolPrototypeApp.PrescriptionType.WITHOUT_PRESCRIPTION' | translate }}</option>
+                        <option value="ONLY_WITH_PRESCRIPTION">{{ 'startMedsolPrototypeApp.PrescriptionType.ONLY_WITH_PRESCRIPTION' | translate }}</option>
+                        <option value="OUTPATIENT_PRESCRIPTION">{{ 'startMedsolPrototypeApp.PrescriptionType.OUTPATIENT_PRESCRIPTION' | translate }}</option>
+                        <option value="SPECIALIST_PRESCRIPTION">{{ 'startMedsolPrototypeApp.PrescriptionType.SPECIALIST_PRESCRIPTION' | translate }}</option>
+                        <option value="INPATIENT_PRESCRIPTION">{{ 'startMedsolPrototypeApp.PrescriptionType.INPATIENT_PRESCRIPTION' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicineType" for="field_medicineType">Medicine Type</label>
+                    <select class="form-control" name="medicineType" formControlName="medicineType" id="field_medicineType">
+                        <option value="MEDICINE">{{ 'startMedsolPrototypeApp.MedicineType.MEDICINE' | translate }}</option>
+                        <option value="IMMUN">{{ 'startMedsolPrototypeApp.MedicineType.IMMUN' | translate }}</option>
+                        <option value="INFANT_NUTRITION">{{ 'startMedsolPrototypeApp.MedicineType.INFANT_NUTRITION' | translate }}</option>
+                        <option value="RADIOPHARMACON">{{ 'startMedsolPrototypeApp.MedicineType.RADIOPHARMACON' | translate }}</option>
+                        <option value="HOMEOPATH">{{ 'startMedsolPrototypeApp.MedicineType.HOMEOPATH' | translate }}</option>
+                        <option value="BASE_MATERIAL">{{ 'startMedsolPrototypeApp.MedicineType.BASE_MATERIAL' | translate }}</option>
+                        <option value="FONO">{{ 'startMedsolPrototypeApp.MedicineType.FONO' | translate }}</option>
+                        <option value="WRAPPER">{{ 'startMedsolPrototypeApp.MedicineType.WRAPPER' | translate }}</option>
+                        <option value="MAKING_PRICE">{{ 'startMedsolPrototypeApp.MedicineType.MAKING_PRICE' | translate }}</option>
+                        <option value="MEDICAL_AID">{{ 'startMedsolPrototypeApp.MedicineType.MEDICAL_AID' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicineStatus" for="field_medicineStatus">Medicine Status</label>
+                    <select class="form-control" name="medicineStatus" formControlName="medicineStatus" id="field_medicineStatus">
+                        <option value="NEW_PRODUCT">{{ 'startMedsolPrototypeApp.MedicineStatus.NEW_PRODUCT' | translate }}</option>
+                        <option value="MODIFIED">{{ 'startMedsolPrototypeApp.MedicineStatus.MODIFIED' | translate }}</option>
+                        <option value="DELETED">{{ 'startMedsolPrototypeApp.MedicineStatus.DELETED' | translate }}</option>
+                        <option value="OUT_OF_SUBSIDY">{{ 'startMedsolPrototypeApp.MedicineStatus.OUT_OF_SUBSIDY' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.normative" for="field_normative">Normative</label>
+                    <input type="checkbox" class="form-control" name="normative" id="field_normative"
+                           formControlName="normative"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.ogyiId" for="field_ogyiId">Ogyi Id</label>
+                    <input type="number" class="form-control" name="ogyiId" id="field_ogyiId"
+                           formControlName="ogyiId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.normFixGroupId" for="field_normFixGroupId">Norm Fix Group Id</label>
+                    <input type="number" class="form-control" name="normFixGroupId" id="field_normFixGroupId"
+                           formControlName="normFixGroupId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.extraSubsidyFixGroupId" for="field_extraSubsidyFixGroupId">Extra Subsidy Fix Group Id</label>
+                    <input type="number" class="form-control" name="extraSubsidyFixGroupId" id="field_extraSubsidyFixGroupId"
+                           formControlName="extraSubsidyFixGroupId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicalSubsidyPrescriptionFixGroupId" for="field_medicalSubsidyPrescriptionFixGroupId">Medical Subsidy Prescription Fix Group Id</label>
+                    <input type="number" class="form-control" name="medicalSubsidyPrescriptionFixGroupId" id="field_medicalSubsidyPrescriptionFixGroupId"
+                           formControlName="medicalSubsidyPrescriptionFixGroupId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.dosageMod" for="field_dosageMod">Dosage Mod</label>
+                    <input type="text" class="form-control" name="dosageMod" id="field_dosageMod"
+                           formControlName="dosageMod"/>
+                    <div *ngIf="editForm.get('dosageMod')!.invalid && (editForm.get('dosageMod')!.dirty || editForm.get('dosageMod')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dosageMod')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 256 }">
+                        This field cannot be longer than 256 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.activePuphaData" for="field_activePuphaData">Active Pupha Data</label>
+                    <input type="checkbox" class="form-control" name="activePuphaData" id="field_activePuphaData"
+                           formControlName="activePuphaData"/>
+                    <div *ngIf="editForm.get('activePuphaData')!.invalid && (editForm.get('activePuphaData')!.dirty || editForm.get('activePuphaData')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('activePuphaData')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.dealerId" for="field_dealerId">Dealer Id</label>
+                    <select class="form-control" id="field_dealerId" name="dealerId" formControlName="dealerIdId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pphCompanyOption.id" *ngFor="let pphCompanyOption of pphcompanies; trackBy: trackById">{{ pphCompanyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.marketingAuthOwner" for="field_marketingAuthOwner">Marketing Auth Owner</label>
+                    <select class="form-control" id="field_marketingAuthOwner" name="marketingAuthOwner" formControlName="marketingAuthOwnerId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pphCompanyOption.id" *ngFor="let pphCompanyOption of pphcompanies; trackBy: trackById">{{ pphCompanyOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicineForm" for="field_medicineForm">Medicine Form</label>
+                    <select class="form-control" id="field_medicineForm" name="medicineForm" formControlName="medicineFormId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pphMedicineFormOption.id" *ngFor="let pphMedicineFormOption of pphmedicineforms; trackBy: trackById">{{ pphMedicineFormOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.motivationGroup" for="field_motivationGroup">Motivation Group</label>
+                    <select class="form-control" id="field_motivationGroup" name="motivationGroup" formControlName="motivationGroupId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pphMotivationGroupOption.id" *ngFor="let pphMotivationGroupOption of pphmotivationgroups; trackBy: trackById">{{ pphMotivationGroupOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.niche" for="field_niche">Niche</label>
+                    <select class="form-control" id="field_niche" name="niche" formControlName="nicheId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pphNicheOption.id" *ngFor="let pphNicheOption of pphniches; trackBy: trackById">{{ pphNicheOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="startMedsolPrototypeApp.pphMedicine.euScores" for="field_euScores">Eu Scores</label>
+                    <select class="form-control" id="field_euScores" multiple name="euScores" formControlName="euScores">
+                        <option [ngValue]="getSelected(editForm.get('euScores')!.value, pphEuScoreOption)" *ngFor="let pphEuScoreOption of ppheuscores; trackBy: trackById">{{ pphEuScoreOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.pphMedicine.qualifiedName" for="field_qualifiedName">Qualified Name</label>
+                    <select class="form-control" id="field_qualifiedName" name="qualifiedName" formControlName="qualifiedNameId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pphMedicineQualifiedNameOption.id" *ngFor="let pphMedicineQualifiedNameOption of pphmedicinequalifiednames; trackBy: trackById">{{ pphMedicineQualifiedNameOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

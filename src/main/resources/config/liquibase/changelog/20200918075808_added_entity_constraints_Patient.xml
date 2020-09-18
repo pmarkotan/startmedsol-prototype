@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Patient.
+    -->
+    <changeSet id="20200918075808-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="personal_data_id"
+                                 baseTableName="patient"
+                                 constraintName="fk_patient_personal_data_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="personal_data"/>
+
+        <addForeignKeyConstraint baseColumnNames="patient_id"
+                                 baseTableName="patient_tags"
+                                 constraintName="fk_patient_tags_patient_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="patient"/>
+
+        <addForeignKeyConstraint baseColumnNames="tags_id"
+                                 baseTableName="patient_tags"
+                                 constraintName="fk_patient_tags_tags_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="hash_tag"/>
+        
+    </changeSet>
+</databaseChangeLog>

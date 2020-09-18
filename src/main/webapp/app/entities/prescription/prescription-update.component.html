@@ -1,0 +1,453 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-prescription-heading" jhiTranslate="startMedsolPrototypeApp.prescription.home.createOrEditLabel">Create or edit a Prescription</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.openedPackage" for="field_openedPackage">Opened Package</label>
+                    <input type="checkbox" class="form-control" name="openedPackage" id="field_openedPackage"
+                           formControlName="openedPackage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.medicalAidTeachPrescribing" for="field_medicalAidTeachPrescribing">Medical Aid Teach Prescribing</label>
+                    <input type="checkbox" class="form-control" name="medicalAidTeachPrescribing" id="field_medicalAidTeachPrescribing"
+                           formControlName="medicalAidTeachPrescribing"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.forH2cCertificate" for="field_forH2cCertificate">For H 2 C Certificate</label>
+                    <input type="checkbox" class="form-control" name="forH2cCertificate" id="field_forH2cCertificate"
+                           formControlName="forH2cCertificate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.inscriptionDate" for="field_inscriptionDate">Inscription Date</label>
+                    <div class="d-flex">
+                        <input id="field_inscriptionDate" type="datetime-local" class="form-control" name="inscriptionDate" formControlName="inscriptionDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('inscriptionDate')!.invalid && (editForm.get('inscriptionDate')!.dirty || editForm.get('inscriptionDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('inscriptionDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('inscriptionDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.causeOfNotReplaceability" for="field_causeOfNotReplaceability">Cause Of Not Replaceability</label>
+                    <input type="text" class="form-control" name="causeOfNotReplaceability" id="field_causeOfNotReplaceability"
+                           formControlName="causeOfNotReplaceability"/>
+                    <div *ngIf="editForm.get('causeOfNotReplaceability')!.invalid && (editForm.get('causeOfNotReplaceability')!.dirty || editForm.get('causeOfNotReplaceability')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('causeOfNotReplaceability')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                    <div *ngIf="editForm.get('description')!.invalid && (editForm.get('description')!.dirty || editForm.get('description')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('description')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 1024 }">
+                        This field cannot be longer than 1024 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.doseMsmUnit" for="field_doseMsmUnit">Dose Msm Unit</label>
+                    <input type="text" class="form-control" name="doseMsmUnit" id="field_doseMsmUnit"
+                           formControlName="doseMsmUnit"/>
+                    <div *ngIf="editForm.get('doseMsmUnit')!.invalid && (editForm.get('doseMsmUnit')!.dirty || editForm.get('doseMsmUnit')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('doseMsmUnit')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 32 }">
+                        This field cannot be longer than 32 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.eesztGroupId" for="field_eesztGroupId">Eeszt Group Id</label>
+                    <input type="text" class="form-control" name="eesztGroupId" id="field_eesztGroupId"
+                           formControlName="eesztGroupId"/>
+                    <div *ngIf="editForm.get('eesztGroupId')!.invalid && (editForm.get('eesztGroupId')!.dirty || editForm.get('eesztGroupId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('eesztGroupId')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 36 }">
+                        This field cannot be longer than 36 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.institution" for="field_institution">Institution</label>
+                    <input type="text" class="form-control" name="institution" id="field_institution"
+                           formControlName="institution"/>
+                    <div *ngIf="editForm.get('institution')!.invalid && (editForm.get('institution')!.dirty || editForm.get('institution')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('institution')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 1024 }">
+                        This field cannot be longer than 1024 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.instructions" for="field_instructions">Instructions</label>
+                    <input type="text" class="form-control" name="instructions" id="field_instructions"
+                           formControlName="instructions"/>
+                    <div *ngIf="editForm.get('instructions')!.invalid && (editForm.get('instructions')!.dirty || editForm.get('instructions')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('instructions')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.integrationId" for="field_integrationId">Integration Id</label>
+                    <input type="text" class="form-control" name="integrationId" id="field_integrationId"
+                           formControlName="integrationId"/>
+                    <div *ngIf="editForm.get('integrationId')!.invalid && (editForm.get('integrationId')!.dirty || editForm.get('integrationId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('integrationId')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.equippedWith" for="field_equippedWith">Equipped With</label>
+                    <input type="number" class="form-control" name="equippedWith" id="field_equippedWith"
+                           formControlName="equippedWith"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.acceptedQualificationRule" for="field_acceptedQualificationRule">Accepted Qualification Rule</label>
+                    <select class="form-control" name="acceptedQualificationRule" formControlName="acceptedQualificationRule" id="field_acceptedQualificationRule">
+                        <option value="WITHOUT_QUALIFICATION_RULE">{{ 'startMedsolPrototypeApp.DoctorQualificationValidatorRuleType.WITHOUT_QUALIFICATION_RULE' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('acceptedQualificationRule')!.invalid && (editForm.get('acceptedQualificationRule')!.dirty || editForm.get('acceptedQualificationRule')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('acceptedQualificationRule')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.subsidyCategory" for="field_subsidyCategory">Subsidy Category</label>
+                    <select class="form-control" name="subsidyCategory" formControlName="subsidyCategory" id="field_subsidyCategory">
+                        <option value="NORMATIVE">{{ 'startMedsolPrototypeApp.PrescriptionSubsidyCategory.NORMATIVE' | translate }}</option>
+                        <option value="EU_RAISED">{{ 'startMedsolPrototypeApp.PrescriptionSubsidyCategory.EU_RAISED' | translate }}</option>
+                        <option value="EU_EMPHASIZED">{{ 'startMedsolPrototypeApp.PrescriptionSubsidyCategory.EU_EMPHASIZED' | translate }}</option>
+                        <option value="HM">{{ 'startMedsolPrototypeApp.PrescriptionSubsidyCategory.HM' | translate }}</option>
+                        <option value="ACCIDENT">{{ 'startMedsolPrototypeApp.PrescriptionSubsidyCategory.ACCIDENT' | translate }}</option>
+                        <option value="FULL_PRICE">{{ 'startMedsolPrototypeApp.PrescriptionSubsidyCategory.FULL_PRICE' | translate }}</option>
+                        <option value="SPECIAL_SUBSIDY">{{ 'startMedsolPrototypeApp.PrescriptionSubsidyCategory.SPECIAL_SUBSIDY' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="PREPARED">{{ 'startMedsolPrototypeApp.PrescriptionStatus.PREPARED' | translate }}</option>
+                        <option value="PRINTED">{{ 'startMedsolPrototypeApp.PrescriptionStatus.PRINTED' | translate }}</option>
+                        <option value="INVALIDATED">{{ 'startMedsolPrototypeApp.PrescriptionStatus.INVALIDATED' | translate }}</option>
+                        <option value="PENDING">{{ 'startMedsolPrototypeApp.PrescriptionStatus.PENDING' | translate }}</option>
+                        <option value="SENT">{{ 'startMedsolPrototypeApp.PrescriptionStatus.SENT' | translate }}</option>
+                        <option value="E_INVALIDATED">{{ 'startMedsolPrototypeApp.PrescriptionStatus.E_INVALIDATED' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.eesztSendingStatus" for="field_eesztSendingStatus">Eeszt Sending Status</label>
+                    <select class="form-control" name="eesztSendingStatus" formControlName="eesztSendingStatus" id="field_eesztSendingStatus">
+                        <option value="SUCCESSFUL">{{ 'startMedsolPrototypeApp.EesztSendingStatus.SUCCESSFUL' | translate }}</option>
+                        <option value="UNSUCCESSFUL">{{ 'startMedsolPrototypeApp.EesztSendingStatus.UNSUCCESSFUL' | translate }}</option>
+                        <option value="SUBMIT_WAITING">{{ 'startMedsolPrototypeApp.EesztSendingStatus.SUBMIT_WAITING' | translate }}</option>
+                        <option value="TECH_ERROR">{{ 'startMedsolPrototypeApp.EesztSendingStatus.TECH_ERROR' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.medicalProductType" for="field_medicalProductType">Medical Product Type</label>
+                    <select class="form-control" name="medicalProductType" formControlName="medicalProductType" id="field_medicalProductType">
+                        <option value="MEDICINE">{{ 'startMedsolPrototypeApp.MedicalProductType.MEDICINE' | translate }}</option>
+                        <option value="MAGISTRAL_PREPARATION">{{ 'startMedsolPrototypeApp.MedicalProductType.MAGISTRAL_PREPARATION' | translate }}</option>
+                        <option value="MEDICAL_AIDS">{{ 'startMedsolPrototypeApp.MedicalProductType.MEDICAL_AIDS' | translate }}</option>
+                        <option value="HYDROTHERAPY">{{ 'startMedsolPrototypeApp.MedicalProductType.HYDROTHERAPY' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('medicalProductType')!.invalid && (editForm.get('medicalProductType')!.dirty || editForm.get('medicalProductType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('medicalProductType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.preparationDescription" for="field_preparationDescription">Preparation Description</label>
+                    <input type="text" class="form-control" name="preparationDescription" id="field_preparationDescription"
+                           formControlName="preparationDescription"/>
+                    <div *ngIf="editForm.get('preparationDescription')!.invalid && (editForm.get('preparationDescription')!.dirty || editForm.get('preparationDescription')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('preparationDescription')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.invalidationReason" for="field_invalidationReason">Invalidation Reason</label>
+                    <input type="text" class="form-control" name="invalidationReason" id="field_invalidationReason"
+                           formControlName="invalidationReason"/>
+                    <div *ngIf="editForm.get('invalidationReason')!.invalid && (editForm.get('invalidationReason')!.dirty || editForm.get('invalidationReason')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('invalidationReason')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.frequency" for="field_frequency">Frequency</label>
+                    <select class="form-control" name="frequency" formControlName="frequency" id="field_frequency">
+                        <option value="DAILY">{{ 'startMedsolPrototypeApp.Frequency.DAILY' | translate }}</option>
+                        <option value="WEEKLY">{{ 'startMedsolPrototypeApp.Frequency.WEEKLY' | translate }}</option>
+                        <option value="SPECIAL">{{ 'startMedsolPrototypeApp.Frequency.SPECIAL' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('frequency')!.invalid && (editForm.get('frequency')!.dirty || editForm.get('frequency')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('frequency')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.frequencyMultiplier" for="field_frequencyMultiplier">Frequency Multiplier</label>
+                    <input type="number" class="form-control" name="frequencyMultiplier" id="field_frequencyMultiplier"
+                           formControlName="frequencyMultiplier"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.quantityMultiplier" for="field_quantityMultiplier">Quantity Multiplier</label>
+                    <input type="number" class="form-control" name="quantityMultiplier" id="field_quantityMultiplier"
+                           formControlName="quantityMultiplier"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.morning" for="field_morning">Morning</label>
+                    <input type="number" class="form-control" name="morning" id="field_morning"
+                           formControlName="morning"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.noon" for="field_noon">Noon</label>
+                    <input type="number" class="form-control" name="noon" id="field_noon"
+                           formControlName="noon"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.evening" for="field_evening">Evening</label>
+                    <input type="number" class="form-control" name="evening" id="field_evening"
+                           formControlName="evening"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.beforeSleep" for="field_beforeSleep">Before Sleep</label>
+                    <input type="number" class="form-control" name="beforeSleep" id="field_beforeSleep"
+                           formControlName="beforeSleep"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.dosagePatternText" for="field_dosagePatternText">Dosage Pattern Text</label>
+                    <input type="text" class="form-control" name="dosagePatternText" id="field_dosagePatternText"
+                           formControlName="dosagePatternText"/>
+                    <div *ngIf="editForm.get('dosagePatternText')!.invalid && (editForm.get('dosagePatternText')!.dirty || editForm.get('dosagePatternText')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dosagePatternText')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.quantity" for="field_quantity">Quantity</label>
+                    <input type="number" class="form-control" name="quantity" id="field_quantity"
+                           formControlName="quantity"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.quantityCause" for="field_quantityCause">Quantity Cause</label>
+                    <input type="text" class="form-control" name="quantityCause" id="field_quantityCause"
+                           formControlName="quantityCause"/>
+                    <div *ngIf="editForm.get('quantityCause')!.invalid && (editForm.get('quantityCause')!.dirty || editForm.get('quantityCause')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('quantityCause')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.forSeveralMonths" for="field_forSeveralMonths">For Several Months</label>
+                    <input type="checkbox" class="form-control" name="forSeveralMonths" id="field_forSeveralMonths"
+                           formControlName="forSeveralMonths"/>
+                    <div *ngIf="editForm.get('forSeveralMonths')!.invalid && (editForm.get('forSeveralMonths')!.dirty || editForm.get('forSeveralMonths')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('forSeveralMonths')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.monthsSuppliedFor" for="field_monthsSuppliedFor">Months Supplied For</label>
+                    <input type="number" class="form-control" name="monthsSuppliedFor" id="field_monthsSuppliedFor"
+                           formControlName="monthsSuppliedFor"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.forOnePrescription" for="field_forOnePrescription">For One Prescription</label>
+                    <input type="checkbox" class="form-control" name="forOnePrescription" id="field_forOnePrescription"
+                           formControlName="forOnePrescription"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.specialistRegNo" for="field_specialistRegNo">Specialist Reg No</label>
+                    <input type="text" class="form-control" name="specialistRegNo" id="field_specialistRegNo"
+                           formControlName="specialistRegNo"/>
+                    <div *ngIf="editForm.get('specialistRegNo')!.invalid && (editForm.get('specialistRegNo')!.dirty || editForm.get('specialistRegNo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('specialistRegNo')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 16 }">
+                        This field cannot be longer than 16 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.proposalDate" for="field_proposalDate">Proposal Date</label>
+                    <div class="d-flex">
+                        <input id="field_proposalDate" type="datetime-local" class="form-control" name="proposalDate" formControlName="proposalDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.diagnosis" for="field_diagnosis">Diagnosis</label>
+                    <select class="form-control" id="field_diagnosis" name="diagnosis" formControlName="diagnosisId">
+                        <option *ngIf="!editForm.get('diagnosisId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="csDiagnosisOption.id" *ngFor="let csDiagnosisOption of csdiagnoses; trackBy: trackById">{{ csDiagnosisOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('diagnosisId')!.invalid && (editForm.get('diagnosisId')!.dirty || editForm.get('diagnosisId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('diagnosisId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.inscriberDoctor" for="field_inscriberDoctor">Inscriber Doctor</label>
+                    <select class="form-control" id="field_inscriberDoctor" name="inscriberDoctor" formControlName="inscriberDoctorId">
+                        <option *ngIf="!editForm.get('inscriberDoctorId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="employeeOption.id" *ngFor="let employeeOption of employees; trackBy: trackById">{{ employeeOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('inscriberDoctorId')!.invalid && (editForm.get('inscriberDoctorId')!.dirty || editForm.get('inscriberDoctorId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('inscriberDoctorId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.qualificationRuleAcceptor" for="field_qualificationRuleAcceptor">Qualification Rule Acceptor</label>
+                    <select class="form-control" id="field_qualificationRuleAcceptor" name="qualificationRuleAcceptor" formControlName="qualificationRuleAcceptorId">
+                        <option *ngIf="!editForm.get('qualificationRuleAcceptorId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="employeeOption.id" *ngFor="let employeeOption of employees; trackBy: trackById">{{ employeeOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('qualificationRuleAcceptorId')!.invalid && (editForm.get('qualificationRuleAcceptorId')!.dirty || editForm.get('qualificationRuleAcceptorId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('qualificationRuleAcceptorId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.medicine" for="field_medicine">Medicine</label>
+                    <select class="form-control" id="field_medicine" name="medicine" formControlName="medicineId">
+                        <option *ngIf="!editForm.get('medicineId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="pphMedicineOption.id" *ngFor="let pphMedicineOption of pphmedicines; trackBy: trackById">{{ pphMedicineOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('medicineId')!.invalid && (editForm.get('medicineId')!.dirty || editForm.get('medicineId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('medicineId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.medicalCase" for="field_medicalCase">Medical Case</label>
+                    <select class="form-control" id="field_medicalCase" name="medicalCase" formControlName="medicalCaseId">
+                        <option *ngIf="!editForm.get('medicalCaseId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="medicalCaseOption.id" *ngFor="let medicalCaseOption of medicalcases; trackBy: trackById">{{ medicalCaseOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('medicalCaseId')!.invalid && (editForm.get('medicalCaseId')!.dirty || editForm.get('medicalCaseId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('medicalCaseId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.prescription.puphaVersion" for="field_puphaVersion">Pupha Version</label>
+                    <select class="form-control" id="field_puphaVersion" name="puphaVersion" formControlName="puphaVersionId">
+                        <option *ngIf="!editForm.get('puphaVersionId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="pphPuphaVersionOption.id" *ngFor="let pphPuphaVersionOption of pphpuphaversions; trackBy: trackById">{{ pphPuphaVersionOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('puphaVersionId')!.invalid && (editForm.get('puphaVersionId')!.dirty || editForm.get('puphaVersionId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('puphaVersionId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

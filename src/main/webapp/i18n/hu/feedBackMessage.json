@@ -1,0 +1,25 @@
+{
+  "startMedsolPrototypeApp": {
+    "feedBackMessage": {
+      "home": {
+        "title": "FeedBackMessages",
+        "createLabel": "Egy új Feed Back Message létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Feed Back Messaget",
+        "notFound": "No Feed Back Messages found"
+      },
+      "created": "Egy új Feed Back Message lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Feed Back Message módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Feed Back Message törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Feed Back Messaget {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Feed Back Message"
+      },
+      "createDate": "Create Date",
+      "author": "Author",
+      "type": "Type",
+      "content": "Content"
+    }
+  }
+}

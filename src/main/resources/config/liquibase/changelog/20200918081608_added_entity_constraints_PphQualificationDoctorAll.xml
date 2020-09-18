@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity PphQualificationDoctorAll.
+    -->
+    <changeSet id="20200918081608-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="qualification_id"
+                                 baseTableName="pph_qualification_doctor_all"
+                                 constraintName="fk_pph_qualification_doctor_all_qualification_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pph_qualification"/>
+
+    </changeSet>
+</databaseChangeLog>

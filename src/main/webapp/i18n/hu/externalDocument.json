@@ -1,0 +1,26 @@
+{
+  "startMedsolPrototypeApp": {
+    "externalDocument": {
+      "home": {
+        "title": "ExternalDocuments",
+        "createLabel": "Egy új External Document létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson External Documentt",
+        "notFound": "No External Documents found"
+      },
+      "created": "Egy új External Document lett létrehozva {{ param }} azonosítóval",
+      "updated": "A External Document módosítva lett {{ param }} azonosítóval",
+      "deleted": "A External Document törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az External Documentt {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "External Document"
+      },
+      "documentId": "Document Id",
+      "name": "Name",
+      "created": "Created",
+      "uploaded": "Uploaded",
+      "medicalCase": "Medical Case"
+    }
+  }
+}

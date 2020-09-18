@@ -1,0 +1,23 @@
+{
+  "startMedsolPrototypeApp": {
+    "performedProcedure": {
+      "home": {
+        "title": "Performed Procedures",
+        "createLabel": "Create a new Performed Procedure",
+        "createOrEditLabel": "Create or edit a Performed Procedure",
+        "notFound": "No Performed Procedures found"
+      },
+      "created": "A new Performed Procedure is created with identifier {{ param }}",
+      "updated": "A Performed Procedure is updated with identifier {{ param }}",
+      "deleted": "A Performed Procedure is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Performed Procedure {{ id }}?"
+      },
+      "detail": {
+        "title": "Performed Procedure"
+      },
+      "procedure": "Procedure",
+      "medicalCase": "Medical Case"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "startMedsolPrototypeApp": {
+    "proceduresOfPraxis": {
+      "home": {
+        "title": "ProceduresOfPraxes",
+        "createLabel": "Egy új Procedures Of Praxis létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Procedures Of Praxist",
+        "notFound": "No Procedures Of Praxes found"
+      },
+      "created": "Egy új Procedures Of Praxis lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Procedures Of Praxis módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Procedures Of Praxis törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Procedures Of Praxist {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Procedures Of Praxis"
+      },
+      "procedure": "Procedure",
+      "praxis": "Praxis"
+    }
+  }
+}

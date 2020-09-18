@@ -1,0 +1,79 @@
+{
+  "name": "PphSubsidy",
+  "fields": [
+    {
+      "fieldName": "percent",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "referenceDailyCost",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "netSubsidy",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "grossSubsidy",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "consumerPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "dailyCostOnConsPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "duration",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "quantityAllowed",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "euemPontok",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "128"
+    },
+    {
+      "fieldName": "subsidyCategory",
+      "fieldType": "SubsidyCategory",
+      "fieldValues": "EU50,EU70,EU90,EU100,NORMATIVE,EU_RAISED,EU_EMPHASIZED,LOANABLE"
+    },
+    {
+      "fieldName": "subsidyType",
+      "fieldType": "SubsidyType",
+      "fieldValues": "NOMIN,HFIX,TFX,FIX,KOMBI,NEMKIV,LFX,BIOL,NT"
+    },
+    {
+      "fieldName": "activePuphaData",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pphMedicine",
+      "otherEntityRelationshipName": "subSidies",
+      "relationshipName": "medicine",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918080808",
+  "entityTableName": "pph_subsidy",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "skipClient": true
+}

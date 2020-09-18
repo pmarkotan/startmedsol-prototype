@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="medicalService">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.medicalService.detail.title">Medical Service</span> {{ medicalService.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalService.code">Code</span></dt>
+                <dd>
+                    <span>{{ medicalService.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalService.name">Name</span></dt>
+                <dd>
+                    <span>{{ medicalService.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalService.grossPrice">Gross Price</span></dt>
+                <dd>
+                    <span>{{ medicalService.grossPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalService.unit">Unit</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.MedicalServiceUnit.' + medicalService.unit }}">{{ medicalService.unit }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalService.statisticalCode">Statistical Code</span></dt>
+                <dd>
+                    <span>{{ medicalService.statisticalCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalService.taxRate">Tax Rate</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.TaxRate.' + medicalService.taxRate }}">{{ medicalService.taxRate }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalService.praxis">Praxis</span></dt>
+                <dd>
+                    <div *ngIf="medicalService.praxisId">
+                        <a [routerLink]="['/praxis', medicalService.praxisId, 'view']">{{ medicalService.praxisId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalService.provider">Provider</span></dt>
+                <dd>
+                    <div *ngIf="medicalService.providerId">
+                        <a [routerLink]="['/provider', medicalService.providerId, 'view']">{{ medicalService.providerId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/medical-service', medicalService.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+id;percent;reference_daily_cost;net_subsidy;gross_subsidy;consumer_price;daily_cost_on_cons_price;duration;quantity_allowed;euem_pontok;subsidy_category;subsidy_type;active_pupha_data
+1;17938;82285;58254;13080;66068;12217;13081;97885;invoice;EU_EMPHASIZED;LFX;true
+2;81828;26248;79740;84043;51485;87720;63728;33890;client-driven Beauty Auto Loan Account;EU_EMPHASIZED;NT;false
+3;22458;58459;17527;6650;57526;13049;93788;19927;payment Auto Loan Account;EU50;LFX;false
+4;17302;15078;85922;83049;93619;2585;96460;71256;deposit withdrawal Personal Loan Account;LOANABLE;HFIX;false
+5;58873;62065;19199;55966;9642;85497;85768;98097;customized;EU90;LFX;false
+6;59449;78243;24029;63020;80242;22708;96465;15965;Fundamental;EU70;FIX;true
+7;4502;2911;38449;55673;43807;90266;15997;87723;Vermont;EU50;LFX;false
+8;24725;64002;37263;36153;73087;22439;14936;52678;Planner Hills;EU90;KOMBI;false
+9;71314;8436;22862;37936;37285;41261;41095;91757;Home Loan Account;LOANABLE;NEMKIV;false
+10;58893;50586;43774;93005;44521;35730;99794;38938;pink;EU50;TFX;false

@@ -1,0 +1,24 @@
+{
+  "startMedsolPrototypeApp": {
+    "csProcedure": {
+      "home": {
+        "title": "Cs Procedures",
+        "createLabel": "Create a new Cs Procedure",
+        "createOrEditLabel": "Create or edit a Cs Procedure",
+        "notFound": "No Cs Procedures found"
+      },
+      "created": "A new Cs Procedure is created with identifier {{ param }}",
+      "updated": "A Cs Procedure is updated with identifier {{ param }}",
+      "deleted": "A Cs Procedure is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cs Procedure {{ id }}?"
+      },
+      "detail": {
+        "title": "Cs Procedure"
+      },
+      "code": "Code",
+      "description": "Description",
+      "validity": "Validity"
+    }
+  }
+}

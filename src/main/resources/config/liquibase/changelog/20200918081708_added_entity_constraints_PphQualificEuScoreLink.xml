@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity PphQualificEuScoreLink.
+    -->
+    <changeSet id="20200918081708-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="qualification_id"
+                                 baseTableName="pph_qualific_eu_score_link"
+                                 constraintName="fk_pph_qualific_eu_score_link_qualification_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pph_qualification"/>
+
+        <addForeignKeyConstraint baseColumnNames="pupha_institution_id"
+                                 baseTableName="pph_qualific_eu_score_link"
+                                 constraintName="fk_pph_qualific_eu_score_link_pupha_institution_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pph_pupha_institution"/>
+
+        <addForeignKeyConstraint baseColumnNames="eu_score_id"
+                                 baseTableName="pph_qualific_eu_score_link"
+                                 constraintName="fk_pph_qualific_eu_score_link_eu_score_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pph_eu_score"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,24 @@
+{
+  "startMedsolPrototypeApp": {
+    "billingInformation": {
+      "home": {
+        "title": "Billing Informations",
+        "createLabel": "Create a new Billing Information",
+        "createOrEditLabel": "Create or edit a Billing Information",
+        "notFound": "No Billing Informations found"
+      },
+      "created": "A new Billing Information is created with identifier {{ param }}",
+      "updated": "A Billing Information is updated with identifier {{ param }}",
+      "deleted": "A Billing Information is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Billing Information {{ id }}?"
+      },
+      "detail": {
+        "title": "Billing Information"
+      },
+      "name": "Name",
+      "taxnumber": "Taxnumber",
+      "billingAddress": "Billing Address"
+    }
+  }
+}

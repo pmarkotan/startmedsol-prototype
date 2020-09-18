@@ -1,0 +1,32 @@
+{
+  "startMedsolPrototypeApp": {
+    "provider": {
+      "home": {
+        "title": "Providers",
+        "createLabel": "Create a new Provider",
+        "createOrEditLabel": "Create or edit a Provider",
+        "notFound": "No Providers found"
+      },
+      "created": "A new Provider is created with identifier {{ param }}",
+      "updated": "A Provider is updated with identifier {{ param }}",
+      "deleted": "A Provider is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Provider {{ id }}?"
+      },
+      "detail": {
+        "title": "Provider"
+      },
+      "nameLong": "Name Long",
+      "nameShort": "Name Short",
+      "institutionId": "Institution Id",
+      "email": "Email",
+      "phone": "Phone",
+      "accountNumber": "Account Number",
+      "contactPerson": "Contact Person",
+      "company": "Company",
+      "billingInformation": "Billing Information",
+      "praxis": "Praxis",
+      "employee": "Employee"
+    }
+  }
+}

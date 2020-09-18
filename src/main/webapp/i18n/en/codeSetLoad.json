@@ -1,0 +1,26 @@
+{
+  "startMedsolPrototypeApp": {
+    "codeSetLoad": {
+      "home": {
+        "title": "Code Set Loads",
+        "createLabel": "Create a new Code Set Load",
+        "createOrEditLabel": "Create or edit a Code Set Load",
+        "notFound": "No Code Set Loads found"
+      },
+      "created": "A new Code Set Load is created with identifier {{ param }}",
+      "updated": "A Code Set Load is updated with identifier {{ param }}",
+      "deleted": "A Code Set Load is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Code Set Load {{ id }}?"
+      },
+      "detail": {
+        "title": "Code Set Load"
+      },
+      "type": "Type",
+      "latestVersion": "Latest Version",
+      "url": "Url",
+      "log": "Log",
+      "status": "Status"
+    }
+  }
+}

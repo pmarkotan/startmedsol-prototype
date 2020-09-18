@@ -1,0 +1,25 @@
+{
+  "startMedsolPrototypeApp": {
+    "feedBackMessage": {
+      "home": {
+        "title": "Feed Back Messages",
+        "createLabel": "Create a new Feed Back Message",
+        "createOrEditLabel": "Create or edit a Feed Back Message",
+        "notFound": "No Feed Back Messages found"
+      },
+      "created": "A new Feed Back Message is created with identifier {{ param }}",
+      "updated": "A Feed Back Message is updated with identifier {{ param }}",
+      "deleted": "A Feed Back Message is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Feed Back Message {{ id }}?"
+      },
+      "detail": {
+        "title": "Feed Back Message"
+      },
+      "createDate": "Create Date",
+      "author": "Author",
+      "type": "Type",
+      "content": "Content"
+    }
+  }
+}

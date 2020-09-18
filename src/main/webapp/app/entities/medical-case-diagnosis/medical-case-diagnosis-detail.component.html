@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="medicalCaseDiagnosis">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.medicalCaseDiagnosis.detail.title">Medical Case Diagnosis</span> {{ medicalCaseDiagnosis.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalCaseDiagnosis.diagnosis">Diagnosis</span></dt>
+                <dd>
+                    <div *ngIf="medicalCaseDiagnosis.diagnosisId">
+                        <a [routerLink]="['/cs-diagnosis', medicalCaseDiagnosis.diagnosisId, 'view']">{{ medicalCaseDiagnosis.diagnosisId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalCaseDiagnosis.medicalCase">Medical Case</span></dt>
+                <dd>
+                    <div *ngIf="medicalCaseDiagnosis.medicalCaseId">
+                        <a [routerLink]="['/medical-case', medicalCaseDiagnosis.medicalCaseId, 'view']">{{ medicalCaseDiagnosis.medicalCaseId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/medical-case-diagnosis', medicalCaseDiagnosis.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

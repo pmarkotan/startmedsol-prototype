@@ -1,0 +1,127 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-medical-case-heading" jhiTranslate="startMedsolPrototypeApp.medicalCase.home.createOrEditLabel">Create or edit a Medical Case</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.medicalCase.deleted" for="field_deleted">Deleted</label>
+                    <input type="checkbox" class="form-control" name="deleted" id="field_deleted"
+                           formControlName="deleted"/>
+                    <div *ngIf="editForm.get('deleted')!.invalid && (editForm.get('deleted')!.dirty || editForm.get('deleted')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('deleted')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.medicalCase.confidental" for="field_confidental">Confidental</label>
+                    <input type="checkbox" class="form-control" name="confidental" id="field_confidental"
+                           formControlName="confidental"/>
+                    <div *ngIf="editForm.get('confidental')!.invalid && (editForm.get('confidental')!.dirty || editForm.get('confidental')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('confidental')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.medicalCase.ambulentNumber" for="field_ambulentNumber">Ambulent Number</label>
+                    <input type="text" class="form-control" name="ambulentNumber" id="field_ambulentNumber"
+                           formControlName="ambulentNumber"/>
+                    <div *ngIf="editForm.get('ambulentNumber')!.invalid && (editForm.get('ambulentNumber')!.dirty || editForm.get('ambulentNumber')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('ambulentNumber')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('ambulentNumber')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 12 }">
+                        This field cannot be longer than 12 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.medicalCase.admissionDate" for="field_admissionDate">Admission Date</label>
+                    <div class="d-flex">
+                        <input id="field_admissionDate" type="datetime-local" class="form-control" name="admissionDate" formControlName="admissionDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('admissionDate')!.invalid && (editForm.get('admissionDate')!.dirty || editForm.get('admissionDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('admissionDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('admissionDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.medicalCase.closeDate" for="field_closeDate">Close Date</label>
+                    <div class="d-flex">
+                        <input id="field_closeDate" type="datetime-local" class="form-control" name="closeDate" formControlName="closeDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.medicalCase.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="ACTIVE">{{ 'startMedsolPrototypeApp.MedicalCaseStatus.ACTIVE' | translate }}</option>
+                        <option value="CLOSED">{{ 'startMedsolPrototypeApp.MedicalCaseStatus.CLOSED' | translate }}</option>
+                        <option value="WITHDRAWN">{{ 'startMedsolPrototypeApp.MedicalCaseStatus.WITHDRAWN' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.medicalCase.attendanceType" for="field_attendanceType">Attendance Type</label>
+                    <select class="form-control" name="attendanceType" formControlName="attendanceType" id="field_attendanceType">
+                        <option value="TYPE_1_FIRST_SPECIALIST_CARE">{{ 'startMedsolPrototypeApp.AttendanceType.TYPE_1_FIRST_SPECIALIST_CARE' | translate }}</option>
+                        <option value="TYPE_2_RECALL">{{ 'startMedsolPrototypeApp.AttendanceType.TYPE_2_RECALL' | translate }}</option>
+                        <option value="TYPE_3_MEDICAL_CONSULTATION">{{ 'startMedsolPrototypeApp.AttendanceType.TYPE_3_MEDICAL_CONSULTATION' | translate }}</option>
+                        <option value="TYPE_4_FIRST_AID">{{ 'startMedsolPrototypeApp.AttendanceType.TYPE_4_FIRST_AID' | translate }}</option>
+                        <option value="TYPE_5_LONG_TERM_PATIENT_CONTROLL">{{ 'startMedsolPrototypeApp.AttendanceType.TYPE_5_LONG_TERM_PATIENT_CONTROLL' | translate }}</option>
+                        <option value="TYPE_6_FILTRATION">{{ 'startMedsolPrototypeApp.AttendanceType.TYPE_6_FILTRATION' | translate }}</option>
+                        <option value="TYPE_7_TAKING_CARE">{{ 'startMedsolPrototypeApp.AttendanceType.TYPE_7_TAKING_CARE' | translate }}</option>
+                        <option value="TYPE_8_CARED_PAIENT">{{ 'startMedsolPrototypeApp.AttendanceType.TYPE_8_CARED_PAIENT' | translate }}</option>
+                        <option value="TYPE_9_DAY_CARE">{{ 'startMedsolPrototypeApp.AttendanceType.TYPE_9_DAY_CARE' | translate }}</option>
+                        <option value="TYPE_K_CARE_DUE_TO_INCAPACITY">{{ 'startMedsolPrototypeApp.AttendanceType.TYPE_K_CARE_DUE_TO_INCAPACITY' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('attendanceType')!.invalid && (editForm.get('attendanceType')!.dirty || editForm.get('attendanceType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('attendanceType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="startMedsolPrototypeApp.feedBackMessage.home.title">Feed Back Messages</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-feed-back-message" [routerLink]="['/feed-back-message/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="startMedsolPrototypeApp.feedBackMessage.home.createLabel">
+            Create a new Feed Back Message
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="feedBackMessages?.length === 0">
+        <span jhiTranslate="startMedsolPrototypeApp.feedBackMessage.home.notFound">No feedBackMessages found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="feedBackMessages && feedBackMessages.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="createDate"><span jhiTranslate="startMedsolPrototypeApp.feedBackMessage.createDate">Create Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="author"><span jhiTranslate="startMedsolPrototypeApp.feedBackMessage.author">Author</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="type"><span jhiTranslate="startMedsolPrototypeApp.feedBackMessage.type">Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="content"><span jhiTranslate="startMedsolPrototypeApp.feedBackMessage.content">Content</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let feedBackMessage of feedBackMessages ;trackBy: trackId">
+                    <td><a [routerLink]="['/feed-back-message', feedBackMessage.id, 'view']">{{ feedBackMessage.id }}</a></td>
+                    <td>{{ feedBackMessage.createDate | date:'medium' }}</td>
+                    <td>{{ feedBackMessage.author }}</td>
+                    <td jhiTranslate="{{ 'startMedsolPrototypeApp.FeedBackMessageType.' + feedBackMessage.type }}">{{ feedBackMessage.type }}</td>
+                    <td>{{ feedBackMessage.content }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/feed-back-message', feedBackMessage.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/feed-back-message', feedBackMessage.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(feedBackMessage)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="feedBackMessages && feedBackMessages.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+{
+  "name": "CodeSetLoad",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "CodeSetType",
+      "fieldValues": "BNO,OENO,PUPHA,POSTAL_CODE,COUNTRY"
+    },
+    {
+      "fieldName": "latestVersion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "url",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "log",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "CodeSetStatus",
+      "fieldValues": "SUCCESS,ERROR,IN_PROGRESS"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200918074908",
+  "entityTableName": "code_set_load",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

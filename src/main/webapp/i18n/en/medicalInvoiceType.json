@@ -1,0 +1,9 @@
+{
+  "startMedsolPrototypeApp": {
+    "MedicalInvoiceType": {
+      "null": "",
+      "NORMAL": "NORMAL",
+      "STORNO": "STORNO"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "startMedsolPrototypeApp": {
+    "ehrDocument": {
+      "home": {
+        "title": "Ehr Documents",
+        "createLabel": "Create a new Ehr Document",
+        "createOrEditLabel": "Create or edit a Ehr Document",
+        "notFound": "No Ehr Documents found"
+      },
+      "created": "A new Ehr Document is created with identifier {{ param }}",
+      "updated": "A Ehr Document is updated with identifier {{ param }}",
+      "deleted": "A Ehr Document is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ehr Document {{ id }}?"
+      },
+      "detail": {
+        "title": "Ehr Document"
+      },
+      "eesztId": "Eeszt Id",
+      "documentId": "Document Id",
+      "created": "Created",
+      "documentType": "Document Type",
+      "doctorName": "Doctor Name",
+      "institutionName": "Institution Name",
+      "praxisName": "Praxis Name"
+    }
+  }
+}

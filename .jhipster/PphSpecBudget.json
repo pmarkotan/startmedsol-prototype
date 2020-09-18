@@ -1,0 +1,51 @@
+{
+  "name": "PphSpecBudget",
+  "fields": [
+    {
+      "fieldName": "indication",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "256"
+    },
+    {
+      "fieldName": "diagnosisList",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "256"
+    },
+    {
+      "fieldName": "validFrom",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "validTo",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "activePuphaData",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pphMedicine",
+      "otherEntityRelationshipName": "pphSpecBudget",
+      "relationshipName": "medicine",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918081808",
+  "entityTableName": "pph_spec_budget",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "skipClient": true
+}

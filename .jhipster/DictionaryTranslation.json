@@ -1,0 +1,37 @@
+{
+  "name": "DictionaryTranslation",
+  "fields": [
+    {
+      "fieldName": "label",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": "32"
+    },
+    {
+      "fieldName": "language",
+      "fieldType": "Language",
+      "fieldValues": "HU,EN",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "dictionaryItem",
+      "otherEntityRelationshipName": "dictionaryTranslations",
+      "relationshipName": "dictionaryItem",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918075408",
+  "entityTableName": "dictionary_translation",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

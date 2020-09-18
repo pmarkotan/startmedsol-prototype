@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="startMedsolPrototypeApp.proceduresOfPraxis.home.title">Procedures Of Praxes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-procedures-of-praxis" [routerLink]="['/procedures-of-praxis/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="startMedsolPrototypeApp.proceduresOfPraxis.home.createLabel">
+            Create a new Procedures Of Praxis
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="proceduresOfPraxes?.length === 0">
+        <span jhiTranslate="startMedsolPrototypeApp.proceduresOfPraxis.home.notFound">No proceduresOfPraxes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="proceduresOfPraxes && proceduresOfPraxes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="procedureId"><span jhiTranslate="startMedsolPrototypeApp.proceduresOfPraxis.procedure">Procedure</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="praxisId"><span jhiTranslate="startMedsolPrototypeApp.proceduresOfPraxis.praxis">Praxis</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let proceduresOfPraxis of proceduresOfPraxes ;trackBy: trackId">
+                    <td><a [routerLink]="['/procedures-of-praxis', proceduresOfPraxis.id, 'view']">{{ proceduresOfPraxis.id }}</a></td>
+                    <td>
+                        <div *ngIf="proceduresOfPraxis.procedureId">
+                            <a [routerLink]="['/cs-procedure', proceduresOfPraxis.procedureId , 'view']" >{{ proceduresOfPraxis.procedureId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="proceduresOfPraxis.praxisId">
+                            <a [routerLink]="['/praxis', proceduresOfPraxis.praxisId , 'view']" >{{ proceduresOfPraxis.praxisId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/procedures-of-praxis', proceduresOfPraxis.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/procedures-of-praxis', proceduresOfPraxis.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(proceduresOfPraxis)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="proceduresOfPraxes && proceduresOfPraxes.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

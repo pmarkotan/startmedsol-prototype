@@ -1,0 +1,54 @@
+{
+  "name": "CsSenderOrganization",
+  "fields": [
+    {
+      "fieldName": "county",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "shortName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "financingNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "9"
+    },
+    {
+      "fieldName": "financingName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "validity",
+      "otherEntityRelationshipName": "csSenderOrganization",
+      "relationshipValidateRules": "required",
+      "relationshipName": "validity",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918075208",
+  "entityTableName": "cs_sender_organization",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "skipClient": true
+}

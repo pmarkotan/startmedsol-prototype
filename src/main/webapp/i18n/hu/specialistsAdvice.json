@@ -1,0 +1,31 @@
+{
+  "startMedsolPrototypeApp": {
+    "specialistsAdvice": {
+      "home": {
+        "title": "SpecialistsAdvices",
+        "createLabel": "Egy új Specialists Advice létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Specialists Advicet",
+        "notFound": "No Specialists Advices found"
+      },
+      "created": "Egy új Specialists Advice lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Specialists Advice módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Specialists Advice törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Specialists Advicet {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Specialists Advice"
+      },
+      "periodOfTime": "Period Of Time",
+      "raisedIndicationCode": "Raised Indication Code",
+      "raisedSubsidyPercent": "Raised Subsidy Percent",
+      "emphasizedIndicationCode": "Emphasized Indication Code",
+      "activeSubstance": "Active Substance",
+      "efficacy": "Efficacy",
+      "dosageMod": "Dosage Mod",
+      "dosage": "Dosage",
+      "medicalCase": "Medical Case",
+      "diagnosis": "Diagnosis"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Prescription.
+    -->
+    <changeSet id="20200918073808-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="diagnosis_id"
+                                 baseTableName="prescription"
+                                 constraintName="fk_prescription_diagnosis_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cs_diagnosis"/>
+
+        <addForeignKeyConstraint baseColumnNames="inscriber_doctor_id"
+                                 baseTableName="prescription"
+                                 constraintName="fk_prescription_inscriber_doctor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="qualification_rule_acceptor_id"
+                                 baseTableName="prescription"
+                                 constraintName="fk_prescription_qualification_rule_acceptor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="medicine_id"
+                                 baseTableName="prescription"
+                                 constraintName="fk_prescription_medicine_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pph_medicine"/>
+
+        <addForeignKeyConstraint baseColumnNames="medical_case_id"
+                                 baseTableName="prescription"
+                                 constraintName="fk_prescription_medical_case_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medical_case"/>
+
+        <addForeignKeyConstraint baseColumnNames="pupha_version_id"
+                                 baseTableName="prescription"
+                                 constraintName="fk_prescription_pupha_version_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pph_pupha_version"/>
+
+    </changeSet>
+</databaseChangeLog>

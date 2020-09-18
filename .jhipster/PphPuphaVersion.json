@@ -1,0 +1,53 @@
+{
+  "name": "PphPuphaVersion",
+  "fields": [
+    {
+      "fieldName": "externalId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "validFrom",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "loadDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "fileVersion",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "modificationDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "puphaDataType",
+      "fieldType": "PuphaDataType",
+      "fieldValues": "MEDICINE,MEDICAL_DEVICES,BOTH"
+    },
+    {
+      "fieldName": "puphaDataStatus",
+      "fieldType": "PuphaDataStatus",
+      "fieldValues": "UNDER_FIXING,CLOSED"
+    },
+    {
+      "fieldName": "activePuphaData",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200918081408",
+  "entityTableName": "pph_pupha_version",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "skipClient": true
+}

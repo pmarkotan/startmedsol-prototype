@@ -1,0 +1,97 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.home.title">Specialists Advices</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-specialists-advice" [routerLink]="['/specialists-advice/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.home.createLabel">
+            Create a new Specialists Advice
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="specialistsAdvices?.length === 0">
+        <span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.home.notFound">No specialistsAdvices found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="specialistsAdvices && specialistsAdvices.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="periodOfTime"><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.periodOfTime">Period Of Time</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="raisedIndicationCode"><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.raisedIndicationCode">Raised Indication Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="raisedSubsidyPercent"><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.raisedSubsidyPercent">Raised Subsidy Percent</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="emphasizedIndicationCode"><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.emphasizedIndicationCode">Emphasized Indication Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="activeSubstance"><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.activeSubstance">Active Substance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="efficacy"><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.efficacy">Efficacy</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dosageMod"><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.dosageMod">Dosage Mod</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dosage"><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.dosage">Dosage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="medicalCaseId"><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.medicalCase">Medical Case</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="diagnosisId"><span jhiTranslate="startMedsolPrototypeApp.specialistsAdvice.diagnosis">Diagnosis</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let specialistsAdvice of specialistsAdvices ;trackBy: trackId">
+                    <td><a [routerLink]="['/specialists-advice', specialistsAdvice.id, 'view']">{{ specialistsAdvice.id }}</a></td>
+                    <td>{{ specialistsAdvice.periodOfTime }}</td>
+                    <td>{{ specialistsAdvice.raisedIndicationCode }}</td>
+                    <td>{{ specialistsAdvice.raisedSubsidyPercent }}</td>
+                    <td>{{ specialistsAdvice.emphasizedIndicationCode }}</td>
+                    <td>{{ specialistsAdvice.activeSubstance }}</td>
+                    <td>{{ specialistsAdvice.efficacy }}</td>
+                    <td>{{ specialistsAdvice.dosageMod }}</td>
+                    <td>{{ specialistsAdvice.dosage }}</td>
+                    <td>
+                        <div *ngIf="specialistsAdvice.medicalCaseId">
+                            <a [routerLink]="['/medical-case', specialistsAdvice.medicalCaseId , 'view']" >{{ specialistsAdvice.medicalCaseId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="specialistsAdvice.diagnosisId">
+                            <a [routerLink]="['/cs-diagnosis', specialistsAdvice.diagnosisId , 'view']" >{{ specialistsAdvice.diagnosisId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/specialists-advice', specialistsAdvice.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/specialists-advice', specialistsAdvice.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(specialistsAdvice)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="specialistsAdvices && specialistsAdvices.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

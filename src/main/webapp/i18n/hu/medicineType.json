@@ -1,0 +1,17 @@
+{
+  "startMedsolPrototypeApp": {
+    "MedicineType": {
+      "null": "",
+      "MEDICINE": "MEDICINE",
+      "IMMUN": "IMMUN",
+      "INFANT_NUTRITION": "INFANT_NUTRITION",
+      "RADIOPHARMACON": "RADIOPHARMACON",
+      "HOMEOPATH": "HOMEOPATH",
+      "BASE_MATERIAL": "BASE_MATERIAL",
+      "FONO": "FONO",
+      "WRAPPER": "WRAPPER",
+      "MAKING_PRICE": "MAKING_PRICE",
+      "MEDICAL_AID": "MEDICAL_AID"
+    }
+  }
+}

@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="startMedsolPrototypeApp.ehrDocument.home.title">Ehr Documents</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ehr-document" [routerLink]="['/ehr-document/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="startMedsolPrototypeApp.ehrDocument.home.createLabel">
+            Create a new Ehr Document
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="ehrDocuments?.length === 0">
+        <span jhiTranslate="startMedsolPrototypeApp.ehrDocument.home.notFound">No ehrDocuments found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="ehrDocuments && ehrDocuments.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="eesztId"><span jhiTranslate="startMedsolPrototypeApp.ehrDocument.eesztId">Eeszt Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="documentId"><span jhiTranslate="startMedsolPrototypeApp.ehrDocument.documentId">Document Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="created"><span jhiTranslate="startMedsolPrototypeApp.ehrDocument.created">Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="documentType"><span jhiTranslate="startMedsolPrototypeApp.ehrDocument.documentType">Document Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="doctorName"><span jhiTranslate="startMedsolPrototypeApp.ehrDocument.doctorName">Doctor Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="institutionName"><span jhiTranslate="startMedsolPrototypeApp.ehrDocument.institutionName">Institution Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="praxisName"><span jhiTranslate="startMedsolPrototypeApp.ehrDocument.praxisName">Praxis Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ehrDocument of ehrDocuments ;trackBy: trackId">
+                    <td><a [routerLink]="['/ehr-document', ehrDocument.id, 'view']">{{ ehrDocument.id }}</a></td>
+                    <td>{{ ehrDocument.eesztId }}</td>
+                    <td>{{ ehrDocument.documentId }}</td>
+                    <td>{{ ehrDocument.created | date:'medium' }}</td>
+                    <td>{{ ehrDocument.documentType }}</td>
+                    <td>{{ ehrDocument.doctorName }}</td>
+                    <td>{{ ehrDocument.institutionName }}</td>
+                    <td>{{ ehrDocument.praxisName }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/ehr-document', ehrDocument.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/ehr-document', ehrDocument.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(ehrDocument)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="ehrDocuments && ehrDocuments.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

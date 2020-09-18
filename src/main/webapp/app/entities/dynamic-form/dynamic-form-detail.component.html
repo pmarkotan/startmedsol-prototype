@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dynamicForm">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.dynamicForm.detail.title">Dynamic Form</span> {{ dynamicForm.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.dynamicForm.code">Code</span></dt>
+                <dd>
+                    <span>{{ dynamicForm.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.dynamicForm.name">Name</span></dt>
+                <dd>
+                    <span>{{ dynamicForm.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.dynamicForm.professionCode">Profession Code</span></dt>
+                <dd>
+                    <span>{{ dynamicForm.professionCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.dynamicForm.professionName">Profession Name</span></dt>
+                <dd>
+                    <span>{{ dynamicForm.professionName }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.dynamicForm.formTemplate">Form Template</span></dt>
+                <dd>
+                    <span>{{ dynamicForm.formTemplate }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.dynamicForm.reportTemplate">Report Template</span></dt>
+                <dd>
+                    <span>{{ dynamicForm.reportTemplate }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.dynamicForm.separatelyPrint">Separately Print</span></dt>
+                <dd>
+                    <span>{{ dynamicForm.separatelyPrint }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.dynamicForm.provider">Provider</span></dt>
+                <dd>
+                    <div *ngIf="dynamicForm.providerId">
+                        <a [routerLink]="['/provider', dynamicForm.providerId, 'view']">{{ dynamicForm.providerId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/dynamic-form', dynamicForm.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

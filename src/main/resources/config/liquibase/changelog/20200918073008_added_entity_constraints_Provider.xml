@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Provider.
+    -->
+    <changeSet id="20200918073008-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="contact_person_id"
+                                 baseTableName="provider"
+                                 constraintName="fk_provider_contact_person_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contact_person"/>
+
+        <addForeignKeyConstraint baseColumnNames="company_id"
+                                 baseTableName="provider"
+                                 constraintName="fk_provider_company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company"/>
+
+        <addForeignKeyConstraint baseColumnNames="billing_information_id"
+                                 baseTableName="provider"
+                                 constraintName="fk_provider_billing_information_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="billing_information"/>
+
+        <addForeignKeyConstraint baseColumnNames="provider_id"
+                                 baseTableName="provider_employee"
+                                 constraintName="fk_provider_employee_provider_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="provider"/>
+
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="provider_employee"
+                                 constraintName="fk_provider_employee_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+        
+    </changeSet>
+</databaseChangeLog>

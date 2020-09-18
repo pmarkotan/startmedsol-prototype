@@ -1,0 +1,80 @@
+{
+  "name": "PphEuScore",
+  "fields": [
+    {
+      "fieldName": "externalId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "subsidyCategory",
+      "fieldType": "SubsidyCategory",
+      "fieldValues": "EU50,EU70,EU90,EU100,NORMATIVE,EU_RAISED,EU_EMPHASIZED,LOANABLE"
+    },
+    {
+      "fieldName": "indicationCode1",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "indicationCode2",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "32"
+    },
+    {
+      "fieldName": "indicationType",
+      "fieldType": "IndicationType",
+      "fieldValues": "G_MEDICINE,S_GYSE"
+    },
+    {
+      "fieldName": "prescrComment",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "4000"
+    },
+    {
+      "fieldName": "comment",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "4000"
+    },
+    {
+      "fieldName": "activePuphaData",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pphEuIndication",
+      "otherEntityRelationshipName": "euScore",
+      "relationshipName": "euIndication"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pphQualificEuScoreLink",
+      "otherEntityRelationshipName": "euScore",
+      "relationshipName": "qualificEuScoreLink"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "pphMedicine",
+      "otherEntityRelationshipName": "euScores",
+      "relationshipName": "medicine",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200918080608",
+  "entityTableName": "pph_eu_score",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "skipClient": true
+}

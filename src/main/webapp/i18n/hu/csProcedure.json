@@ -1,0 +1,24 @@
+{
+  "startMedsolPrototypeApp": {
+    "csProcedure": {
+      "home": {
+        "title": "CsProcedures",
+        "createLabel": "Egy új Cs Procedure létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Cs Proceduret",
+        "notFound": "No Cs Procedures found"
+      },
+      "created": "Egy új Cs Procedure lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Cs Procedure módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Cs Procedure törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Cs Proceduret {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Cs Procedure"
+      },
+      "code": "Code",
+      "description": "Description",
+      "validity": "Validity"
+    }
+  }
+}

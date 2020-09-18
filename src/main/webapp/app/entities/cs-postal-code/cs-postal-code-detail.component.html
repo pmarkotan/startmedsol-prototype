@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="csPostalCode">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.detail.title">Cs Postal Code</span> {{ csPostalCode.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.code">Code</span></dt>
+                <dd>
+                    <span>{{ csPostalCode.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.settlement">Settlement</span></dt>
+                <dd>
+                    <span>{{ csPostalCode.settlement }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.part">Part</span></dt>
+                <dd>
+                    <span>{{ csPostalCode.part }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.street">Street</span></dt>
+                <dd>
+                    <span>{{ csPostalCode.street }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.kind">Kind</span></dt>
+                <dd>
+                    <span>{{ csPostalCode.kind }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.rangeType">Range Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.PcRange.' + csPostalCode.rangeType }}">{{ csPostalCode.rangeType }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.rangeLo">Range Lo</span></dt>
+                <dd>
+                    <span>{{ csPostalCode.rangeLo }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.rangeHi">Range Hi</span></dt>
+                <dd>
+                    <span>{{ csPostalCode.rangeHi }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.district">District</span></dt>
+                <dd>
+                    <span>{{ csPostalCode.district }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.validity">Validity</span></dt>
+                <dd>
+                    <div *ngIf="csPostalCode.validityId">
+                        <a [routerLink]="['/validity', csPostalCode.validityId, 'view']">{{ csPostalCode.validityId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cs-postal-code', csPostalCode.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

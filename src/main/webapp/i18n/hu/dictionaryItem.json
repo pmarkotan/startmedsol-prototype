@@ -1,0 +1,28 @@
+{
+  "startMedsolPrototypeApp": {
+    "dictionaryItem": {
+      "home": {
+        "title": "DictionaryItems",
+        "createLabel": "Egy új Dictionary Item létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Dictionary Itemt",
+        "notFound": "No Dictionary Items found"
+      },
+      "created": "Egy új Dictionary Item lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Dictionary Item módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Dictionary Item törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Dictionary Itemt {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Dictionary Item"
+      },
+      "dictionaryItemType": "Dictionary Item Type",
+      "code": "Code",
+      "orderNumber": "Order Number",
+      "description": "Description",
+      "dictionaryTranslations": "Dictionary Translations",
+      "parent": "Parent",
+      "children": "Children"
+    }
+  }
+}

@@ -1,0 +1,296 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pphMedicine">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.detail.title">Pph Medicine</span> {{ pphMedicine.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.productId">Product Id</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.productId }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.masterBookId">Master Book Id</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.masterBookId }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.name">Name</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.packageDescription">Package Description</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.packageDescription }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.eanCode">Ean Code</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.eanCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.atcCode">Atc Code</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.atcCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.brand">Brand</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.brand }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.activeSubstance">Active Substance</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.activeSubstance }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.potency">Potency</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.potency }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.substanceAmountTotal">Substance Amount Total</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.substanceAmountTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.doseInPackage">Dose In Package</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.doseInPackage }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.substanceAmount">Substance Amount</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.substanceAmount }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.doseMsmUnit">Dose Msm Unit</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.doseMsmUnit }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.substanceMsmUnit">Substance Msm Unit</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.substanceMsmUnit }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.packageSize">Package Size</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.packageSize }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.packageMsmUnit">Package Msm Unit</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.packageMsmUnit }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.dailyDoze">Daily Doze</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.dailyDoze }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.dailyDozeMsmUnit">Daily Doze Msm Unit</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.dailyDozeMsmUnit }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.ddMsmUnitFactor">Dd Msm Unit Factor</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.ddMsmUnitFactor }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.daysOfTherapy">Days Of Therapy</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.daysOfTherapy }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.consumerPrice">Consumer Price</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.consumerPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.grossConsumerPrice">Gross Consumer Price</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.grossConsumerPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.efficacy">Efficacy</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.efficacy }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.oldName">Old Name</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.oldName }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.oepTtt">Oep Ttt</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.oepTtt }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.masterBookDeleted">Master Book Deleted</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.masterBookDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.mbookDeletedDate">Mbook Deleted Date</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.mbookDeletedDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.available">Available</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.available }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.motivationStatus">Motivation Status</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.motivationStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.costEffectivityCode">Cost Effectivity Code</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.costEffectivityCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.dailyTherapyCost">Daily Therapy Cost</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.dailyTherapyCost }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.equivalenceGroupId">Equivalence Group Id</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.equivalenceGroupId }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.oldSubsidyType">Old Subsidy Type</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.oldSubsidyType }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.preferredPriceFlag">Preferred Price Flag</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.preferredPriceFlag }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.pharmacyFlag">Pharmacy Flag</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.pharmacyFlag }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.customMade">Custom Made</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.customMade }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicalDeviceIso">Medical Device Iso</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.medicalDeviceIso }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.producerPrice">Producer Price</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.producerPrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.wholesalePrice">Wholesale Price</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.wholesalePrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.vatRate">Vat Rate</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.vatRate }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.armyPrescription">Army Prescription</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.armyPrescription }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.publicSupply">Public Supply</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.publicSupply }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.workAccidentPrescr">Work Accident Prescr</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.workAccidentPrescr }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.extraSubsidyPrescr">Extra Subsidy Prescr</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.extraSubsidyPrescr }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicalSubsidyPrescr">Medical Subsidy Prescr</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.medicalSubsidyPrescr }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.substancePrice">Substance Price</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.substancePrice }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.includeInHc2">Include In Hc 2</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.includeInHc2 }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.prescriptionType">Prescription Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.PrescriptionType.' + pphMedicine.prescriptionType }}">{{ pphMedicine.prescriptionType }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicineType">Medicine Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.MedicineType.' + pphMedicine.medicineType }}">{{ pphMedicine.medicineType }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicineStatus">Medicine Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.MedicineStatus.' + pphMedicine.medicineStatus }}">{{ pphMedicine.medicineStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.normative">Normative</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.normative }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.ogyiId">Ogyi Id</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.ogyiId }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.normFixGroupId">Norm Fix Group Id</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.normFixGroupId }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.extraSubsidyFixGroupId">Extra Subsidy Fix Group Id</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.extraSubsidyFixGroupId }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicalSubsidyPrescriptionFixGroupId">Medical Subsidy Prescription Fix Group Id</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.medicalSubsidyPrescriptionFixGroupId }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.dosageMod">Dosage Mod</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.dosageMod }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.activePuphaData">Active Pupha Data</span></dt>
+                <dd>
+                    <span>{{ pphMedicine.activePuphaData }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.dealerId">Dealer Id</span></dt>
+                <dd>
+                    <div *ngIf="pphMedicine.dealerIdId">
+                        <a [routerLink]="['/pph-company', pphMedicine.dealerIdId, 'view']">{{ pphMedicine.dealerIdId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.marketingAuthOwner">Marketing Auth Owner</span></dt>
+                <dd>
+                    <div *ngIf="pphMedicine.marketingAuthOwnerId">
+                        <a [routerLink]="['/pph-company', pphMedicine.marketingAuthOwnerId, 'view']">{{ pphMedicine.marketingAuthOwnerId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.medicineForm">Medicine Form</span></dt>
+                <dd>
+                    <div *ngIf="pphMedicine.medicineFormId">
+                        <a [routerLink]="['/pph-medicine-form', pphMedicine.medicineFormId, 'view']">{{ pphMedicine.medicineFormId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.motivationGroup">Motivation Group</span></dt>
+                <dd>
+                    <div *ngIf="pphMedicine.motivationGroupId">
+                        <a [routerLink]="['/pph-motivation-group', pphMedicine.motivationGroupId, 'view']">{{ pphMedicine.motivationGroupId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.niche">Niche</span></dt>
+                <dd>
+                    <div *ngIf="pphMedicine.nicheId">
+                        <a [routerLink]="['/pph-niche', pphMedicine.nicheId, 'view']">{{ pphMedicine.nicheId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.euScores">Eu Scores</span></dt>
+                <dd>
+                    <span *ngFor="let euScores of pphMedicine.euScores; let last = last">
+                        <a [routerLink]="['/pph-eu-score', euScores?.id, 'view']">{{ euScores.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.pphMedicine.qualifiedName">Qualified Name</span></dt>
+                <dd>
+                    <div *ngIf="pphMedicine.qualifiedNameId">
+                        <a [routerLink]="['/pph-medicine-qualified-name', pphMedicine.qualifiedNameId, 'view']">{{ pphMedicine.qualifiedNameId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pph-medicine', pphMedicine.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

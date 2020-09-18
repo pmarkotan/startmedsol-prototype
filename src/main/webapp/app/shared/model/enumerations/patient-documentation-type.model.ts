@@ -1,0 +1,13 @@
+export const enum PatientDocumentationType {
+  ACTUAL_COMPLAINTS = 'ACTUAL_COMPLAINTS',
+
+  ANAMNESIS = 'ANAMNESIS',
+
+  STATUS = 'STATUS',
+
+  DIAGNOSIS = 'DIAGNOSIS',
+
+  THERAPY = 'THERAPY',
+
+  EXPERTISE = 'EXPERTISE',
+}
