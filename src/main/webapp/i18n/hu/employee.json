@@ -1,0 +1,28 @@
+{
+  "startMedsolPrototypeApp": {
+    "employee": {
+      "home": {
+        "title": "Employees",
+        "createLabel": "Egy új Employee létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Employeet",
+        "notFound": "No Employees found"
+      },
+      "created": "Egy új Employee lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Employee módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Employee törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Employeet {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Employee"
+      },
+      "emlpoyeeType": "Emlpoyee Type",
+      "identifier": "Identifier",
+      "eesztIdentifier": "Eeszt Identifier",
+      "eesztLoginType": "Eeszt Login Type",
+      "personalData": "Personal Data",
+      "praxis": "Praxis",
+      "provider": "Provider"
+    }
+  }
+}

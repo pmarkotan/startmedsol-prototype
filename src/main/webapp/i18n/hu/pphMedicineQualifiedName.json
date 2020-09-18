@@ -1,0 +1,25 @@
+{
+  "startMedsolPrototypeApp": {
+    "pphMedicineQualifiedName": {
+      "home": {
+        "title": "PphMedicineQualifiedNames",
+        "createLabel": "Egy új Pph Medicine Qualified Name létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Pph Medicine Qualified Namet",
+        "notFound": "No Pph Medicine Qualified Names found"
+      },
+      "created": "Egy új Pph Medicine Qualified Name lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Pph Medicine Qualified Name módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Pph Medicine Qualified Name törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Pph Medicine Qualified Namet {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Pph Medicine Qualified Name"
+      },
+      "name": "Name",
+      "activeSubstance": "Active Substance",
+      "activePuphaData": "Active Pupha Data",
+      "medicine": "Medicine"
+    }
+  }
+}

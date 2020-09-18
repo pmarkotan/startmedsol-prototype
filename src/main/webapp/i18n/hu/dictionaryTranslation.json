@@ -1,0 +1,24 @@
+{
+  "startMedsolPrototypeApp": {
+    "dictionaryTranslation": {
+      "home": {
+        "title": "DictionaryTranslations",
+        "createLabel": "Egy új Dictionary Translation létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Dictionary Translationt",
+        "notFound": "No Dictionary Translations found"
+      },
+      "created": "Egy új Dictionary Translation lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Dictionary Translation módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Dictionary Translation törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Dictionary Translationt {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Dictionary Translation"
+      },
+      "label": "Label",
+      "language": "Language",
+      "dictionaryItem": "Dictionary Item"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="externalDocument">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.externalDocument.detail.title">External Document</span> {{ externalDocument.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.externalDocument.documentId">Document Id</span></dt>
+                <dd>
+                    <span>{{ externalDocument.documentId }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.externalDocument.name">Name</span></dt>
+                <dd>
+                    <span>{{ externalDocument.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.externalDocument.created">Created</span></dt>
+                <dd>
+                    <span>{{ externalDocument.created }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.externalDocument.uploaded">Uploaded</span></dt>
+                <dd>
+                    <span>{{ externalDocument.uploaded }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.externalDocument.medicalCase">Medical Case</span></dt>
+                <dd>
+                    <div *ngIf="externalDocument.medicalCaseId">
+                        <a [routerLink]="['/medical-case', externalDocument.medicalCaseId, 'view']">{{ externalDocument.medicalCaseId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/external-document', externalDocument.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

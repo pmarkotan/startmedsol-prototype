@@ -1,0 +1,29 @@
+{
+  "startMedsolPrototypeApp": {
+    "medicalCase": {
+      "home": {
+        "title": "Medical Cases",
+        "createLabel": "Create a new Medical Case",
+        "createOrEditLabel": "Create or edit a Medical Case",
+        "notFound": "No Medical Cases found"
+      },
+      "created": "A new Medical Case is created with identifier {{ param }}",
+      "updated": "A Medical Case is updated with identifier {{ param }}",
+      "deleted": "A Medical Case is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Medical Case {{ id }}?"
+      },
+      "detail": {
+        "title": "Medical Case"
+      },
+      "deleted": "Deleted",
+      "confidental": "Confidental",
+      "ambulentNumber": "Ambulent Number",
+      "admissionDate": "Admission Date",
+      "closeDate": "Close Date",
+      "status": "Status",
+      "attendanceType": "Attendance Type",
+      "documents": "Documents"
+    }
+  }
+}

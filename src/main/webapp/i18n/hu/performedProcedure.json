@@ -1,0 +1,23 @@
+{
+  "startMedsolPrototypeApp": {
+    "performedProcedure": {
+      "home": {
+        "title": "PerformedProcedures",
+        "createLabel": "Egy új Performed Procedure létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Performed Proceduret",
+        "notFound": "No Performed Procedures found"
+      },
+      "created": "Egy új Performed Procedure lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Performed Procedure módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Performed Procedure törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Performed Proceduret {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Performed Procedure"
+      },
+      "procedure": "Procedure",
+      "medicalCase": "Medical Case"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "startMedsolPrototypeApp": {
+    "codeSetLoad": {
+      "home": {
+        "title": "CodeSetLoads",
+        "createLabel": "Egy új Code Set Load létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Code Set Loadt",
+        "notFound": "No Code Set Loads found"
+      },
+      "created": "Egy új Code Set Load lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Code Set Load módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Code Set Load törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Code Set Loadt {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Code Set Load"
+      },
+      "type": "Type",
+      "latestVersion": "Latest Version",
+      "url": "Url",
+      "log": "Log",
+      "status": "Status"
+    }
+  }
+}

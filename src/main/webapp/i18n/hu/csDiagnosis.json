@@ -1,0 +1,28 @@
+{
+  "startMedsolPrototypeApp": {
+    "csDiagnosis": {
+      "home": {
+        "title": "CsDiagnoses",
+        "createLabel": "Egy új Cs Diagnosis létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Cs Diagnosist",
+        "notFound": "No Cs Diagnoses found"
+      },
+      "created": "Egy új Cs Diagnosis lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Cs Diagnosis módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Cs Diagnosis törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Cs Diagnosist {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Cs Diagnosis"
+      },
+      "code": "Code",
+      "report": "Report",
+      "descr": "Descr",
+      "sex": "Sex",
+      "ageMin": "Age Min",
+      "ageMax": "Age Max",
+      "validity": "Validity"
+    }
+  }
+}

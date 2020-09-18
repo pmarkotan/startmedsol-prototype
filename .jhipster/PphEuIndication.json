@@ -1,0 +1,45 @@
+{
+  "name": "PphEuIndication",
+  "fields": [
+    {
+      "fieldName": "externalId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "indicationNo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "4000"
+    },
+    {
+      "fieldName": "activePuphaData",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pphEuScore",
+      "otherEntityRelationshipName": "euIndication",
+      "relationshipName": "euScore",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918080508",
+  "entityTableName": "pph_eu_indication",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "skipClient": true
+}

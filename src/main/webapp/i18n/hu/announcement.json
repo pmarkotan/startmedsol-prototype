@@ -1,0 +1,26 @@
+{
+  "startMedsolPrototypeApp": {
+    "announcement": {
+      "home": {
+        "title": "Announcements",
+        "createLabel": "Egy új Announcement létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Announcementt",
+        "notFound": "No Announcements found"
+      },
+      "created": "Egy új Announcement lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Announcement módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Announcement törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Announcementt {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Announcement"
+      },
+      "publishingDate": "Publishing Date",
+      "expireDate": "Expire Date",
+      "location": "Location",
+      "type": "Type",
+      "content": "Content"
+    }
+  }
+}

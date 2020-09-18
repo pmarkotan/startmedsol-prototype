@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="startMedsolPrototypeApp.medicalCase.home.title">Medical Cases</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-medical-case" [routerLink]="['/medical-case/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="startMedsolPrototypeApp.medicalCase.home.createLabel">
+            Create a new Medical Case
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="medicalCases?.length === 0">
+        <span jhiTranslate="startMedsolPrototypeApp.medicalCase.home.notFound">No medicalCases found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="medicalCases && medicalCases.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deleted"><span jhiTranslate="startMedsolPrototypeApp.medicalCase.deleted">Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="confidental"><span jhiTranslate="startMedsolPrototypeApp.medicalCase.confidental">Confidental</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ambulentNumber"><span jhiTranslate="startMedsolPrototypeApp.medicalCase.ambulentNumber">Ambulent Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="admissionDate"><span jhiTranslate="startMedsolPrototypeApp.medicalCase.admissionDate">Admission Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="closeDate"><span jhiTranslate="startMedsolPrototypeApp.medicalCase.closeDate">Close Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="startMedsolPrototypeApp.medicalCase.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="attendanceType"><span jhiTranslate="startMedsolPrototypeApp.medicalCase.attendanceType">Attendance Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let medicalCase of medicalCases ;trackBy: trackId">
+                    <td><a [routerLink]="['/medical-case', medicalCase.id, 'view']">{{ medicalCase.id }}</a></td>
+                    <td>{{ medicalCase.deleted }}</td>
+                    <td>{{ medicalCase.confidental }}</td>
+                    <td>{{ medicalCase.ambulentNumber }}</td>
+                    <td>{{ medicalCase.admissionDate | date:'medium' }}</td>
+                    <td>{{ medicalCase.closeDate | date:'medium' }}</td>
+                    <td jhiTranslate="{{ 'startMedsolPrototypeApp.MedicalCaseStatus.' + medicalCase.status }}">{{ medicalCase.status }}</td>
+                    <td jhiTranslate="{{ 'startMedsolPrototypeApp.AttendanceType.' + medicalCase.attendanceType }}">{{ medicalCase.attendanceType }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/medical-case', medicalCase.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/medical-case', medicalCase.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(medicalCase)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="medicalCases && medicalCases.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

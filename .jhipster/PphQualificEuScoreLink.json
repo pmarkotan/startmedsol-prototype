@@ -1,0 +1,59 @@
+{
+  "name": "PphQualificEuScoreLink",
+  "fields": [
+    {
+      "fieldName": "timeLimit",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "activePuphaData",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "institutionCategory",
+      "fieldType": "InstitutionCategory",
+      "fieldValues": "WITHOUT_LIMITATION,INPATIENT_MEDICAL_UNIT,OUTPATIENT_MEDICAL_UNIT,DESIGNATED_MEDICAL_UNIT,INPATIENT_AND_OUTPATIENT_BOTH,GP,SPEC_OF_DESIGN_MED_UNIT,DIABETES_TREATMENT_UNIT,MENOPAUSE_AND_OSTEOP_OUTPAT,OUTPAT_WITH_INPAT_BACKGROUND,CHILDREN_PSYCHO_OUTPAT_MED_UNIT"
+    },
+    {
+      "fieldName": "prescriptionRight",
+      "fieldType": "PrescriptionRight",
+      "fieldValues": "PRESCRIBE,PROPOSE,PRES_ON_PROPOSE,PROPOSE_AND_PRESCRIBE"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pphQualification",
+      "otherEntityRelationshipName": "pphQualificEuScoreLink",
+      "relationshipName": "qualification",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pphPuphaInstitution",
+      "otherEntityRelationshipName": "pphQualificEuScoreLink",
+      "relationshipName": "puphaInstitution",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pphEuScore",
+      "otherEntityRelationshipName": "qualificEuScoreLink",
+      "relationshipName": "euScore",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918081708",
+  "entityTableName": "pph_qualific_eu_score_link",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "skipClient": true
+}

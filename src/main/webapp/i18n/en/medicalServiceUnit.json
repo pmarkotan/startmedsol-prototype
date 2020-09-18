@@ -1,0 +1,10 @@
+{
+  "startMedsolPrototypeApp": {
+    "MedicalServiceUnit": {
+      "null": "",
+      "HOUR": "HOUR",
+      "PIECE": "PIECE",
+      "MINUTE": "MINUTE"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "startMedsolPrototypeApp": {
+    "company": {
+      "home": {
+        "title": "Companies",
+        "createLabel": "Egy új Company létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Companyt",
+        "notFound": "No Companies found"
+      },
+      "created": "Egy új Company lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Company módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Company törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Companyt {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Company"
+      },
+      "registrationNumber": "Registration Number",
+      "workplaceName": "Workplace Name",
+      "workplaceId": "Workplace Id"
+    }
+  }
+}

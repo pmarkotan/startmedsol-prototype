@@ -1,0 +1,25 @@
+{
+  "startMedsolPrototypeApp": {
+    "dataGenerator": {
+      "home": {
+        "title": "Data Generators",
+        "createLabel": "Create a new Data Generator",
+        "createOrEditLabel": "Create or edit a Data Generator",
+        "notFound": "No Data Generators found"
+      },
+      "created": "A new Data Generator is created with identifier {{ param }}",
+      "updated": "A Data Generator is updated with identifier {{ param }}",
+      "deleted": "A Data Generator is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Data Generator {{ id }}?"
+      },
+      "detail": {
+        "title": "Data Generator"
+      },
+      "provider": "Provider",
+      "praxis": "Praxis",
+      "patient": "Patient",
+      "medicalCase": "Medical Case"
+    }
+  }
+}

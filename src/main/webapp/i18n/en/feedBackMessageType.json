@@ -1,0 +1,10 @@
+{
+  "startMedsolPrototypeApp": {
+    "FeedBackMessageType": {
+      "null": "",
+      "BUG": "BUG",
+      "FEATURE": "FEATURE",
+      "MISC": "MISC"
+    }
+  }
+}

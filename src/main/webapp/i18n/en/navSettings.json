@@ -1,0 +1,25 @@
+{
+  "startMedsolPrototypeApp": {
+    "navSettings": {
+      "home": {
+        "title": "Nav Settings",
+        "createLabel": "Create a new Nav Settings",
+        "createOrEditLabel": "Create or edit a Nav Settings",
+        "notFound": "No Nav Settings found"
+      },
+      "created": "A new Nav Settings is created with identifier {{ param }}",
+      "updated": "A Nav Settings is updated with identifier {{ param }}",
+      "deleted": "A Nav Settings is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Nav Settings {{ id }}?"
+      },
+      "detail": {
+        "title": "Nav Settings"
+      },
+      "technicalUserName": "Technical User Name",
+      "technicalPassword": "Technical Password",
+      "signingKey": "Signing Key",
+      "replacementKey": "Replacement Key"
+    }
+  }
+}

@@ -1,0 +1,135 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-medical-invoice-heading" jhiTranslate="startMedsolPrototypeApp.medicalInvoice.home.createOrEditLabel">Create or edit a Medical Invoice</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.medicalInvoice.orderNumber" for="field_orderNumber">Order Number</label>
+                    <input type="number" class="form-control" name="orderNumber" id="field_orderNumber"
+                           formControlName="orderNumber"/>
+                    <div *ngIf="editForm.get('orderNumber')!.invalid && (editForm.get('orderNumber')!.dirty || editForm.get('orderNumber')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('orderNumber')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('orderNumber')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.medicalInvoice.invoiceNumber" for="field_invoiceNumber">Invoice Number</label>
+                    <input type="text" class="form-control" name="invoiceNumber" id="field_invoiceNumber"
+                           formControlName="invoiceNumber"/>
+                    <div *ngIf="editForm.get('invoiceNumber')!.invalid && (editForm.get('invoiceNumber')!.dirty || editForm.get('invoiceNumber')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('invoiceNumber')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('invoiceNumber')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.medicalInvoice.type" for="field_type">Type</label>
+                    <select class="form-control" name="type" formControlName="type" id="field_type">
+                        <option value="NORMAL">{{ 'startMedsolPrototypeApp.MedicalInvoiceType.NORMAL' | translate }}</option>
+                        <option value="STORNO">{{ 'startMedsolPrototypeApp.MedicalInvoiceType.STORNO' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('type')!.invalid && (editForm.get('type')!.dirty || editForm.get('type')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('type')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.medicalInvoice.total" for="field_total">Total</label>
+                    <input type="number" class="form-control" name="total" id="field_total"
+                           formControlName="total"/>
+                    <div *ngIf="editForm.get('total')!.invalid && (editForm.get('total')!.dirty || editForm.get('total')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('total')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('total')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.medicalInvoice.creatorUser" for="field_creatorUser">Creator User</label>
+                    <input type="text" class="form-control" name="creatorUser" id="field_creatorUser"
+                           formControlName="creatorUser"/>
+                    <div *ngIf="editForm.get('creatorUser')!.invalid && (editForm.get('creatorUser')!.dirty || editForm.get('creatorUser')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('creatorUser')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('creatorUser')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.medicalInvoice.createdAt" for="field_createdAt">Created At</label>
+                    <div class="d-flex">
+                        <input id="field_createdAt" type="datetime-local" class="form-control" name="createdAt" formControlName="createdAt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdAt')!.invalid && (editForm.get('createdAt')!.dirty || editForm.get('createdAt')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdAt')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdAt')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="startMedsolPrototypeApp.medicalInvoice.medicalCase" for="field_medicalCase">Medical Case</label>
+                    <select class="form-control" id="field_medicalCase" name="medicalCase" formControlName="medicalCaseId">
+                        <option *ngIf="!editForm.get('medicalCaseId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="medicalCaseOption.id" *ngFor="let medicalCaseOption of medicalcases; trackBy: trackById">{{ medicalCaseOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('medicalCaseId')!.invalid && (editForm.get('medicalCaseId')!.dirty || editForm.get('medicalCaseId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('medicalCaseId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "startMedsolPrototypeApp": {
+    "medicalInvoice": {
+      "home": {
+        "title": "Medical Invoices",
+        "createLabel": "Create a new Medical Invoice",
+        "createOrEditLabel": "Create or edit a Medical Invoice",
+        "notFound": "No Medical Invoices found"
+      },
+      "created": "A new Medical Invoice is created with identifier {{ param }}",
+      "updated": "A Medical Invoice is updated with identifier {{ param }}",
+      "deleted": "A Medical Invoice is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Medical Invoice {{ id }}?"
+      },
+      "detail": {
+        "title": "Medical Invoice"
+      },
+      "orderNumber": "Order Number",
+      "invoiceNumber": "Invoice Number",
+      "type": "Type",
+      "total": "Total",
+      "creatorUser": "Creator User",
+      "createdAt": "Created At",
+      "medicalCase": "Medical Case"
+    }
+  }
+}

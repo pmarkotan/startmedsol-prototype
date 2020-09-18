@@ -1,0 +1,29 @@
+{
+  "startMedsolPrototypeApp": {
+    "medicalCase": {
+      "home": {
+        "title": "MedicalCases",
+        "createLabel": "Egy új Medical Case létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Medical Caset",
+        "notFound": "No Medical Cases found"
+      },
+      "created": "Egy új Medical Case lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Medical Case módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Medical Case törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Medical Caset {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Medical Case"
+      },
+      "deleted": "Deleted",
+      "confidental": "Confidental",
+      "ambulentNumber": "Ambulent Number",
+      "admissionDate": "Admission Date",
+      "closeDate": "Close Date",
+      "status": "Status",
+      "attendanceType": "Attendance Type",
+      "documents": "Documents"
+    }
+  }
+}

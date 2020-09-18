@@ -1,0 +1,36 @@
+{
+  "name": "PrescriptionEesztId",
+  "fields": [
+    {
+      "fieldName": "eesztId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "36"
+    },
+    {
+      "fieldName": "eesztVersion",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "prescription",
+      "otherEntityRelationshipName": "prescriptionEesztId",
+      "relationshipValidateRules": "required",
+      "relationshipName": "prescription",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918073908",
+  "entityTableName": "prescription_eeszt_id",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

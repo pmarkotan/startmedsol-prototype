@@ -1,0 +1,25 @@
+{
+  "startMedsolPrototypeApp": {
+    "dataGenerator": {
+      "home": {
+        "title": "DataGenerators",
+        "createLabel": "Egy új Data Generator létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Data Generatort",
+        "notFound": "No Data Generators found"
+      },
+      "created": "Egy új Data Generator lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Data Generator módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Data Generator törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Data Generatort {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Data Generator"
+      },
+      "provider": "Provider",
+      "praxis": "Praxis",
+      "patient": "Patient",
+      "medicalCase": "Medical Case"
+    }
+  }
+}

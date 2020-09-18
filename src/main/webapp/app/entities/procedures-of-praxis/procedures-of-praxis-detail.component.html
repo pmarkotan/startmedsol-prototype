@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="proceduresOfPraxis">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.proceduresOfPraxis.detail.title">Procedures Of Praxis</span> {{ proceduresOfPraxis.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.proceduresOfPraxis.procedure">Procedure</span></dt>
+                <dd>
+                    <div *ngIf="proceduresOfPraxis.procedureId">
+                        <a [routerLink]="['/cs-procedure', proceduresOfPraxis.procedureId, 'view']">{{ proceduresOfPraxis.procedureId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.proceduresOfPraxis.praxis">Praxis</span></dt>
+                <dd>
+                    <div *ngIf="proceduresOfPraxis.praxisId">
+                        <a [routerLink]="['/praxis', proceduresOfPraxis.praxisId, 'view']">{{ proceduresOfPraxis.praxisId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/procedures-of-praxis', proceduresOfPraxis.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

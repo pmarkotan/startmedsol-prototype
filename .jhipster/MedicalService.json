@@ -1,0 +1,66 @@
+{
+  "name": "MedicalService",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "grossPrice",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "unit",
+      "fieldType": "MedicalServiceUnit",
+      "fieldValues": "HOUR,PIECE,MINUTE"
+    },
+    {
+      "fieldName": "statisticalCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "taxRate",
+      "fieldType": "TaxRate",
+      "fieldValues": "TX_27"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "praxis",
+      "otherEntityRelationshipName": "medicalService",
+      "relationshipValidateRules": "required",
+      "relationshipName": "praxis",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "provider",
+      "otherEntityRelationshipName": "medicalService",
+      "relationshipValidateRules": "required",
+      "relationshipName": "provider",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918072608",
+  "entityTableName": "medical_service",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

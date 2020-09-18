@@ -1,0 +1,29 @@
+{
+  "name": "PuphaLoader",
+  "fields": [
+    {
+      "fieldName": "event",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "log",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "time",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200918081908",
+  "entityTableName": "pupha_loader",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

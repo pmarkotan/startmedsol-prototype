@@ -1,0 +1,93 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="startMedsolPrototypeApp.medicalService.home.title">Medical Services</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-medical-service" [routerLink]="['/medical-service/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="startMedsolPrototypeApp.medicalService.home.createLabel">
+            Create a new Medical Service
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="medicalServices?.length === 0">
+        <span jhiTranslate="startMedsolPrototypeApp.medicalService.home.notFound">No medicalServices found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="medicalServices && medicalServices.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="startMedsolPrototypeApp.medicalService.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span jhiTranslate="startMedsolPrototypeApp.medicalService.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="grossPrice"><span jhiTranslate="startMedsolPrototypeApp.medicalService.grossPrice">Gross Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="unit"><span jhiTranslate="startMedsolPrototypeApp.medicalService.unit">Unit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="statisticalCode"><span jhiTranslate="startMedsolPrototypeApp.medicalService.statisticalCode">Statistical Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="taxRate"><span jhiTranslate="startMedsolPrototypeApp.medicalService.taxRate">Tax Rate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="praxisId"><span jhiTranslate="startMedsolPrototypeApp.medicalService.praxis">Praxis</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="providerId"><span jhiTranslate="startMedsolPrototypeApp.medicalService.provider">Provider</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let medicalService of medicalServices ;trackBy: trackId">
+                    <td><a [routerLink]="['/medical-service', medicalService.id, 'view']">{{ medicalService.id }}</a></td>
+                    <td>{{ medicalService.code }}</td>
+                    <td>{{ medicalService.name }}</td>
+                    <td>{{ medicalService.grossPrice }}</td>
+                    <td jhiTranslate="{{ 'startMedsolPrototypeApp.MedicalServiceUnit.' + medicalService.unit }}">{{ medicalService.unit }}</td>
+                    <td>{{ medicalService.statisticalCode }}</td>
+                    <td jhiTranslate="{{ 'startMedsolPrototypeApp.TaxRate.' + medicalService.taxRate }}">{{ medicalService.taxRate }}</td>
+                    <td>
+                        <div *ngIf="medicalService.praxisId">
+                            <a [routerLink]="['/praxis', medicalService.praxisId , 'view']" >{{ medicalService.praxisId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="medicalService.providerId">
+                            <a [routerLink]="['/provider', medicalService.providerId , 'view']" >{{ medicalService.providerId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/medical-service', medicalService.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/medical-service', medicalService.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(medicalService)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="medicalServices && medicalServices.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

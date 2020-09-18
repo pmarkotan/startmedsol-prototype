@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="medicalCase">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.medicalCase.detail.title">Medical Case</span> {{ medicalCase.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalCase.deleted">Deleted</span></dt>
+                <dd>
+                    <span>{{ medicalCase.deleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalCase.confidental">Confidental</span></dt>
+                <dd>
+                    <span>{{ medicalCase.confidental }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalCase.ambulentNumber">Ambulent Number</span></dt>
+                <dd>
+                    <span>{{ medicalCase.ambulentNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalCase.admissionDate">Admission Date</span></dt>
+                <dd>
+                    <span>{{ medicalCase.admissionDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalCase.closeDate">Close Date</span></dt>
+                <dd>
+                    <span>{{ medicalCase.closeDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalCase.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.MedicalCaseStatus.' + medicalCase.status }}">{{ medicalCase.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalCase.attendanceType">Attendance Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.AttendanceType.' + medicalCase.attendanceType }}">{{ medicalCase.attendanceType }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/medical-case', medicalCase.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "startMedsolPrototypeApp": {
+    "medicalCaseDiagnosis": {
+      "home": {
+        "title": "Medical Case Diagnoses",
+        "createLabel": "Create a new Medical Case Diagnosis",
+        "createOrEditLabel": "Create or edit a Medical Case Diagnosis",
+        "notFound": "No Medical Case Diagnoses found"
+      },
+      "created": "A new Medical Case Diagnosis is created with identifier {{ param }}",
+      "updated": "A Medical Case Diagnosis is updated with identifier {{ param }}",
+      "deleted": "A Medical Case Diagnosis is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Medical Case Diagnosis {{ id }}?"
+      },
+      "detail": {
+        "title": "Medical Case Diagnosis"
+      },
+      "diagnosis": "Diagnosis",
+      "medicalCase": "Medical Case"
+    }
+  }
+}

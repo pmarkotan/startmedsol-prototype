@@ -1,0 +1,23 @@
+{
+  "startMedsolPrototypeApp": {
+    "errorRecord": {
+      "home": {
+        "title": "ErrorRecords",
+        "createLabel": "Egy új Error Record létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Error Recordt",
+        "notFound": "No Error Records found"
+      },
+      "created": "Egy új Error Record lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Error Record módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Error Record törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Error Recordt {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Error Record"
+      },
+      "createDate": "Create Date",
+      "content": "Content"
+    }
+  }
+}

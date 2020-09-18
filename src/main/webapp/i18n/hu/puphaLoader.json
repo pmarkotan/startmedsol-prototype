@@ -1,0 +1,24 @@
+{
+  "startMedsolPrototypeApp": {
+    "puphaLoader": {
+      "home": {
+        "title": "PuphaLoaders",
+        "createLabel": "Egy új Pupha Loader létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Pupha Loadert",
+        "notFound": "No Pupha Loaders found"
+      },
+      "created": "Egy új Pupha Loader lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Pupha Loader módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Pupha Loader törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Pupha Loadert {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Pupha Loader"
+      },
+      "event": "Event",
+      "log": "Log",
+      "time": "Time"
+    }
+  }
+}

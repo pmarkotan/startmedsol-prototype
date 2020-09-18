@@ -1,0 +1,23 @@
+{
+  "startMedsolPrototypeApp": {
+    "caseTextDocumentation": {
+      "home": {
+        "title": "Case Text Documentations",
+        "createLabel": "Create a new Case Text Documentation",
+        "createOrEditLabel": "Create or edit a Case Text Documentation",
+        "notFound": "No Case Text Documentations found"
+      },
+      "created": "A new Case Text Documentation is created with identifier {{ param }}",
+      "updated": "A Case Text Documentation is updated with identifier {{ param }}",
+      "deleted": "A Case Text Documentation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Case Text Documentation {{ id }}?"
+      },
+      "detail": {
+        "title": "Case Text Documentation"
+      },
+      "text": "Text",
+      "type": "Type"
+    }
+  }
+}

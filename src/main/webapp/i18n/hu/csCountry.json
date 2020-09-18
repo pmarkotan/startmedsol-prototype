@@ -1,0 +1,24 @@
+{
+  "startMedsolPrototypeApp": {
+    "csCountry": {
+      "home": {
+        "title": "CsCountries",
+        "createLabel": "Egy új Cs Country létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Cs Countryt",
+        "notFound": "No Cs Countries found"
+      },
+      "created": "Egy új Cs Country lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Cs Country módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Cs Country törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Cs Countryt {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Cs Country"
+      },
+      "code": "Code",
+      "description": "Description",
+      "validity": "Validity"
+    }
+  }
+}

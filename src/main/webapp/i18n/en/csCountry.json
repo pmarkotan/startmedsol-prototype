@@ -1,0 +1,24 @@
+{
+  "startMedsolPrototypeApp": {
+    "csCountry": {
+      "home": {
+        "title": "Cs Countries",
+        "createLabel": "Create a new Cs Country",
+        "createOrEditLabel": "Create or edit a Cs Country",
+        "notFound": "No Cs Countries found"
+      },
+      "created": "A new Cs Country is created with identifier {{ param }}",
+      "updated": "A Cs Country is updated with identifier {{ param }}",
+      "deleted": "A Cs Country is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cs Country {{ id }}?"
+      },
+      "detail": {
+        "title": "Cs Country"
+      },
+      "code": "Code",
+      "description": "Description",
+      "validity": "Validity"
+    }
+  }
+}

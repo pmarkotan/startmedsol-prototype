@@ -1,0 +1,25 @@
+{
+  "startMedsolPrototypeApp": {
+    "navSettings": {
+      "home": {
+        "title": "NavSettings",
+        "createLabel": "Egy új Nav Settings létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Nav Settingst",
+        "notFound": "No Nav Settings found"
+      },
+      "created": "Egy új Nav Settings lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Nav Settings módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Nav Settings törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Nav Settingst {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Nav Settings"
+      },
+      "technicalUserName": "Technical User Name",
+      "technicalPassword": "Technical Password",
+      "signingKey": "Signing Key",
+      "replacementKey": "Replacement Key"
+    }
+  }
+}

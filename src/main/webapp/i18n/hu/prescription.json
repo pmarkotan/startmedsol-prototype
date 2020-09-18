@@ -1,0 +1,61 @@
+{
+  "startMedsolPrototypeApp": {
+    "prescription": {
+      "home": {
+        "title": "Prescriptions",
+        "createLabel": "Egy új Prescription létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Prescriptiont",
+        "notFound": "No Prescriptions found"
+      },
+      "created": "Egy új Prescription lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Prescription módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Prescription törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Prescriptiont {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Prescription"
+      },
+      "openedPackage": "Opened Package",
+      "medicalAidTeachPrescribing": "Medical Aid Teach Prescribing",
+      "forH2cCertificate": "For H 2 C Certificate",
+      "inscriptionDate": "Inscription Date",
+      "causeOfNotReplaceability": "Cause Of Not Replaceability",
+      "description": "Description",
+      "doseMsmUnit": "Dose Msm Unit",
+      "eesztGroupId": "Eeszt Group Id",
+      "institution": "Institution",
+      "instructions": "Instructions",
+      "integrationId": "Integration Id",
+      "equippedWith": "Equipped With",
+      "acceptedQualificationRule": "Accepted Qualification Rule",
+      "subsidyCategory": "Subsidy Category",
+      "status": "Status",
+      "eesztSendingStatus": "Eeszt Sending Status",
+      "medicalProductType": "Medical Product Type",
+      "preparationDescription": "Preparation Description",
+      "invalidationReason": "Invalidation Reason",
+      "frequency": "Frequency",
+      "frequencyMultiplier": "Frequency Multiplier",
+      "quantityMultiplier": "Quantity Multiplier",
+      "morning": "Morning",
+      "noon": "Noon",
+      "evening": "Evening",
+      "beforeSleep": "Before Sleep",
+      "dosagePatternText": "Dosage Pattern Text",
+      "quantity": "Quantity",
+      "quantityCause": "Quantity Cause",
+      "forSeveralMonths": "For Several Months",
+      "monthsSuppliedFor": "Months Supplied For",
+      "forOnePrescription": "For One Prescription",
+      "specialistRegNo": "Specialist Reg No",
+      "proposalDate": "Proposal Date",
+      "diagnosis": "Diagnosis",
+      "inscriberDoctor": "Inscriber Doctor",
+      "qualificationRuleAcceptor": "Qualification Rule Acceptor",
+      "medicine": "Medicine",
+      "medicalCase": "Medical Case",
+      "puphaVersion": "Pupha Version"
+    }
+  }
+}

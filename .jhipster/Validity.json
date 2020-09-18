@@ -1,0 +1,26 @@
+{
+  "name": "Validity",
+  "fields": [
+    {
+      "fieldName": "validFrom",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "validTo",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200918082008",
+  "entityTableName": "validity",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "skipClient": true
+}

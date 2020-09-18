@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="startMedsolPrototypeApp.csPostalCode.home.title">Cs Postal Codes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cs-postal-code" [routerLink]="['/cs-postal-code/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="startMedsolPrototypeApp.csPostalCode.home.createLabel">
+            Create a new Cs Postal Code
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="csPostalCodes?.length === 0">
+        <span jhiTranslate="startMedsolPrototypeApp.csPostalCode.home.notFound">No csPostalCodes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="csPostalCodes && csPostalCodes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.code">Code</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.settlement">Settlement</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.part">Part</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.street">Street</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.kind">Kind</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.rangeType">Range Type</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.rangeLo">Range Lo</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.rangeHi">Range Hi</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.district">District</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csPostalCode.validity">Validity</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let csPostalCode of csPostalCodes ;trackBy: trackId">
+                    <td><a [routerLink]="['/cs-postal-code', csPostalCode.id, 'view']">{{ csPostalCode.id }}</a></td>
+                    <td>{{ csPostalCode.code }}</td>
+                    <td>{{ csPostalCode.settlement }}</td>
+                    <td>{{ csPostalCode.part }}</td>
+                    <td>{{ csPostalCode.street }}</td>
+                    <td>{{ csPostalCode.kind }}</td>
+                    <td jhiTranslate="{{ 'startMedsolPrototypeApp.PcRange.' + csPostalCode.rangeType }}">{{ csPostalCode.rangeType }}</td>
+                    <td>{{ csPostalCode.rangeLo }}</td>
+                    <td>{{ csPostalCode.rangeHi }}</td>
+                    <td>{{ csPostalCode.district }}</td>
+                    <td>
+                        <div *ngIf="csPostalCode.validityId">
+                            <a [routerLink]="['/validity', csPostalCode.validityId , 'view']" >{{ csPostalCode.validityId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/cs-postal-code', csPostalCode.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/cs-postal-code', csPostalCode.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(csPostalCode)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

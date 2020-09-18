@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="startMedsolPrototypeApp.csCountry.home.title">Cs Countries</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cs-country" [routerLink]="['/cs-country/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="startMedsolPrototypeApp.csCountry.home.createLabel">
+            Create a new Cs Country
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="csCountries?.length === 0">
+        <span jhiTranslate="startMedsolPrototypeApp.csCountry.home.notFound">No csCountries found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="csCountries && csCountries.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csCountry.code">Code</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csCountry.description">Description</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csCountry.validity">Validity</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let csCountry of csCountries ;trackBy: trackId">
+                    <td><a [routerLink]="['/cs-country', csCountry.id, 'view']">{{ csCountry.id }}</a></td>
+                    <td>{{ csCountry.code }}</td>
+                    <td>{{ csCountry.description }}</td>
+                    <td>
+                        <div *ngIf="csCountry.validityId">
+                            <a [routerLink]="['/validity', csCountry.validityId , 'view']" >{{ csCountry.validityId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/cs-country', csCountry.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/cs-country', csCountry.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(csCountry)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

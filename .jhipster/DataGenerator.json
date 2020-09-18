@@ -1,0 +1,33 @@
+{
+  "name": "DataGenerator",
+  "fields": [
+    {
+      "fieldName": "provider",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "praxis",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "patient",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "medicalCase",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200918073708",
+  "entityTableName": "data_generator",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

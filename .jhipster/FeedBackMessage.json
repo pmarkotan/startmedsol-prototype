@@ -1,0 +1,38 @@
+{
+  "name": "FeedBackMessage",
+  "fields": [
+    {
+      "fieldName": "createDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "author",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "FeedBackMessageType",
+      "fieldValues": "BUG,FEATURE,MISC",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": "1024"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200918073608",
+  "entityTableName": "feed_back_message",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

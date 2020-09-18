@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity MedicalService.
+    -->
+    <changeSet id="20200918072608-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="praxis_id"
+                                 baseTableName="medical_service"
+                                 constraintName="fk_medical_service_praxis_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="praxis"/>
+
+        <addForeignKeyConstraint baseColumnNames="provider_id"
+                                 baseTableName="medical_service"
+                                 constraintName="fk_medical_service_provider_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="provider"/>
+
+    </changeSet>
+</databaseChangeLog>

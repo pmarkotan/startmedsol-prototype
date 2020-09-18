@@ -1,0 +1,59 @@
+{
+  "name": "Patient",
+  "fields": [
+    {
+      "fieldName": "patientIdentifier",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "privacyStatement",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "anonymised",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "classified",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "personalData",
+      "otherEntityRelationshipName": "patient",
+      "relationshipName": "personalData",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "card",
+      "otherEntityRelationshipName": "patient",
+      "relationshipName": "card"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "hashTag",
+      "otherEntityRelationshipName": "patients",
+      "relationshipName": "tags",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20200918075808",
+  "entityTableName": "patient",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "skipClient": true
+}

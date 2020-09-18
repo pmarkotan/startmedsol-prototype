@@ -1,0 +1,24 @@
+{
+  "startMedsolPrototypeApp": {
+    "billingInformation": {
+      "home": {
+        "title": "BillingInformations",
+        "createLabel": "Egy új Billing Information létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Billing Informationt",
+        "notFound": "No Billing Informations found"
+      },
+      "created": "Egy új Billing Information lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Billing Information módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Billing Information törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Billing Informationt {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Billing Information"
+      },
+      "name": "Name",
+      "taxnumber": "Taxnumber",
+      "billingAddress": "Billing Address"
+    }
+  }
+}

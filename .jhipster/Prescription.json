@@ -1,0 +1,238 @@
+{
+  "name": "Prescription",
+  "fields": [
+    {
+      "fieldName": "openedPackage",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "medicalAidTeachPrescribing",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "forH2cCertificate",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "inscriptionDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "causeOfNotReplaceability",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "1024"
+    },
+    {
+      "fieldName": "doseMsmUnit",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "32"
+    },
+    {
+      "fieldName": "eesztGroupId",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "36"
+    },
+    {
+      "fieldName": "institution",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "1024"
+    },
+    {
+      "fieldName": "instructions",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "integrationId",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "equippedWith",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "acceptedQualificationRule",
+      "fieldType": "DoctorQualificationValidatorRuleType",
+      "fieldValues": "WITHOUT_QUALIFICATION_RULE",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "subsidyCategory",
+      "fieldType": "PrescriptionSubsidyCategory",
+      "fieldValues": "NORMATIVE,EU_RAISED,EU_EMPHASIZED,HM,ACCIDENT,FULL_PRICE,SPECIAL_SUBSIDY"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "PrescriptionStatus",
+      "fieldValues": "PREPARED,PRINTED,INVALIDATED,PENDING,SENT,E_INVALIDATED",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "eesztSendingStatus",
+      "fieldType": "EesztSendingStatus",
+      "fieldValues": "SUCCESSFUL,UNSUCCESSFUL,SUBMIT_WAITING,TECH_ERROR"
+    },
+    {
+      "fieldName": "medicalProductType",
+      "fieldType": "MedicalProductType",
+      "fieldValues": "MEDICINE,MAGISTRAL_PREPARATION,MEDICAL_AIDS,HYDROTHERAPY",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "preparationDescription",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "invalidationReason",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "frequency",
+      "fieldType": "Frequency",
+      "fieldValues": "DAILY,WEEKLY,SPECIAL",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "frequencyMultiplier",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "quantityMultiplier",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "morning",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "noon",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "evening",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "beforeSleep",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "dosagePatternText",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "quantityCause",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "forSeveralMonths",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "monthsSuppliedFor",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "forOnePrescription",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "specialistRegNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "16"
+    },
+    {
+      "fieldName": "proposalDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "csDiagnosis",
+      "otherEntityRelationshipName": "prescription",
+      "relationshipValidateRules": "required",
+      "relationshipName": "diagnosis",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "prescription",
+      "relationshipValidateRules": "required",
+      "relationshipName": "inscriberDoctor",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "prescription",
+      "relationshipValidateRules": "required",
+      "relationshipName": "qualificationRuleAcceptor",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pphMedicine",
+      "otherEntityRelationshipName": "prescription",
+      "relationshipValidateRules": "required",
+      "relationshipName": "medicine",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "medicalCase",
+      "otherEntityRelationshipName": "prescription",
+      "relationshipValidateRules": "required",
+      "relationshipName": "medicalCase",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pphPuphaVersion",
+      "otherEntityRelationshipName": "prescription",
+      "relationshipValidateRules": "required",
+      "relationshipName": "puphaVersion",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918073808",
+  "entityTableName": "prescription",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

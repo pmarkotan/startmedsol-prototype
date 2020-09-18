@@ -1,0 +1,73 @@
+{
+  "name": "CsPostalCode",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "5"
+    },
+    {
+      "fieldName": "settlement",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "part",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "street",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "kind",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rangeType",
+      "fieldType": "PcRange",
+      "fieldValues": "NONE,ALL,INTERVAL,ODD,EVEN,REST",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "rangeLo",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "rangeHi",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "district",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "validity",
+      "otherEntityRelationshipName": "csPostalCode",
+      "relationshipValidateRules": "required",
+      "relationshipName": "validity",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918074808",
+  "entityTableName": "cs_postal_code",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,29 @@
+{
+  "startMedsolPrototypeApp": {
+    "medicalService": {
+      "home": {
+        "title": "MedicalServices",
+        "createLabel": "Egy új Medical Service létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Medical Servicet",
+        "notFound": "No Medical Services found"
+      },
+      "created": "Egy új Medical Service lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Medical Service módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Medical Service törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Medical Servicet {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Medical Service"
+      },
+      "code": "Code",
+      "name": "Name",
+      "grossPrice": "Gross Price",
+      "unit": "Unit",
+      "statisticalCode": "Statistical Code",
+      "taxRate": "Tax Rate",
+      "praxis": "Praxis",
+      "provider": "Provider"
+    }
+  }
+}

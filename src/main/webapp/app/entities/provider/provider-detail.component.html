@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="provider">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.provider.detail.title">Provider</span> {{ provider.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.provider.nameLong">Name Long</span></dt>
+                <dd>
+                    <span>{{ provider.nameLong }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.provider.nameShort">Name Short</span></dt>
+                <dd>
+                    <span>{{ provider.nameShort }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.provider.institutionId">Institution Id</span></dt>
+                <dd>
+                    <span>{{ provider.institutionId }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.provider.email">Email</span></dt>
+                <dd>
+                    <span>{{ provider.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.provider.phone">Phone</span></dt>
+                <dd>
+                    <span>{{ provider.phone }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.provider.accountNumber">Account Number</span></dt>
+                <dd>
+                    <span>{{ provider.accountNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.provider.contactPerson">Contact Person</span></dt>
+                <dd>
+                    <div *ngIf="provider.contactPersonId">
+                        <a [routerLink]="['/contact-person', provider.contactPersonId, 'view']">{{ provider.contactPersonId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.provider.company">Company</span></dt>
+                <dd>
+                    <div *ngIf="provider.companyId">
+                        <a [routerLink]="['/company', provider.companyId, 'view']">{{ provider.companyId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.provider.billingInformation">Billing Information</span></dt>
+                <dd>
+                    <div *ngIf="provider.billingInformationId">
+                        <a [routerLink]="['/billing-information', provider.billingInformationId, 'view']">{{ provider.billingInformationId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.provider.employee">Employee</span></dt>
+                <dd>
+                    <span *ngFor="let employee of provider.employees; let last = last">
+                        <a [routerLink]="['/employee', employee?.id, 'view']">{{ employee.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/provider', provider.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

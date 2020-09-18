@@ -1,0 +1,28 @@
+{
+  "startMedsolPrototypeApp": {
+    "dictionaryItem": {
+      "home": {
+        "title": "Dictionary Items",
+        "createLabel": "Create a new Dictionary Item",
+        "createOrEditLabel": "Create or edit a Dictionary Item",
+        "notFound": "No Dictionary Items found"
+      },
+      "created": "A new Dictionary Item is created with identifier {{ param }}",
+      "updated": "A Dictionary Item is updated with identifier {{ param }}",
+      "deleted": "A Dictionary Item is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Dictionary Item {{ id }}?"
+      },
+      "detail": {
+        "title": "Dictionary Item"
+      },
+      "dictionaryItemType": "Dictionary Item Type",
+      "code": "Code",
+      "orderNumber": "Order Number",
+      "description": "Description",
+      "dictionaryTranslations": "Dictionary Translations",
+      "parent": "Parent",
+      "children": "Children"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "startMedsolPrototypeApp": {
+    "csDiagnosis": {
+      "home": {
+        "title": "Cs Diagnoses",
+        "createLabel": "Create a new Cs Diagnosis",
+        "createOrEditLabel": "Create or edit a Cs Diagnosis",
+        "notFound": "No Cs Diagnoses found"
+      },
+      "created": "A new Cs Diagnosis is created with identifier {{ param }}",
+      "updated": "A Cs Diagnosis is updated with identifier {{ param }}",
+      "deleted": "A Cs Diagnosis is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cs Diagnosis {{ id }}?"
+      },
+      "detail": {
+        "title": "Cs Diagnosis"
+      },
+      "code": "Code",
+      "report": "Report",
+      "descr": "Descr",
+      "sex": "Sex",
+      "ageMin": "Age Min",
+      "ageMax": "Age Max",
+      "validity": "Validity"
+    }
+  }
+}

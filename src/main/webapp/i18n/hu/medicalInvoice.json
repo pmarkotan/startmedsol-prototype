@@ -1,0 +1,28 @@
+{
+  "startMedsolPrototypeApp": {
+    "medicalInvoice": {
+      "home": {
+        "title": "MedicalInvoices",
+        "createLabel": "Egy új Medical Invoice létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Medical Invoicet",
+        "notFound": "No Medical Invoices found"
+      },
+      "created": "Egy új Medical Invoice lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Medical Invoice módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Medical Invoice törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Medical Invoicet {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Medical Invoice"
+      },
+      "orderNumber": "Order Number",
+      "invoiceNumber": "Invoice Number",
+      "type": "Type",
+      "total": "Total",
+      "creatorUser": "Creator User",
+      "createdAt": "Created At",
+      "medicalCase": "Medical Case"
+    }
+  }
+}

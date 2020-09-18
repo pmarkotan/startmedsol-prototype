@@ -1,0 +1,31 @@
+{
+  "startMedsolPrototypeApp": {
+    "csPostalCode": {
+      "home": {
+        "title": "Cs Postal Codes",
+        "createLabel": "Create a new Cs Postal Code",
+        "createOrEditLabel": "Create or edit a Cs Postal Code",
+        "notFound": "No Cs Postal Codes found"
+      },
+      "created": "A new Cs Postal Code is created with identifier {{ param }}",
+      "updated": "A Cs Postal Code is updated with identifier {{ param }}",
+      "deleted": "A Cs Postal Code is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cs Postal Code {{ id }}?"
+      },
+      "detail": {
+        "title": "Cs Postal Code"
+      },
+      "code": "Code",
+      "settlement": "Settlement",
+      "part": "Part",
+      "street": "Street",
+      "kind": "Kind",
+      "rangeType": "Range Type",
+      "rangeLo": "Range Lo",
+      "rangeHi": "Range Hi",
+      "district": "District",
+      "validity": "Validity"
+    }
+  }
+}

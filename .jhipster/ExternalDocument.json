@@ -1,0 +1,43 @@
+{
+  "name": "ExternalDocument",
+  "fields": [
+    {
+      "fieldName": "documentId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "created",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "uploaded",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "medicalCase",
+      "otherEntityRelationshipName": "documents",
+      "relationshipName": "medicalCase",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918074108",
+  "entityTableName": "external_document",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

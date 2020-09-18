@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="navSettings">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.navSettings.detail.title">Nav Settings</span> {{ navSettings.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.navSettings.technicalUserName">Technical User Name</span></dt>
+                <dd>
+                    <span>{{ navSettings.technicalUserName }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.navSettings.technicalPassword">Technical Password</span></dt>
+                <dd>
+                    <span>{{ navSettings.technicalPassword }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.navSettings.signingKey">Signing Key</span></dt>
+                <dd>
+                    <span>{{ navSettings.signingKey }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.navSettings.replacementKey">Replacement Key</span></dt>
+                <dd>
+                    <span>{{ navSettings.replacementKey }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/nav-settings', navSettings.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

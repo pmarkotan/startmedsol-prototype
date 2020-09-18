@@ -1,0 +1,33 @@
+{
+  "name": "ProceduresOfPraxis",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "csProcedure",
+      "otherEntityRelationshipName": "proceduresOfPraxis",
+      "relationshipValidateRules": "required",
+      "relationshipName": "procedure",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "praxis",
+      "otherEntityRelationshipName": "proceduresOfPraxis",
+      "relationshipValidateRules": "required",
+      "relationshipName": "praxis",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918074408",
+  "entityTableName": "procedures_of_praxis",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="medicalInvoice">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.medicalInvoice.detail.title">Medical Invoice</span> {{ medicalInvoice.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalInvoice.orderNumber">Order Number</span></dt>
+                <dd>
+                    <span>{{ medicalInvoice.orderNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalInvoice.invoiceNumber">Invoice Number</span></dt>
+                <dd>
+                    <span>{{ medicalInvoice.invoiceNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalInvoice.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.MedicalInvoiceType.' + medicalInvoice.type }}">{{ medicalInvoice.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalInvoice.total">Total</span></dt>
+                <dd>
+                    <span>{{ medicalInvoice.total }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalInvoice.creatorUser">Creator User</span></dt>
+                <dd>
+                    <span>{{ medicalInvoice.creatorUser }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalInvoice.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{ medicalInvoice.createdAt }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.medicalInvoice.medicalCase">Medical Case</span></dt>
+                <dd>
+                    <div *ngIf="medicalInvoice.medicalCaseId">
+                        <a [routerLink]="['/medical-case', medicalInvoice.medicalCaseId, 'view']">{{ medicalInvoice.medicalCaseId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/medical-invoice', medicalInvoice.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+{
+  "startMedsolPrototypeApp": {
+    "contactPerson": {
+      "home": {
+        "title": "ContactPeople",
+        "createLabel": "Egy új Contact Person létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Contact Persont",
+        "notFound": "No Contact People found"
+      },
+      "created": "Egy új Contact Person lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Contact Person módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Contact Person törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Contact Persont {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Contact Person"
+      },
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email"
+    }
+  }
+}

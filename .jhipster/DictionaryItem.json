@@ -1,0 +1,62 @@
+{
+  "name": "DictionaryItem",
+  "fields": [
+    {
+      "fieldName": "dictionaryItemType",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": "32"
+    },
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "required"],
+      "fieldValidateRulesMaxlength": "64"
+    },
+    {
+      "fieldName": "orderNumber",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "dictionaryTranslation",
+      "otherEntityRelationshipName": "dictionaryItem",
+      "relationshipName": "dictionaryTranslations"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "dictionaryItem",
+      "otherEntityRelationshipName": "children",
+      "relationshipName": "parent",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "dictionaryItem",
+      "otherEntityRelationshipName": "parent",
+      "relationshipName": "children",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200918075308",
+  "entityTableName": "dictionary_item",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

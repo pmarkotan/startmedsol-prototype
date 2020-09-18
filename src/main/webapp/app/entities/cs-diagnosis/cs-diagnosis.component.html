@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="startMedsolPrototypeApp.csDiagnosis.home.title">Cs Diagnoses</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cs-diagnosis" [routerLink]="['/cs-diagnosis/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="startMedsolPrototypeApp.csDiagnosis.home.createLabel">
+            Create a new Cs Diagnosis
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="csDiagnoses?.length === 0">
+        <span jhiTranslate="startMedsolPrototypeApp.csDiagnosis.home.notFound">No csDiagnoses found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="csDiagnoses && csDiagnoses.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csDiagnosis.code">Code</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csDiagnosis.report">Report</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csDiagnosis.descr">Descr</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csDiagnosis.sex">Sex</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csDiagnosis.ageMin">Age Min</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csDiagnosis.ageMax">Age Max</span></th>
+                    <th scope="col" ><span jhiTranslate="startMedsolPrototypeApp.csDiagnosis.validity">Validity</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let csDiagnosis of csDiagnoses ;trackBy: trackId">
+                    <td><a [routerLink]="['/cs-diagnosis', csDiagnosis.id, 'view']">{{ csDiagnosis.id }}</a></td>
+                    <td>{{ csDiagnosis.code }}</td>
+                    <td>{{ csDiagnosis.report }}</td>
+                    <td>{{ csDiagnosis.descr }}</td>
+                    <td jhiTranslate="{{ 'startMedsolPrototypeApp.DgSex.' + csDiagnosis.sex }}">{{ csDiagnosis.sex }}</td>
+                    <td>{{ csDiagnosis.ageMin }}</td>
+                    <td>{{ csDiagnosis.ageMax }}</td>
+                    <td>
+                        <div *ngIf="csDiagnosis.validityId">
+                            <a [routerLink]="['/validity', csDiagnosis.validityId , 'view']" >{{ csDiagnosis.validityId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/cs-diagnosis', csDiagnosis.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/cs-diagnosis', csDiagnosis.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(csDiagnosis)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity PerformedProcedure.
+    -->
+    <changeSet id="20200918074308-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="procedure_id"
+                                 baseTableName="performed_procedure"
+                                 constraintName="fk_performed_procedure_procedure_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cs_procedure"/>
+
+        <addForeignKeyConstraint baseColumnNames="medical_case_id"
+                                 baseTableName="performed_procedure"
+                                 constraintName="fk_performed_procedure_medical_case_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medical_case"/>
+
+    </changeSet>
+</databaseChangeLog>

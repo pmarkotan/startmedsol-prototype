@@ -1,0 +1,101 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="startMedsolPrototypeApp.praxis.home.title">Praxes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-praxis" [routerLink]="['/praxis/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="startMedsolPrototypeApp.praxis.home.createLabel">
+            Create a new Praxis
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="praxes?.length === 0">
+        <span jhiTranslate="startMedsolPrototypeApp.praxis.home.notFound">No praxes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="praxes && praxes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span jhiTranslate="startMedsolPrototypeApp.praxis.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="departmentId"><span jhiTranslate="startMedsolPrototypeApp.praxis.departmentId">Department Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="professionCode"><span jhiTranslate="startMedsolPrototypeApp.praxis.professionCode">Profession Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="professionName"><span jhiTranslate="startMedsolPrototypeApp.praxis.professionName">Profession Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="startMedsolPrototypeApp.praxis.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="appointmentPhone"><span jhiTranslate="startMedsolPrototypeApp.praxis.appointmentPhone">Appointment Phone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="treatmentLogbookNumber"><span jhiTranslate="startMedsolPrototypeApp.praxis.treatmentLogbookNumber">Treatment Logbook Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="officeAddressId"><span jhiTranslate="startMedsolPrototypeApp.praxis.officeAddress">Office Address</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="providerId"><span jhiTranslate="startMedsolPrototypeApp.praxis.provider">Provider</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="doctorId"><span jhiTranslate="startMedsolPrototypeApp.praxis.doctor">Doctor</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let praxis of praxes ;trackBy: trackId">
+                    <td><a [routerLink]="['/praxis', praxis.id, 'view']">{{ praxis.id }}</a></td>
+                    <td>{{ praxis.name }}</td>
+                    <td>{{ praxis.departmentId }}</td>
+                    <td>{{ praxis.professionCode }}</td>
+                    <td>{{ praxis.professionName }}</td>
+                    <td jhiTranslate="{{ 'startMedsolPrototypeApp.PraxisStatus.' + praxis.status }}">{{ praxis.status }}</td>
+                    <td>{{ praxis.appointmentPhone }}</td>
+                    <td>{{ praxis.treatmentLogbookNumber }}</td>
+                    <td>
+                        <div *ngIf="praxis.officeAddressId">
+                            <a [routerLink]="['/address', praxis.officeAddressId , 'view']" >{{ praxis.officeAddressId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="praxis.providerId">
+                            <a [routerLink]="['/provider', praxis.providerId , 'view']" >{{ praxis.providerId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="praxis.doctorId">
+                            <a [routerLink]="['/employee', praxis.doctorId , 'view']" >{{ praxis.doctorId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/praxis', praxis.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/praxis', praxis.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(praxis)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="praxes && praxes.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="praxis">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.praxis.detail.title">Praxis</span> {{ praxis.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.praxis.name">Name</span></dt>
+                <dd>
+                    <span>{{ praxis.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.praxis.departmentId">Department Id</span></dt>
+                <dd>
+                    <span>{{ praxis.departmentId }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.praxis.professionCode">Profession Code</span></dt>
+                <dd>
+                    <span>{{ praxis.professionCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.praxis.professionName">Profession Name</span></dt>
+                <dd>
+                    <span>{{ praxis.professionName }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.praxis.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.PraxisStatus.' + praxis.status }}">{{ praxis.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.praxis.appointmentPhone">Appointment Phone</span></dt>
+                <dd>
+                    <span>{{ praxis.appointmentPhone }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.praxis.treatmentLogbookNumber">Treatment Logbook Number</span></dt>
+                <dd>
+                    <span>{{ praxis.treatmentLogbookNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.praxis.officeAddress">Office Address</span></dt>
+                <dd>
+                    <div *ngIf="praxis.officeAddressId">
+                        <a [routerLink]="['/address', praxis.officeAddressId, 'view']">{{ praxis.officeAddressId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.praxis.provider">Provider</span></dt>
+                <dd>
+                    <div *ngIf="praxis.providerId">
+                        <a [routerLink]="['/provider', praxis.providerId, 'view']">{{ praxis.providerId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.praxis.doctor">Doctor</span></dt>
+                <dd>
+                    <div *ngIf="praxis.doctorId">
+                        <a [routerLink]="['/employee', praxis.doctorId, 'view']">{{ praxis.doctorId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/praxis', praxis.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

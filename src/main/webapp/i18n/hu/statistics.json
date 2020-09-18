@@ -1,0 +1,25 @@
+{
+  "startMedsolPrototypeApp": {
+    "statistics": {
+      "home": {
+        "title": "Statistics",
+        "createLabel": "Egy új Statistics létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Statisticst",
+        "notFound": "No Statistics found"
+      },
+      "created": "Egy új Statistics lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Statistics módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Statistics törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Statisticst {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Statistics"
+      },
+      "created": "Created",
+      "tpye": "Tpye",
+      "content": "Content",
+      "description": "Description"
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "name": "Praxis",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "departmentId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "pattern"],
+      "fieldValidateRulesMaxlength": "9",
+      "fieldValidateRulesPattern": "^[A-Z0-9]+$"
+    },
+    {
+      "fieldName": "professionCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "pattern"],
+      "fieldValidateRulesMaxlength": "4",
+      "fieldValidateRulesPattern": "^[A-Z0-9]+$"
+    },
+    {
+      "fieldName": "professionName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "PraxisStatus",
+      "fieldValues": "ACTIVE,PASSIVE,DELETED",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "appointmentPhone",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "pattern"],
+      "fieldValidateRulesMaxlength": "16",
+      "fieldValidateRulesPattern": "^\\++\\d+$"
+    },
+    {
+      "fieldName": "treatmentLogbookNumber",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "min", "max"],
+      "fieldValidateRulesMin": "1",
+      "fieldValidateRulesMax": "99999999"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "praxis",
+      "relationshipName": "officeAddress",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "provider",
+      "otherEntityRelationshipName": "praxis",
+      "relationshipName": "provider",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "praxis",
+      "relationshipName": "doctor",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200918080108",
+  "entityTableName": "praxis",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

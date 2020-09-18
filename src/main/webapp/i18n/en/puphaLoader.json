@@ -1,0 +1,24 @@
+{
+  "startMedsolPrototypeApp": {
+    "puphaLoader": {
+      "home": {
+        "title": "Pupha Loaders",
+        "createLabel": "Create a new Pupha Loader",
+        "createOrEditLabel": "Create or edit a Pupha Loader",
+        "notFound": "No Pupha Loaders found"
+      },
+      "created": "A new Pupha Loader is created with identifier {{ param }}",
+      "updated": "A Pupha Loader is updated with identifier {{ param }}",
+      "deleted": "A Pupha Loader is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Pupha Loader {{ id }}?"
+      },
+      "detail": {
+        "title": "Pupha Loader"
+      },
+      "event": "Event",
+      "log": "Log",
+      "time": "Time"
+    }
+  }
+}

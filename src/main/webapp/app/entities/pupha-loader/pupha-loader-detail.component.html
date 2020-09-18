@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="puphaLoader">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.puphaLoader.detail.title">Pupha Loader</span> {{ puphaLoader.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.puphaLoader.event">Event</span></dt>
+                <dd>
+                    <span>{{ puphaLoader.event }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.puphaLoader.log">Log</span></dt>
+                <dd>
+                    <span>{{ puphaLoader.log }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.puphaLoader.time">Time</span></dt>
+                <dd>
+                    <span>{{ puphaLoader.time }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pupha-loader', puphaLoader.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

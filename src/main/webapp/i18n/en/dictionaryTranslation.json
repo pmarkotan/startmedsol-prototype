@@ -1,0 +1,24 @@
+{
+  "startMedsolPrototypeApp": {
+    "dictionaryTranslation": {
+      "home": {
+        "title": "Dictionary Translations",
+        "createLabel": "Create a new Dictionary Translation",
+        "createOrEditLabel": "Create or edit a Dictionary Translation",
+        "notFound": "No Dictionary Translations found"
+      },
+      "created": "A new Dictionary Translation is created with identifier {{ param }}",
+      "updated": "A Dictionary Translation is updated with identifier {{ param }}",
+      "deleted": "A Dictionary Translation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Dictionary Translation {{ id }}?"
+      },
+      "detail": {
+        "title": "Dictionary Translation"
+      },
+      "label": "Label",
+      "language": "Language",
+      "dictionaryItem": "Dictionary Item"
+    }
+  }
+}

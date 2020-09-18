@@ -1,0 +1,31 @@
+{
+  "startMedsolPrototypeApp": {
+    "specialistsAdvice": {
+      "home": {
+        "title": "Specialists Advices",
+        "createLabel": "Create a new Specialists Advice",
+        "createOrEditLabel": "Create or edit a Specialists Advice",
+        "notFound": "No Specialists Advices found"
+      },
+      "created": "A new Specialists Advice is created with identifier {{ param }}",
+      "updated": "A Specialists Advice is updated with identifier {{ param }}",
+      "deleted": "A Specialists Advice is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Specialists Advice {{ id }}?"
+      },
+      "detail": {
+        "title": "Specialists Advice"
+      },
+      "periodOfTime": "Period Of Time",
+      "raisedIndicationCode": "Raised Indication Code",
+      "raisedSubsidyPercent": "Raised Subsidy Percent",
+      "emphasizedIndicationCode": "Emphasized Indication Code",
+      "activeSubstance": "Active Substance",
+      "efficacy": "Efficacy",
+      "dosageMod": "Dosage Mod",
+      "dosage": "Dosage",
+      "medicalCase": "Medical Case",
+      "diagnosis": "Diagnosis"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "startMedsolPrototypeApp": {
+    "prescriptionEesztId": {
+      "home": {
+        "title": "PrescriptionEesztIds",
+        "createLabel": "Egy új Prescription Eeszt Id létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Prescription Eeszt Idt",
+        "notFound": "No Prescription Eeszt Ids found"
+      },
+      "created": "Egy új Prescription Eeszt Id lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Prescription Eeszt Id módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Prescription Eeszt Id törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Prescription Eeszt Idt {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Prescription Eeszt Id"
+      },
+      "eesztId": "Eeszt Id",
+      "eesztVersion": "Eeszt Version",
+      "prescription": "Prescription"
+    }
+  }
+}

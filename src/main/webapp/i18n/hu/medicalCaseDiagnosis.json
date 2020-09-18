@@ -1,0 +1,23 @@
+{
+  "startMedsolPrototypeApp": {
+    "medicalCaseDiagnosis": {
+      "home": {
+        "title": "MedicalCaseDiagnoses",
+        "createLabel": "Egy új Medical Case Diagnosis létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Medical Case Diagnosist",
+        "notFound": "No Medical Case Diagnoses found"
+      },
+      "created": "Egy új Medical Case Diagnosis lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Medical Case Diagnosis módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Medical Case Diagnosis törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Medical Case Diagnosist {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Medical Case Diagnosis"
+      },
+      "diagnosis": "Diagnosis",
+      "medicalCase": "Medical Case"
+    }
+  }
+}

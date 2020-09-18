@@ -1,0 +1,10 @@
+{
+  "startMedsolPrototypeApp": {
+    "DgSex": {
+      "null": "",
+      "BOTH": "BOTH",
+      "MALE": "MALE",
+      "FEMALE": "FEMALE"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="contactPerson">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.contactPerson.detail.title">Contact Person</span> {{ contactPerson.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.contactPerson.name">Name</span></dt>
+                <dd>
+                    <span>{{ contactPerson.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.contactPerson.phone">Phone</span></dt>
+                <dd>
+                    <span>{{ contactPerson.phone }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.contactPerson.email">Email</span></dt>
+                <dd>
+                    <span>{{ contactPerson.email }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/contact-person', contactPerson.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

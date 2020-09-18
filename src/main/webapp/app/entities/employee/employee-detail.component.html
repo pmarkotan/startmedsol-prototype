@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="employee">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.employee.detail.title">Employee</span> {{ employee.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.employee.emlpoyeeType">Emlpoyee Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.EmployeeType.' + employee.emlpoyeeType }}">{{ employee.emlpoyeeType }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.employee.identifier">Identifier</span></dt>
+                <dd>
+                    <span>{{ employee.identifier }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.employee.eesztIdentifier">Eeszt Identifier</span></dt>
+                <dd>
+                    <span>{{ employee.eesztIdentifier }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.employee.eesztLoginType">Eeszt Login Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.EesztLoginType.' + employee.eesztLoginType }}">{{ employee.eesztLoginType }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.employee.personalData">Personal Data</span></dt>
+                <dd>
+                    <div *ngIf="employee.personalData">
+                        <a [routerLink]="['/personal-data', employee.personalData?.id, 'view']">{{ employee.personalData?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/employee', employee.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

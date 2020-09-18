@@ -1,0 +1,29 @@
+{
+  "startMedsolPrototypeApp": {
+    "dynamicForm": {
+      "home": {
+        "title": "Dynamic Forms",
+        "createLabel": "Create a new Dynamic Form",
+        "createOrEditLabel": "Create or edit a Dynamic Form",
+        "notFound": "No Dynamic Forms found"
+      },
+      "created": "A new Dynamic Form is created with identifier {{ param }}",
+      "updated": "A Dynamic Form is updated with identifier {{ param }}",
+      "deleted": "A Dynamic Form is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Dynamic Form {{ id }}?"
+      },
+      "detail": {
+        "title": "Dynamic Form"
+      },
+      "code": "Code",
+      "name": "Name",
+      "professionCode": "Profession Code",
+      "professionName": "Profession Name",
+      "formTemplate": "Form Template",
+      "reportTemplate": "Report Template",
+      "separatelyPrint": "Separately Print",
+      "provider": "Provider"
+    }
+  }
+}

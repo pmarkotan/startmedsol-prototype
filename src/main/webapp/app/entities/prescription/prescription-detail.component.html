@@ -1,0 +1,198 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="prescription">
+            <h2><span jhiTranslate="startMedsolPrototypeApp.prescription.detail.title">Prescription</span> {{ prescription.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.openedPackage">Opened Package</span></dt>
+                <dd>
+                    <span>{{ prescription.openedPackage }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.medicalAidTeachPrescribing">Medical Aid Teach Prescribing</span></dt>
+                <dd>
+                    <span>{{ prescription.medicalAidTeachPrescribing }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.forH2cCertificate">For H 2 C Certificate</span></dt>
+                <dd>
+                    <span>{{ prescription.forH2cCertificate }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.inscriptionDate">Inscription Date</span></dt>
+                <dd>
+                    <span>{{ prescription.inscriptionDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.causeOfNotReplaceability">Cause Of Not Replaceability</span></dt>
+                <dd>
+                    <span>{{ prescription.causeOfNotReplaceability }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.description">Description</span></dt>
+                <dd>
+                    <span>{{ prescription.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.doseMsmUnit">Dose Msm Unit</span></dt>
+                <dd>
+                    <span>{{ prescription.doseMsmUnit }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.eesztGroupId">Eeszt Group Id</span></dt>
+                <dd>
+                    <span>{{ prescription.eesztGroupId }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.institution">Institution</span></dt>
+                <dd>
+                    <span>{{ prescription.institution }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.instructions">Instructions</span></dt>
+                <dd>
+                    <span>{{ prescription.instructions }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.integrationId">Integration Id</span></dt>
+                <dd>
+                    <span>{{ prescription.integrationId }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.equippedWith">Equipped With</span></dt>
+                <dd>
+                    <span>{{ prescription.equippedWith }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.acceptedQualificationRule">Accepted Qualification Rule</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.DoctorQualificationValidatorRuleType.' + prescription.acceptedQualificationRule }}">{{ prescription.acceptedQualificationRule }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.subsidyCategory">Subsidy Category</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.PrescriptionSubsidyCategory.' + prescription.subsidyCategory }}">{{ prescription.subsidyCategory }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.PrescriptionStatus.' + prescription.status }}">{{ prescription.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.eesztSendingStatus">Eeszt Sending Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.EesztSendingStatus.' + prescription.eesztSendingStatus }}">{{ prescription.eesztSendingStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.medicalProductType">Medical Product Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.MedicalProductType.' + prescription.medicalProductType }}">{{ prescription.medicalProductType }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.preparationDescription">Preparation Description</span></dt>
+                <dd>
+                    <span>{{ prescription.preparationDescription }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.invalidationReason">Invalidation Reason</span></dt>
+                <dd>
+                    <span>{{ prescription.invalidationReason }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.frequency">Frequency</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'startMedsolPrototypeApp.Frequency.' + prescription.frequency }}">{{ prescription.frequency }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.frequencyMultiplier">Frequency Multiplier</span></dt>
+                <dd>
+                    <span>{{ prescription.frequencyMultiplier }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.quantityMultiplier">Quantity Multiplier</span></dt>
+                <dd>
+                    <span>{{ prescription.quantityMultiplier }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.morning">Morning</span></dt>
+                <dd>
+                    <span>{{ prescription.morning }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.noon">Noon</span></dt>
+                <dd>
+                    <span>{{ prescription.noon }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.evening">Evening</span></dt>
+                <dd>
+                    <span>{{ prescription.evening }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.beforeSleep">Before Sleep</span></dt>
+                <dd>
+                    <span>{{ prescription.beforeSleep }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.dosagePatternText">Dosage Pattern Text</span></dt>
+                <dd>
+                    <span>{{ prescription.dosagePatternText }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{ prescription.quantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.quantityCause">Quantity Cause</span></dt>
+                <dd>
+                    <span>{{ prescription.quantityCause }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.forSeveralMonths">For Several Months</span></dt>
+                <dd>
+                    <span>{{ prescription.forSeveralMonths }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.monthsSuppliedFor">Months Supplied For</span></dt>
+                <dd>
+                    <span>{{ prescription.monthsSuppliedFor }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.forOnePrescription">For One Prescription</span></dt>
+                <dd>
+                    <span>{{ prescription.forOnePrescription }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.specialistRegNo">Specialist Reg No</span></dt>
+                <dd>
+                    <span>{{ prescription.specialistRegNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.proposalDate">Proposal Date</span></dt>
+                <dd>
+                    <span>{{ prescription.proposalDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.diagnosis">Diagnosis</span></dt>
+                <dd>
+                    <div *ngIf="prescription.diagnosisId">
+                        <a [routerLink]="['/cs-diagnosis', prescription.diagnosisId, 'view']">{{ prescription.diagnosisId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.inscriberDoctor">Inscriber Doctor</span></dt>
+                <dd>
+                    <div *ngIf="prescription.inscriberDoctorId">
+                        <a [routerLink]="['/employee', prescription.inscriberDoctorId, 'view']">{{ prescription.inscriberDoctorId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.qualificationRuleAcceptor">Qualification Rule Acceptor</span></dt>
+                <dd>
+                    <div *ngIf="prescription.qualificationRuleAcceptorId">
+                        <a [routerLink]="['/employee', prescription.qualificationRuleAcceptorId, 'view']">{{ prescription.qualificationRuleAcceptorId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.medicine">Medicine</span></dt>
+                <dd>
+                    <div *ngIf="prescription.medicineId">
+                        <a [routerLink]="['/pph-medicine', prescription.medicineId, 'view']">{{ prescription.medicineId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.medicalCase">Medical Case</span></dt>
+                <dd>
+                    <div *ngIf="prescription.medicalCaseId">
+                        <a [routerLink]="['/medical-case', prescription.medicalCaseId, 'view']">{{ prescription.medicalCaseId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="startMedsolPrototypeApp.prescription.puphaVersion">Pupha Version</span></dt>
+                <dd>
+                    <div *ngIf="prescription.puphaVersionId">
+                        <a [routerLink]="['/pph-pupha-version', prescription.puphaVersionId, 'view']">{{ prescription.puphaVersionId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/prescription', prescription.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
